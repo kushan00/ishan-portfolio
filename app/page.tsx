@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroText from "./components/HeroText";
 
 export default function Home() {
   const works = [
@@ -68,10 +69,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-copy">
-            <span className="hero-copy-line">
-              I design digital products that are <strong>simple, clear,</strong>
-            </span>
-            <span className="hero-copy-line">&amp; <strong>effective.</strong></span>
+            I design digital products that are simple, clear, & effective.
           </p>
 
           <div className="hero-buttons">

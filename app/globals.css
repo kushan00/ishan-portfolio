@@ -109,13 +109,6 @@ body {
   max-width: 30ch;
 }
 
-.hero-copy-line {
-  display: block;
-}
-
-.hero-copy-line:first-child {
-  white-space: nowrap;
-}
 
 .hero-copy strong {
   color: #283f42;
@@ -130,7 +123,7 @@ body {
 
 .btn-primary,
 .btn-outline {
-  border-radius: 999px;
+  border-radius: 6px;
   padding: 0.37rem 0.76rem;
   font-size: 0.6rem;
   font-weight: 600;
@@ -738,10 +731,6 @@ body {
 
   .hero-copy {
     font-size: 0.78rem;
-  }
-
-  .hero-copy-line:first-child {
-    white-space: normal;
   }
 
   .hero-note {
