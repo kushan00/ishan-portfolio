@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import HeroText from "./components/HeroText";
 
 export default function Home() {
@@ -73,9 +74,11 @@ export default function Home() {
           </p>
 
           <div className="hero-buttons">
-            <button type="button" className="btn-primary">
-              View My Work
-            </button>
+            <Link href="/projects">
+              <button type="button" className="btn-primary">
+                View My Work
+              </button>
+            </Link>
             <button type="button" className="btn-outline">
               Let&apos;s Talk
             </button>
