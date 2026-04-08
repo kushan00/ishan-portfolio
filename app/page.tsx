@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const works = [
     "Analytics Command Center",
@@ -66,7 +68,10 @@ export default function Home() {
           </h1>
 
           <p className="hero-copy">
-            I design digital products that are simple, clear, <br />&amp; effective.
+            <span className="hero-copy-line">
+              I design digital products that are <strong>simple, clear,</strong>
+            </span>
+            <span className="hero-copy-line">&amp; <strong>effective.</strong></span>
           </p>
 
           <div className="hero-buttons">
@@ -79,11 +84,21 @@ export default function Home() {
           </div>
 
           <p className="hero-note">
-            Helping startups and businesses turn ideas into <br />clean, usable experiences.
+            Helping <strong>startups and businesses</strong> turn ideas into <br />
+            <strong>clean, usable experiences.</strong>
           </p>
         </div>
 
-        <div className="profile-photo" aria-label="Ishan Kavinda portrait" />
+        <div className="profile-photo" aria-label="Ishan Kavinda portrait">
+          <Image
+            src="/pic1.jpg"
+            alt="Ishan Kavinda portrait"
+            fill
+            loading="lazy"
+            sizes="(max-width: 820px) 100vw, 360px"
+            className="profile-photo-img"
+          />
+        </div>
       </section>
 
       <section className="showcase-head reveal-up delay-2">
