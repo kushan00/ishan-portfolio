@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Header from '../../components/Header';
 
 type ProjectPageProps = {
   params: Promise<{
@@ -98,17 +99,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <main className="portfolio-page">
-      <header className="top-nav reveal-up">
-        <Link href="/">
-          <p className="brand">Ishan.</p>
-        </Link>
-        <div className="top-actions">
-          <button type="button" aria-label="Open Behance" className="icon-dot" />
-          <button type="button" aria-label="Open Dribbble" className="icon-dot" />
-          <span>Let&apos;s Work Together</span>
-          <a href="mailto:ishan.kavinda@example.com">Copy Email</a>
-        </div>
-      </header>
+      <Header />
 
       <nav className="project-breadcrumb">
         <Link href="/projects" className="breadcrumb-back">

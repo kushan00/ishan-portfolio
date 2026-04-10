@@ -1,86 +1,86 @@
 import ProjectCard from "../components/ProjectCard";
 import Link from "next/link";
+import Header from "../components/Header";
 
 export default function ProjectsPage() {
+  const cardSubtitle = "Designing a Crypto Wallet for Real Users";
+  const cardDescription =
+    "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
+
   const projects = [
     {
       slug: "whalechance",
       title: "WHALECHANCE",
-      subtitle: "Designing a Crypto Wallet for Real Users",
-      description:
-        "Simplifying wallet onboarding, portfolio tracking for everyday crypto users.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
     },
     {
       slug: "casino-xp",
       title: "CASINO XP",
-      subtitle: "Building a High-Engagement Casino Experience",
-      description:
-        "Designing fast, realtime game flows with clear feedback loops to increase retention.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
     },
     {
       slug: "token-landing",
       title: "TOKEN LANDING",
-      subtitle: "Crafting High-Converting Token Landing Pages",
-      description:
-        "Creating visually engaging, performance-driven websites that turn visitors into community members.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
     },
     {
       slug: "data-console",
       title: "DATA CONSOLE",
-      subtitle: "Designing Data-Heavy Dashboards That Make Sense",
-      description:
-        "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
     },
     {
       slug: "analytics-hub",
       title: "ANALYTICS HUB",
-      subtitle: "Command Center for Real-Time Data",
-      description:
-        "Building intuitive analytics dashboards that empower teams to make data-driven decisions quickly.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-purple-900 via-purple-700 to-blue-700",
     },
     {
       slug: "mobile-banking",
       title: "MOBILE BANKING",
-      subtitle: "Seamless Financial Experience on Mobile",
-      description:
-        "Designing secure, user-friendly banking flows that make financial management accessible to everyone.",
+      subtitle: cardSubtitle,
+      description: cardDescription,
       gradient: "from-emerald-900 via-emerald-700 to-teal-700",
     },
   ];
 
   return (
     <main className="portfolio-page">
-      <header className="top-nav reveal-up">
-        <Link href="/">
-          <p className="brand">Ishan.</p>
-        </Link>
-        <div className="top-actions">
-          <button type="button" aria-label="Open Behance" className="icon-dot" />
-          <button type="button" aria-label="Open Dribbble" className="icon-dot" />
-          <span>Let&apos;s Work Together</span>
-          <a href="mailto:ishan.kavinda@example.com">Copy Email</a>
-        </div>
-      </header>
+      <Header />
 
-      <section className="showcase-head reveal-up delay-2">
-        <p className="showcase-label">Projects</p>
-        <div className="showcase-row">
+      <nav className="project-breadcrumb reveal-up delay-1">
+        <Link href="/" className="breadcrumb-back">
+          ← Home
+        </Link>
+      </nav>
+
+      <section className="showcase-head projects-page-head reveal-up delay-2">
+        <p className="showcase-label">
+          <span className="showcase-bullet" aria-hidden="true">•</span>
+          Showcase
+        </p>
+        <div className="showcase-row projects-title-row">
           <h2>
-            <strong>Selected</strong>
+            <span className="projects-selected-light">Selected</span>
             <br />
-            Product Work
+            <strong>Product Work</strong>
           </h2>
+          <p className="projects-side-note">Not everything is visible at first glance</p>
         </div>
+        <p className="projects-intro">A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.</p>
       </section>
 
-      <section className="reveal-up delay-3 mt-10 px-[clamp(0.2rem,8vw,8rem)]">
-        <div className="w-full max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <section className="reveal-up delay-3 projects-grid-section">
+        <div className="projects-grid-shell">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard
                 key={project.title}

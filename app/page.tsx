@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Header from "./components/Header";
 import HeroText from "./components/HeroText";
 import TestimonialsCarousel from "@/app/components/TestimonialsCarousel";
 
@@ -53,15 +54,7 @@ export default function Home() {
 
   return (
     <main className="portfolio-page">
-      <header className="top-nav reveal-up">
-        <p className="brand">Ishan.</p>
-        <div className="top-actions">
-          <button type="button" aria-label="Open Behance" className="icon-dot" />
-          <button type="button" aria-label="Open Dribbble" className="icon-dot" />
-          <span>Let&apos;s Work Together</span>
-          <a href="mailto:ishan.kavinda@example.com">Copy Email</a>
-        </div>
-      </header>
+      <Header />
 
       <section className="hero reveal-up delay-1">
         <div>
@@ -108,16 +101,18 @@ export default function Home() {
           <span className="showcase-bullet" aria-hidden="true">•</span>
           Showcase
         </p>
-        <div className="showcase-row">
+        <div className="showcase-row projects-title-row">
           <h2>
             <strong>Selected</strong>
             <br />
-            Product Work
+            <strong>Product Work</strong>
           </h2>
-          <button type="button" className="btn-outline slim">
-            View Project -&gt;
-          </button>
+          <p className="projects-side-note">Not everything is visible at first glance</p>
         </div>
+        <p className="projects-intro">
+          A collection of product work, explorations, and design decisions across UI, crypto,
+          and digital experiences.
+        </p>
       </section>
 
       <section className="showcase-strip reveal-up delay-3" aria-label="Selected work gallery">
