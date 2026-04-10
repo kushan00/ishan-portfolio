@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="showcase-head reveal-up delay-2">
         <p className="showcase-label">
-          <span className="showcase-bullet" aria-hidden="true"></span>
+          <span className="showcase-bullet" aria-hidden="true">•</span>
           Showcase
         </p>
         <div className="showcase-row">
@@ -182,8 +182,11 @@ export default function Home() {
       <section className="reveal-up delay-3 mt-10 px-[clamp(0.2rem,8vw,8rem)]">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-[220px_1fr] md:items-start">
           <div>
-            <p className="text-[0.56rem] text-[#738487]">Case Studies</p>
-            <h3 className="mt-1 text-[2.7rem] leading-[0.9] text-[#133f47]">Project Breakdown</h3>
+            <p className="text-[0.56rem] text-[#738487]">
+              <span aria-hidden="true">• </span>
+              Case Studies
+            </p>
+            <h3 className="mt-1 text-[2.7rem] leading-[0.9] text-[#133f47]"><strong>Project</strong> Breakdown</h3>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
