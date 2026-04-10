@@ -65,7 +65,7 @@ export default function ProjectsPage() {
         <p className="showcase-label">Projects</p>
         <div className="showcase-row">
           <h2>
-            Selected
+            <strong>Selected</strong>
             <br />
             Product Work
           </h2>

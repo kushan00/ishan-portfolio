@@ -186,8 +186,17 @@ body {
 
 .showcase-label {
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.56rem;
   color: #6e7d80;
+}
+
+.showcase-bullet {
+  color: #123f47;
+  font-size: 0.7rem;
+  line-height: 1;
 }
 
 .showcase-row {

@@ -103,10 +103,13 @@ export default function Home() {
       </section>
 
       <section className="showcase-head reveal-up delay-2">
-        <p className="showcase-label">Showcase</p>
+        <p className="showcase-label">
+          <span className="showcase-bullet" aria-hidden="true"></span>
+          Showcase
+        </p>
         <div className="showcase-row">
           <h2>
-            Selected
+            <strong>Selected</strong>
             <br />
             Product Work
           </h2>
