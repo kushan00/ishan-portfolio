@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroText from "./components/HeroText";
+import TestimonialsCarousel from "@/app/components/TestimonialsCarousel";
 
 export default function Home() {
   const works = [

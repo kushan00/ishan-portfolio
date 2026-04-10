@@ -436,11 +436,13 @@ body {
 .nav-dot {
   width: 28px;
   height: 28px;
+  border: none;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
+  cursor: pointer;
 }
 
 .nav-dot.disabled {
@@ -454,14 +456,17 @@ body {
 }
 
 .testimonials-track {
-  display: flex;
-  gap: 0.65rem;
   overflow: hidden;
 }
 
+.testimonials-rail {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
 .testimonial-card {
-  width: 415px;
-  flex: 0 0 415px;
+  width: 100%;
+  flex: 0 0 100%;
   border-radius: 12px;
   padding: 0.9rem 0.95rem 0.75rem;
   min-height: 290px;
@@ -701,8 +706,7 @@ body {
   }
 
   .testimonials-track {
-    display: grid;
-    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .testimonial-card {
