@@ -707,6 +707,12 @@ body {
   background: #f2f5f6;
 }
 
+.socials a svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
 /* Project Detail Page Styles */
 .project-breadcrumb {
   margin-top: 1.5rem;

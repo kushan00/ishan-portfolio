@@ -1,3 +1,5 @@
+import { FaBehance, FaDribbble, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="contact-footer reveal-up delay-4" aria-label="Contact footer">
@@ -10,10 +12,18 @@ export default function Footer() {
         </div>
 
         <div className="socials" aria-label="Social links">
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Behance">be</a>
-          <a href="#" aria-label="Dribbble">dr</a>
-          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">
+            <FaInstagram aria-hidden="true" focusable="false" />
+          </a>
+          <a href="#" aria-label="Behance">
+            <FaBehance aria-hidden="true" focusable="false" />
+          </a>
+          <a href="#" aria-label="Dribbble">
+            <FaDribbble aria-hidden="true" focusable="false" />
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <FaLinkedinIn aria-hidden="true" focusable="false" />
+          </a>
         </div>
       </div>
     </footer>
