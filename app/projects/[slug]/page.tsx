@@ -11,14 +11,14 @@ type ProjectPageProps = {
 
 const projects = [
   {
-    slug: 'whalechance',
-    title: 'WHALECHANCE',
+    slug: 'prjectName',
+    title: 'Project Name',
     selectedTitle: 'Whale Chance',
     subtitle: 'Designing a Crypto Wallet for Real Users',
     description:
       'Simplifying wallet onboarding, portfolio tracking for everyday crypto users.',
     fullDescription:
-      'WHALECHANCE is a revolutionary crypto wallet designed for everyday users who want to manage their digital assets with confidence. We focused on simplifying the onboarding process, making portfolio tracking intuitive, and providing clear feedback at every step. The design emphasizes clarity, security, and accessibility.',
+      'prjectName is a revolutionary crypto wallet designed for everyday users who want to manage their digital assets with confidence. We focused on simplifying the onboarding process, making portfolio tracking intuitive, and providing clear feedback at every step. The design emphasizes clarity, security, and accessibility.',
     gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop',
   },
@@ -113,7 +113,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <span>•</span> Case Studies
         </p>
         <h1 className="project-title">
-          <strong>{project.selectedTitle}</strong>
+          {project.slug === 'prjectName' ? (
+            <>
+              <span>Project </span>
+              <strong>Name</strong>
+            </>
+          ) : (
+            <strong>{project.selectedTitle}</strong>
+          )}
         </h1>
       </div>
 

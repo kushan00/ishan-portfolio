@@ -232,7 +232,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.56rem;
+  font-size: 0.66rem;
   color: #6e7d80;
 }
 
@@ -256,7 +256,7 @@ body {
 
 .showcase-row h2 {
   margin: 0;
-  font-size: clamp(1.9rem, 4vw, 3.15rem);
+  font-size: clamp(2.15rem, 4.3vw, 3.35rem);
   line-height: 0.95;
   color: #123f47;
 }
@@ -276,7 +276,7 @@ body {
 .projects-side-note {
   margin: 0;
   max-width: 14ch;
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   line-height: 1.35;
   color: #5f7074;
   text-align: right;
@@ -284,9 +284,9 @@ body {
 
 .projects-intro {
   margin: 0.9rem 0 0;
-  max-width: 70ch;
-  font-size: 0.62rem;
-  line-height: 1.55;
+  max-width: 74ch;
+  font-size: 0.72rem;
+  line-height: 1.6;
   color: #6c7a7e;
 }
 
@@ -772,7 +772,7 @@ body {
 }
 
 .project-title strong {
-  display: block;
+  display: inline;
   font-weight: 700;
   color: #0a2f38;
 }
@@ -1009,7 +1009,7 @@ body {
   }
 
   .projects-intro {
-    font-size: 0.68rem;
+    font-size: 0.74rem;
     max-width: 100%;
   }
 
@@ -1090,6 +1090,11 @@ body {
 
 .project-card-visual {
   border: 1px solid #0e1a2f1a;
+  position: relative;
+}
+
+.project-card-image {
+  object-fit: cover;
 }
 
 .project-card-copy {

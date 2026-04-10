@@ -7,11 +7,13 @@ export default function ProjectsPage() {
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription =
     "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
+  const sampleProjectImage =
+    "https://img.freepik.com/free-photo/project-management-planning-development-message-box-notification-graphic_53876-123902.jpg";
 
   const projects = [
     {
-      slug: "whalechance",
-      title: "WHALECHANCE",
+      slug: "prjectName",
+      title: "prjectName",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
@@ -90,6 +92,7 @@ export default function ProjectsPage() {
                 subtitle={project.subtitle}
                 description={project.description}
                 gradient={project.gradient}
+                imageUrl={sampleProjectImage}
               />
             ))}
           </div>

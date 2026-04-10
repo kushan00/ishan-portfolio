@@ -16,7 +16,7 @@ export default function Home() {
 
   const projects = [
     {
-      title: "WHALECHANCE",
+      title: "prjectName",
       subtitle: "Designing a Crypto Wallet for Real Users",
       description:
         "Simplifying wallet onboarding, portfolio tracking for everyday crypto users.",
