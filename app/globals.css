@@ -14,18 +14,28 @@
   --font-sans: var(--font-body);
 }
 
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  height: 100%;
   background: var(--background);
   color: var(--text);
   font-family: var(--font-body), sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 .portfolio-page {
   width: 100%;
   min-height: 100vh;
-  padding: 1.1rem 1.8rem 2rem;
+  padding: 1.1rem 1.8rem 0;
   border-top: 1px solid #1b2221;
+  display: flex;
+  flex-direction: column;
 }
 
 .top-nav {
@@ -584,6 +594,8 @@ body {
   margin-left: calc(50% - 50vw);
   background: #00161b;
   padding: 1.08rem 0 0.98rem;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .contact-footer-inner {
@@ -738,7 +750,7 @@ body {
 
 @media (width <= 560px) {
   .portfolio-page {
-    padding: 0.75rem;
+    padding: 0.75rem 0.75rem 0;
   }
 
   .top-nav {
