@@ -218,7 +218,7 @@ export default function Home() {
               Experience
             </p>
             <h3>
-              Where
+              <strong>Where</strong>
               <br />
               I&apos;ve Worked
             </h3>
@@ -242,11 +242,11 @@ export default function Home() {
         <div className="testimonials-inner">
           <div className="testimonials-head">
             <p className="testimonials-kicker">
-              <span className="experience-dot" aria-hidden="true" />
+              <span aria-hidden="true">• </span>
               Testimonials
             </p>
             <h3>
-              What
+              <strong>What</strong>
               <br />
               People Say
             </h3>
