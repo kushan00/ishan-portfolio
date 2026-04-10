@@ -251,44 +251,8 @@ export default function Home() {
               <br />
               People Say
             </h3>
-            <div className="testimonial-nav" aria-hidden="true">
-              <span className="nav-dot disabled">&lt;</span>
-              <span className="nav-dot active">&gt;</span>
-            </div>
           </div>
-
-          <div className="testimonials-track">
-            <article className="testimonial-card dark">
-              <p className="quote-mark">&ldquo;</p>
-              <p className="testimonial-copy">
-                Ishan simplified complex workflows and made our product much easier to use. Ishan
-                simplified complex workflows and made our product much easier to use. Ishan
-                simplified complex workflows and made our product much easier to use.
-              </p>
-              <footer>
-                <span className="avatar" aria-hidden="true" />
-                <div>
-                  <p>ABC Company</p>
-                  <small>Product Manager</small>
-                </div>
-              </footer>
-            </article>
-
-            <article className="testimonial-card light">
-              <p className="quote-mark">&ldquo;</p>
-              <p className="testimonial-copy">
-                Ishan simplified complex workflows and made our product much easier to use. Ishan
-                simplified complex workflows and made our product much easier to use.
-              </p>
-              <footer>
-                <span className="avatar" aria-hidden="true" />
-                <div>
-                  <p>ABC Company</p>
-                  <small>Product Manager</small>
-                </div>
-              </footer>
-            </article>
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
