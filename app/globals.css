@@ -95,9 +95,19 @@ body {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #f4f6f5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d464f;
 }
 
-.top-actions a {
+.icon-dot svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+.top-actions .email-action {
   text-decoration: none;
   color: #1d464f;
   border: 1px solid #a9b8b9;
