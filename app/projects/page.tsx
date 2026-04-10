@@ -4,6 +4,7 @@ import Link from "next/link";
 export default function ProjectsPage() {
   const projects = [
     {
+      slug: "whalechance",
       title: "WHALECHANCE",
       subtitle: "Designing a Crypto Wallet for Real Users",
       description:
@@ -11,6 +12,7 @@ export default function ProjectsPage() {
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
     },
     {
+      slug: "casino-xp",
       title: "CASINO XP",
       subtitle: "Building a High-Engagement Casino Experience",
       description:
@@ -18,6 +20,7 @@ export default function ProjectsPage() {
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
     },
     {
+      slug: "token-landing",
       title: "TOKEN LANDING",
       subtitle: "Crafting High-Converting Token Landing Pages",
       description:
@@ -25,6 +28,7 @@ export default function ProjectsPage() {
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
     },
     {
+      slug: "data-console",
       title: "DATA CONSOLE",
       subtitle: "Designing Data-Heavy Dashboards That Make Sense",
       description:
@@ -32,6 +36,7 @@ export default function ProjectsPage() {
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
     },
     {
+      slug: "analytics-hub",
       title: "ANALYTICS HUB",
       subtitle: "Command Center for Real-Time Data",
       description:
@@ -39,6 +44,7 @@ export default function ProjectsPage() {
       gradient: "from-purple-900 via-purple-700 to-blue-700",
     },
     {
+      slug: "mobile-banking",
       title: "MOBILE BANKING",
       subtitle: "Seamless Financial Experience on Mobile",
       description:
@@ -78,6 +84,7 @@ export default function ProjectsPage() {
             {projects.map((project) => (
               <ProjectCard
                 key={project.title}
+                slug={project.slug}
                 title={project.title}
                 subtitle={project.subtitle}
                 description={project.description}
