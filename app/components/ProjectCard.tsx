@@ -20,7 +20,7 @@ export default function ProjectCard({ slug, title, subtitle, description, gradie
             alt={title}
             fill
             loading="lazy"
-            quality={65}
+            quality={75}
             sizes="(max-width: 640px) 100vw, 50vw"
             className="project-card-image"
           />

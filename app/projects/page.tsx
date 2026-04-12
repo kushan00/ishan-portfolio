@@ -8,7 +8,7 @@ export default function ProjectsPage() {
   const cardDescription =
     "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
   const sampleProjectImage =
-    "https://img.freepik.com/free-photo/project-management-planning-development-message-box-notification-graphic_53876-123902.jpg";
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=max&auto=format&q=85";
 
   const projects = [
     {
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
         <p className="projects-intro">A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.</p>
       </section>
 
-      <section className="reveal-up delay-3 projects-grid-section">
+<section className="reveal-up delay-3 projects-grid-section">
         <div className="projects-grid-shell">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {projects.map((project) => (

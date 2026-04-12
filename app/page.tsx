@@ -7,11 +7,31 @@ import TestimonialsCarousel from "@/app/components/TestimonialsCarousel";
 
 export default function Home() {
   const works = [
-    "Analytics Command Center",
-    "Workspace Planner",
-    "Mobile Banking Flow",
-    "SaaS Project Tracker",
-    "Fitness Product Suite",
+    {
+      title: "Analytics Command Center",
+      imageUrl:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=700&fit=crop",
+    },
+    {
+      title: "Workspace Planner",
+      imageUrl:
+        "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1200&h=700&fit=crop",
+    },
+    {
+      title: "Mobile Banking Flow",
+      imageUrl:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop",
+    },
+    {
+      title: "SaaS Project Tracker",
+      imageUrl:
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=700&fit=crop",
+    },
+    {
+      title: "Fitness Product Suite",
+      imageUrl:
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=700&fit=crop",
+    },
   ];
 
   const projects = [
@@ -102,24 +122,32 @@ export default function Home() {
           <span className="showcase-bullet" aria-hidden="true">•</span>
           Showcase
         </p>
-        <div className="showcase-row projects-title-row">
+        <div className="showcase-row home-showcase-row">
           <h2>
             <strong>Selected</strong>
             <br />
-            <strong>Product Work</strong>
+            <span className="home-showcase-subtitle">Product Work</span>
           </h2>
-          <p className="projects-side-note">Not everything is visible at first glance</p>
+          <Link href="/projects" className="btn-outline slim">
+            View Project -&gt;
+          </Link>
         </div>
-        <p className="projects-intro">
-          A collection of product work, explorations, and design decisions across UI, crypto,
-          and digital experiences.
-        </p>
       </section>
 
       <section className="showcase-strip reveal-up delay-3" aria-label="Selected work gallery">
-        {works.map((title) => (
-          <article key={title} className="work-item" aria-label={title}>
-            <div className="work-image" />
+        {works.map((work) => (
+          <article key={work.title} className="work-item" aria-label={work.title}>
+            <div className="work-image">
+              <Image
+                src={work.imageUrl}
+                alt={work.title}
+                fill
+                loading="lazy"
+                quality={65}
+                sizes="(max-width: 640px) 90vw, 340px"
+                className="work-image-media"
+              />
+            </div>
           </article>
         ))}
       </section>
