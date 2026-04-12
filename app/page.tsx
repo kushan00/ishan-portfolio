@@ -105,11 +105,13 @@ export default function Home() {
         >
           <div className="mobileTrack h-full gap-6 px-4">
             {scrollingWorks.map((work, index) => (
-              <article key={`${work.title}-${index}`} aria-label={work.title} className="h-full w-[380px] shrink-0">
-                <div className="relative h-full overflow-hidden rounded-[16px] bg-[#dfe5e6]">
-                  <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 768px) 80vw, 380px" className="object-cover object-center" />
-                </div>
-              </article>
+              <Link key={`${work.title}-${index}`} href="/projects/token-landing" aria-label={work.title} className="block h-full w-[380px] shrink-0 cursor-pointer">
+                <article className="h-full w-full">
+                  <div className="relative h-full overflow-hidden rounded-[16px] bg-[#dfe5e6]">
+                    <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 768px) 80vw, 380px" className="object-cover object-center" />
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

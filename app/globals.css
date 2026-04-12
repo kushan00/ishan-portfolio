@@ -21,8 +21,24 @@
 }
 
 .mobileCarousel {
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
 	opacity: 1;
+	cursor: grab;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.mobileCarousel::-webkit-scrollbar {
+	display: none;
+}
+
+.mobileCarousel:active {
+	cursor: grabbing;
+}
+
+.mobileCarousel:hover .mobileTrack {
+	animation-play-state: paused;
 }
 
 .mobileTrack {
