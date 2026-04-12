@@ -49,6 +49,7 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeControl, setActiveControl] = useState<"prev" | "next">("next");
   const visibleCount = 2;
   const visibleItems = [
     testimonials[activeIndex],
@@ -56,12 +57,14 @@ export default function TestimonialsCarousel() {
   ];
 
   const goPrevious = () => {
+    setActiveControl("prev");
     setActiveIndex((current) =>
       current === 0 ? testimonials.length - 1 : current - 1,
     );
   };
 
   const goNext = () => {
+    setActiveControl("next");
     setActiveIndex((current) => (current + 1) % testimonials.length);
   };
 
@@ -89,7 +92,7 @@ export default function TestimonialsCarousel() {
       <div className="testimonial-nav">
         <button
           type="button"
-          className="nav-dot"
+          className={`nav-dot ${activeControl === "prev" ? "active" : "inactive"}`}
           onClick={goPrevious}
           aria-label="Previous testimonial"
         >
@@ -97,7 +100,7 @@ export default function TestimonialsCarousel() {
         </button>
         <button
           type="button"
-          className="nav-dot active"
+          className={`nav-dot ${activeControl === "next" ? "active" : "inactive"}`}
           onClick={goNext}
           aria-label="Next testimonial"
         >

@@ -599,7 +599,9 @@ body {
 .nav-dot {
   width: 36px;
   height: 36px;
-  border: none;
+  border: 1px solid #d5dfe1;
+  background: #eef2f3;
+  color: #4f666b;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -619,8 +621,14 @@ body {
 }
 
 .nav-dot.active {
-  background: #003b44;
+  background: #272e3f;
   color: #f4f8f9;
+  border-color: #272e3f;
+}
+
+.nav-dot.inactive {
+  background: #eef2f3;
+  color: #4f666b;
 }
 
 .testimonials-track {
