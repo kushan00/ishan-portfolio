@@ -104,16 +104,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Header />
 
       <nav className="mx-auto mt-6 w-[min(1280px,calc(100%-2rem))]">
-        <Link href="/projects" className="inline-flex items-center text-[0.62rem] font-medium text-[#1d464f] no-underline transition hover:text-[#0a3a44]">
-          ← Home
+        <Link
+          href="/projects"
+          className="inline-flex h-[24px] w-[45px] items-center text-[16px] font-normal leading-[24px] text-[#1d464f] no-underline opacity-100 rotate-0 capitalize transition hover:text-[#0a3a44]"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
+          Home
         </Link>
       </nav>
 
       <div className="mx-auto mt-9 w-[min(1280px,calc(100%-2rem))]">
-        <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.56rem] text-[#6e7d80]">
+        <p
+          className="m-0 inline-flex items-center gap-[0.35rem] text-[16px] font-normal leading-[24px] text-[#6e7d80] opacity-100 rotate-0"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
           <span>•</span> Case Studies
         </p>
-        <h1 className="mt-[0.5rem] text-[3.2rem] leading-[0.9] tracking-[-0.01em] text-[#123f47]">
+        <h1
+          className="mt-[0.5rem] h-[144px] w-[708px] text-[64px] leading-[72px] tracking-[-1.4px] text-[#123f47] opacity-100 rotate-0"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
           {project.slug === 'prjectName' ? (
             <>
               <span className="font-normal text-[#123f47]">Project </span>
