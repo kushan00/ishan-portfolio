@@ -382,11 +382,11 @@ body {
   border-radius: 0.78rem;
   position: relative;
   overflow: hidden;
-  background: #1d2f82;
+  background: #dfe5e6;
 }
 
 .work-image-media {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 

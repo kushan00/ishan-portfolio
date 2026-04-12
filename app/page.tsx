@@ -85,7 +85,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-copy">
-            I design digital products that are simple, clear, & effective.
+            I design digital products that are <strong>simple, clear, &amp; effective.</strong>
           </p>
 
           <div className="hero-buttons">
@@ -117,8 +117,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="showcase-head reveal-up delay-2">
-        <p className="showcase-label">
+      <section className="showcase-head home-showcase-head reveal-up delay-2">
+        <p className="showcase-label home-showcase-label">
           <span className="showcase-bullet" aria-hidden="true">•</span>
           Showcase
         </p>
@@ -128,15 +128,15 @@ export default function Home() {
             <br />
             <span className="home-showcase-subtitle">Product Work</span>
           </h2>
-          <Link href="/projects" className="btn-outline slim">
+          <Link href="/projects" className="btn-outline slim home-showcase-cta">
             View Project -&gt;
           </Link>
         </div>
       </section>
 
-      <section className="showcase-strip reveal-up delay-3" aria-label="Selected work gallery">
+      <section className="showcase-strip home-showcase-strip reveal-up delay-3" aria-label="Selected work gallery">
         {works.map((work) => (
-          <article key={work.title} className="work-item" aria-label={work.title}>
+          <article key={work.title} className="work-item home-work-item" aria-label={work.title}>
             <div className="work-image">
               <Image
                 src={work.imageUrl}
@@ -217,9 +217,16 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {projects.map((project) => (
               <article key={project.title} className="rounded-[14px]">
-                <div
-                  className={`aspect-[4/5] rounded-[14px] bg-gradient-to-br ${project.gradient} shadow-[0_2px_12px_rgba(0,0,0,0.15)]`}
-                >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[14px] bg-zinc-200 shadow-[0_2px_12px_rgba(0,0,0,0.15)]">
+                  <Image
+                    src="/project.jpg"
+                    alt={project.title}
+                    fill
+                    loading="lazy"
+                    quality={75}
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover object-center"
+                  />
                   <div className="flex h-full items-end rounded-[14px] bg-gradient-to-t from-black/30 via-transparent to-transparent p-4">
                     <p className="text-[2rem] font-semibold tracking-[0.01em] text-white/90">{project.title}</p>
                   </div>
