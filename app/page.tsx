@@ -8,11 +8,11 @@ export default function Home() {
   const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
 
   const works = [
-    { title: "Analytics Command Center", imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=700&fit=crop" },
-    { title: "Workspace Planner", imageUrl: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1200&h=700&fit=crop" },
-    { title: "Mobile Banking Flow", imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop" },
-    { title: "SaaS Project Tracker", imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=700&fit=crop" },
-    { title: "Fitness Product Suite", imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=700&fit=crop" },
+    { title: "Analytics Command Center", imageUrl: "/blue-small.gif" },
+    { title: "Workspace Planner", imageUrl: "/blue-small.gif" },
+    { title: "Mobile Banking Flow", imageUrl: "/blue-small.gif" },
+    { title: "SaaS Project Tracker", imageUrl: "/blue-small.gif" },
+    { title: "Fitness Product Suite", imageUrl: "/blue-small.gif" },
   ];
 
   const projects = [
@@ -71,34 +71,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${shell} mt-5`}>
-        <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.6rem] text-[#0f1416]">
-          <span className="text-[0.7rem] leading-none" aria-hidden="true">•</span>
-          Showcase
-        </p>
-        <div className="mt-[0.32rem] flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-start">
-          <h2 className="m-0 text-[clamp(2.2rem,4.6vw,3.5rem)] leading-[1] tracking-[-0.01em] text-[#123f47]">
-            <strong className="font-semibold">Selected</strong>
-            <br />
-            <span className="font-normal">Product Work</span>
-          </h2>
-          <Link href="/projects" className="rounded-[12px] border border-[#262f33] px-[1.35rem] py-[0.58rem] text-[0.9rem] leading-none text-[#151b1e] no-underline">
-            View Project -&gt;
-          </Link>
+      <section className="mx-auto h-[736px] w-full max-w-[1920px] opacity-100 rotate-0" aria-label="Selected Product Work section">
+        <div className="mx-auto flex h-[160px] w-[min(1280px,calc(100%-2rem))] items-start justify-between pt-[24px] opacity-100 rotate-0">
+          <div>
+            <p className="m-0 inline-flex items-center gap-[0.35rem] text-[#0f1416]">
+              <span className="text-[0.7rem] leading-none" aria-hidden="true">•</span>
+              <span className="inline-flex h-[24px] w-[78px] items-center text-[16px] font-normal leading-[24px] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+                Showcase
+              </span>
+            </p>
+            <h2 className="m-0 h-[124px] w-[364px] text-[#123f47] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+              <strong className="block text-[54px] font-semibold leading-[62px] tracking-[0%]">Selected</strong>
+              <span className="block text-[54px] font-normal leading-[62px] tracking-[0%]">Product Work</span>
+            </h2>
+          </div>
+          <div className="pt-[14px]">
+            <Link href="/projects" className="rounded-[12px] border border-[#262f33] px-[1.35rem] py-[0.58rem] text-[0.9rem] leading-none text-[#151b1e] no-underline">
+              View Project -&gt;
+            </Link>
+          </div>
         </div>
-      </section>
 
-      <section
-        className={`${shell} mt-4 flex gap-[0.9rem] overflow-x-auto pb-[0.55rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
-        aria-label="Selected work gallery"
-      >
-        {works.map((work) => (
-          <article key={work.title} aria-label={work.title} className="w-[clamp(280px,29vw,360px)] shrink-0">
-            <div className="relative h-[clamp(170px,20vw,230px)] overflow-hidden rounded-[0.78rem] bg-[#dfe5e6]">
-              <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 640px) 90vw, 360px" className="object-cover object-center" />
-            </div>
-          </article>
-        ))}
+        <div
+          className="mx-auto mt-[104px] h-[425px] w-full max-w-[1920px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          aria-label="Selected work gallery"
+        >
+          <div className="flex h-full w-max min-w-full gap-6 px-4">
+            {works.map((work) => (
+              <article key={work.title} aria-label={work.title} className="h-full w-[380px] shrink-0">
+                <div className="relative h-full overflow-hidden rounded-[16px] bg-[#dfe5e6]">
+                  <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 768px) 80vw, 380px" className="object-cover object-center" />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="mx-auto mt-3 h-[606px] w-full max-w-[1920px] bg-[#011214] opacity-100 rotate-0" aria-label="Process section">
