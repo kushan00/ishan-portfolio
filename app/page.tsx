@@ -16,10 +16,14 @@ export default function Home() {
   ];
 
   const projects = [
-    { title: "prjectName", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying wallet onboarding, portfolio tracking for everyday crypto users.", gradient: "from-zinc-200 via-zinc-100 to-zinc-300" },
+    { title: "prjectName", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#002B31] via-[#002B31] to-[#002B31]" },
     { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400" },
     { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700" },
     { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600" },
+  ];
+  const projectColumns = [
+    [projects[0], projects[2]],
+    [projects[1], projects[3]],
   ];
 
   const experiences = [
@@ -97,19 +101,21 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="mt-3 w-full bg-[#00181c] py-[2.55rem]" aria-label="Process section">
-        <div className={shell}>
-          <p className="m-0 inline-flex items-center gap-[0.42rem] text-[0.72rem] text-[#d2dee1]">
-            <span className="h-[7px] w-[7px] rounded-full bg-[#e6ecee]" aria-hidden="true" />
-            My Process
-          </p>
-          <p className="mt-[0.55rem] max-w-[46ch] text-[2.06rem] leading-[1.2] text-[#e6eef0]">
-            No unnecessary steps.
-            <br />A simple process for complex products.
-            <br />Focused on clarity, usability, and real impact.
-          </p>
+      <section className="mx-auto mt-3 h-[606px] w-full max-w-[1920px] bg-[#011214] opacity-100 rotate-0" aria-label="Process section">
+        <div className="mx-auto flex h-[486px] w-[min(1340px,calc(100%-2rem))] flex-col justify-between pt-[60px] opacity-100 rotate-0">
+          <div className="flex h-[132px] w-[514px] flex-col gap-[12px] opacity-100 rotate-0">
+            <p className="m-0 inline-flex items-center gap-[0.42rem] text-[0.72rem] text-[#d2dee1]">
+              <span className="h-[7px] w-[7px] rounded-full bg-[#e6ecee]" aria-hidden="true" />
+              My Process
+            </p>
+            <p className="m-0 h-[96px] w-[514px] text-[24px] font-medium leading-[32px] text-[#e6eef0]" style={{ fontFamily: "Inter, sans-serif" }}>
+              No unnecessary steps.
+              <br />A simple process for complex products.
+              <br />Focused on clarity, usability, and real impact.
+            </p>
+          </div>
 
-          <div className="mt-[2.35rem] grid overflow-hidden rounded-[0.65rem] border border-[#d3dbdc] bg-[#eff2f2] md:grid-cols-4">
+          <div className="grid h-[238px] w-[min(1340px,calc(100%-2rem))] gap-[24px] rounded-[16px] bg-[#ffffff] px-[30px] pt-[36px] pb-[36px] opacity-100 rotate-0 md:grid-cols-4">
             {[
               ["⌂", "Understand the Problem", "I start by understanding the user, the business, and the real problem to solve. Clear direction makes everything easier."],
               ["✣", "Simplify the Experience", "I break down complex flows into simple and clear screens, making each product easy to use and understand."],
@@ -118,21 +124,37 @@ export default function Home() {
             ].map(([icon, title, copy], index) => (
               <article
                 key={title}
-                className={`min-h-[148px] p-4 ${index < 3 ? "border-b border-[#d3dbdc] md:border-b-0 md:border-r" : ""}`}
+                className="flex h-full w-full max-w-[302px] flex-col gap-[12px]"
               >
-                <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-[4px] bg-[#e4eaea] text-[0.66rem] text-[#60777c]" aria-hidden="true">
-                  {icon}
+                <span className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-[8px] border-[1.25px] border-[#002B31] bg-white text-[0.9rem] text-[#002B31]" aria-hidden="true">
+                  {index === 0 ? (
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M2 6.3L7 2L12 6.3V12H2V6.3Z" stroke="#002B31" strokeWidth="1.25" strokeLinejoin="round" />
+                    </svg>
+                  ) : (
+                    icon
+                  )}
                 </span>
-                <h4 className="mt-[0.62rem] text-[0.9rem] font-bold text-[#1f3f46]">{title}</h4>
-                <p className="mt-[0.66rem] text-[0.8rem] leading-[1.45] text-[#5e7174]">{copy}</p>
+                <h4
+                  className={index === 0 ? "m-0 h-[24px] w-[187px] text-[16px] font-medium leading-[24px] text-[#002B31]" : "m-0 text-[16px] font-medium leading-[24px] text-[#002B31]"}
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {title}
+                </h4>
+                <p
+                  className={index === 0 ? "m-0 h-[66px] w-[302px] text-[14px] font-normal leading-[22px] text-[#002B31]" : "m-0 text-[14px] font-normal leading-[22px] text-[#002B31]"}
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {copy}
+                </p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={`${shell} mt-10`}>
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-[220px_1fr] md:items-start">
+      <section className="mx-auto w-full max-w-[1920px] py-10 opacity-100 rotate-0" aria-label="Project Breakdown section">
+        <div className={`${shell} grid gap-6 md:grid-cols-[220px_1fr] md:items-start`}>
           <div>
             <p className="text-[0.56rem] text-[#738487]">
               <span aria-hidden="true">• </span>
@@ -143,20 +165,40 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {projects.map((project) => (
-              <article key={project.title} className="rounded-[14px]">
-                <div className={`relative aspect-[4/5] overflow-hidden rounded-[14px] bg-gradient-to-br ${project.gradient} shadow-[0_2px_12px_rgba(0,0,0,0.15)]`}>
-                  <Image src="/project.jpg" alt={project.title} fill loading="lazy" quality={75} sizes="(max-width: 640px) 100vw, 50vw" className="object-cover object-center" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                  <p className="absolute bottom-4 left-4 text-[2rem] font-semibold tracking-[0.01em] text-white/90">{project.title}</p>
-                </div>
+          <div className="grid h-[1015px] grid-cols-1 gap-6 overflow-hidden sm:grid-cols-2">
+            {[0, 1].map((column) => (
+              <div key={column} className="projectColumn">
+                <div className={`projectColumnTrack ${column === 1 ? "projectColumnTrackReverse" : ""}`}>
+                  {[...projectColumns[column], ...projectColumns[column]].map((project, index) => {
+                    const isPrimaryCard = project.title === "prjectName";
 
-                <div className="pt-2">
-                  <h4 className="text-[1rem] font-semibold leading-tight text-[#173f46]">{project.subtitle}</h4>
-                  <p className="mt-1 text-[0.68rem] leading-relaxed text-[#617477]">{project.description}</p>
+                    return (
+                      <article key={`${column}-${project.title}-${index}`} className="w-full max-w-[442px] rounded-[14px]">
+                        <div className={`relative h-[287px] overflow-hidden rounded-[14px] bg-gradient-to-br ${project.gradient} shadow-[0_2px_12px_rgba(0,0,0,0.15)]`}>
+                          <Image src="/project.jpg" alt={project.title} fill loading="lazy" quality={75} sizes="442px" className="object-cover object-center" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                          <p className="absolute bottom-4 left-4 text-[2rem] font-semibold tracking-[0.01em] text-white/90">{project.title}</p>
+                        </div>
+
+                        <div className="mt-2" style={isPrimaryCard ? { background: "#002B31" } : undefined}>
+                          <h4
+                            className={isPrimaryCard ? "m-0 h-[64px] w-[442px] text-[24px] font-normal leading-[32px] text-white" : "m-0 text-[24px] font-normal leading-[32px] text-[#133f47]"}
+                            style={{ fontFamily: "Inter, sans-serif" }}
+                          >
+                            {project.subtitle}
+                          </h4>
+                          <p
+                            className={isPrimaryCard ? "m-0 h-[44px] w-[442px] text-[14px] font-normal leading-[22px] text-white/80" : "m-0 mt-1 text-[14px] font-normal leading-[22px] text-[#617477]"}
+                            style={{ fontFamily: "Inter, sans-serif" }}
+                          >
+                            {project.description}
+                          </p>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>

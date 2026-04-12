@@ -38,8 +38,48 @@
 	flex-shrink: 0;
 }
 
+@keyframes project-vertical-up {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes project-vertical-down {
+	from {
+		transform: translateY(-50%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+.projectColumn {
+	height: 100%;
+	overflow: hidden;
+}
+
+.projectColumnTrack {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	animation: project-vertical-up 34s linear infinite;
+	will-change: transform;
+}
+
+.projectColumnTrackReverse {
+	animation-name: project-vertical-down;
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.mobileTrack {
+		animation: none;
+	}
+
+	.projectColumnTrack,
+	.projectColumnTrackReverse {
 		animation: none;
 	}
 }
