@@ -23,8 +23,8 @@ export default function Home() {
   ];
 
   const experiences = [
-    { year: "2021 - present", role: "UX Designer", company: "Botcalm (PVT) LTD" },
-    { year: "2023 - 2026", role: "Creative Consultant", company: "Hatch Works" },
+    { year: "2025 - Present", role: "UX Designer", company: "Botcalm (PVT) LTD" },
+    { year: "2025 - 2026", role: "Creative Consultant", company: "Hatch Works" },
     { year: "2024 - 2026", role: "Crypto Designer", company: "Eth LLC" },
     { year: "2023 - 2024", role: "Graphic Designer", company: "Ford Australia" },
     { year: "2022 - 2023", role: "Creative Designer", company: "Mango Media" },
@@ -162,28 +162,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-6 w-full bg-[#00181d] py-[1.55rem]" aria-label="Where I have worked">
-        <div className={`${shell} grid gap-8 md:grid-cols-[1fr_1.9fr]`}>
-          <div>
-            <p className="m-0 inline-flex items-center gap-[0.4rem] text-[0.58rem] text-[#9eb7bc]">
+      <section className="mx-auto h-[732px] w-full max-w-[1920px] bg-[#011214] opacity-100 rotate-0" aria-label="Where I have worked">
+        <div className={`${shell} grid h-full content-start gap-8 pt-[24px] md:grid-cols-[1fr_1.9fr] md:items-start`}>
+          <div className="flex h-[160px] w-[364px] flex-col gap-[12px]">
+            <p className="m-0 inline-flex h-[24px] w-[84px] items-center gap-[0.4rem] text-[14px] font-normal leading-[24px] text-[#9eb7bc]" style={{ fontFamily: "Inter, sans-serif" }}>
               <span className="h-[6px] w-[6px] rounded-full bg-[#dbe8eb]" aria-hidden="true" />
               Experience
             </p>
-            <h3 className="mt-[0.45rem] text-[2.95rem] leading-[0.9] tracking-[-0.01em] text-[#e6f2f4]">
-              <strong>Where</strong>
-              <br />
-              I&apos;ve Worked
+            <h3 className="m-0 h-[124px] w-[364px] text-[#e6f2f4] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+              <strong className="block text-[54px] font-semibold leading-[62px] tracking-[0%]">Where</strong>
+              <span className="block text-[54px] font-normal leading-[62px] tracking-[0%]">I&apos;ve Worked</span>
             </h3>
           </div>
 
-          <div>
+          <div className="w-full max-w-[847px]">
             {experiences.map((item) => (
-              <article key={item.company + item.year} className="flex flex-col gap-1 border-b border-[#163840] py-[0.58rem] sm:flex-row sm:items-center sm:justify-between">
+              <article key={item.company + item.year} className="flex h-[124px] items-center justify-between border-b border-[#163840] border-b-[1px] py-[30px]">
                 <div>
-                  <p className="m-0 text-[0.86rem] font-medium text-[#e4f1f4]">{item.company}</p>
-                  <p className="mt-[0.14rem] text-[0.46rem] uppercase tracking-[0.02em] text-[#7f9ca2]">{item.year}</p>
+                  <p className="m-0 text-[24px] font-medium leading-[32px] text-[#e4f1f4]" style={{ fontFamily: "Inter, sans-serif" }}>
+                    {item.company}
+                  </p>
+                  <p className="m-0 mt-[0.14rem] h-[22px] w-[84px] text-[14px] font-normal leading-[22px] tracking-[0%] text-[#7f9ca2]" style={{ fontFamily: "Inter, sans-serif" }}>
+                    {item.year}
+                  </p>
                 </div>
-                <p className="m-0 text-[0.78rem] text-[#dce9eb] sm:text-right">{item.role}</p>
+                <p className="m-0 text-[24px] font-medium leading-[32px] text-[#dce9eb]" style={{ fontFamily: "Inter, sans-serif" }}>
+                  {item.role}
+                </p>
               </article>
             ))}
           </div>
