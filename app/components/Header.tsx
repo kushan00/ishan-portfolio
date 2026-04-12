@@ -35,18 +35,18 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
             aria-label="Open Behance"
-            className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] transition hover:border-[#a9b8b9]"
+            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] opacity-100 rotate-0 transition hover:border-[#a9b8b9]"
           >
-            <FaBehance aria-hidden="true" focusable="false" />
+            <FaBehance aria-hidden="true" focusable="false" className="h-[20px] w-[20px]" />
           </a>
           <a
             href="https://www.linkedin.com"
             target="_blank"
             rel="noreferrer"
             aria-label="Open LinkedIn"
-            className="inline-flex h-[18px] w-[18px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] transition hover:border-[#a9b8b9]"
+            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] opacity-100 rotate-0 transition hover:border-[#a9b8b9]"
           >
-            <FaLinkedinIn aria-hidden="true" focusable="false" />
+            <FaLinkedinIn aria-hidden="true" focusable="false" className="h-[20px] w-[20px]" />
           </a>
           <span className="ml-1 inline-flex h-[22px] w-[132px] items-center text-[14px] font-normal leading-[22px] text-[#002B31] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
             Let&apos;s Work Together
