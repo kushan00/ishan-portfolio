@@ -52,18 +52,22 @@ export default function Home() {
             <strong className="text-[20px] font-bold leading-[28px] text-[#283f42]" style={{ fontFamily: "Inter, sans-serif" }}> &amp; effective</strong>
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Link href="/projects" className="rounded-[10px] border border-[#0f3a44] bg-[#0e1113] px-[0.95rem] py-[0.5rem] text-[0.62rem] font-semibold text-[#f2f4f5] no-underline">
-              View My Work
+          <div className="mt-5 flex h-[52px] w-[328px] gap-[12px] opacity-100 rotate-0">
+            <Link href="/projects" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-[16px] border border-[#0f3a44] bg-[#0e1113] px-[24px] py-[14px] no-underline opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+              <span className="inline-flex h-[24px] w-[110px] items-center justify-center text-center text-[16px] font-medium leading-[24px] text-[#f2f4f5] opacity-100 rotate-0">
+                View My Work
+              </span>
             </Link>
-            <button type="button" className="rounded-[10px] border border-[#0f3a44] bg-transparent px-[1.15rem] py-[0.5rem] text-[0.62rem] font-semibold text-[#294b51]">
-              Let&apos;s Talk
+            <button type="button" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-[16px] border border-[#002B31] bg-white px-[24px] py-[14px] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+              <span className="inline-flex h-[24px] w-[71px] items-center justify-center text-center text-[16px] font-medium leading-[24px] text-[#002B31]">
+                Let&apos;s Talk
+              </span>
             </button>
           </div>
 
-          <p className="mt-10 max-w-[31ch] text-[0.56rem] leading-[1.42] text-[#677474] sm:mt-[2.2rem] sm:max-w-[32ch] sm:text-[0.57rem] sm:leading-[1.45]">
-            Helping <strong className="font-extrabold text-[#1f383d]">startups and businesses</strong> turn ideas into <br />
-            <strong className="font-extrabold text-[#1f383d]">clean, usable experiences.</strong>
+          <p className="mt-10 h-[48px] w-[390px] text-[16px] font-normal leading-[24px] text-[#677474] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+            Helping <strong className="text-[16px] font-bold leading-[24px] text-[#1f383d]" style={{ fontFamily: "Inter, sans-serif" }}>startups and businesses</strong> turn ideas into <br />
+            <strong className="text-[16px] font-bold leading-[24px] text-[#1f383d]" style={{ fontFamily: "Inter, sans-serif" }}>clean, usable experiences.</strong>
           </p>
         </div>
 
