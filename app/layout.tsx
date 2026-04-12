@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alex_Brush, Manrope, Sora } from "next/font/google";
+import { Manrope, Pacifico, Sora } from "next/font/google";
 import "./globals.css";
 
 const bodyFont = Manrope({
@@ -7,7 +7,7 @@ const bodyFont = Manrope({
   subsets: ["latin"],
 });
 
-const signatureFont = Alex_Brush({
+const signatureFont = Pacifico({
   variable: "--font-signature",
   weight: "400",
   subsets: ["latin"],

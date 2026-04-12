@@ -38,17 +38,18 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
       <Header />
 
-      <section className={`${shell} mt-7 grid items-start gap-6 md:mt-8 md:grid-cols-[minmax(360px,1fr)_minmax(280px,360px)] md:items-center`}>
-        <div className="max-w-[370px]">
-          <h1 className="m-0 leading-[0.84] text-[#053b45]">
-            <span className="block font-[var(--font-signature)] text-[clamp(4rem,15vw,5.9rem)] font-normal">Ishan</span>
-            <strong className="block font-[var(--font-name)] text-[clamp(2.95rem,11.3vw,4.8rem)] font-medium tracking-[-0.015em] text-[#053b45]">Kavinda</strong>
+      <section className="mx-auto h-[890px] w-full max-w-[1920px] opacity-100 rotate-0" aria-label="Hero section">
+        <div className="mx-auto mt-[153px] flex h-[665px] w-[min(1280px,calc(100%-2rem))] justify-between opacity-100 rotate-0">
+        <div className="max-w-[565px]">
+          <h1 className="m-0 h-[245px] w-[565px] text-[#053b45] opacity-100 rotate-0">
+            <span className="block font-[var(--font-signature)] text-[150px] font-normal leading-[127.2px] tracking-[-1.4px]">Ishan</span>
+            <strong className="block font-[var(--font-name)] text-[120px] font-normal leading-[127.2px] tracking-[-1.4px] text-[#053b45]">Kavinda</strong>
           </h1>
 
-          <p className="mt-6 max-w-[34ch] text-[0.72rem] leading-[1.42] text-[#586869]">
-            I design digital products that are <strong className="font-extrabold text-[#283f42]">simple, clear,</strong>
+          <p className="mt-6 h-[56px] w-[565px] text-[20px] font-normal leading-[28px] text-[#586869] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+            I design digital products that are <strong className="text-[20px] font-bold leading-[28px] text-[#283f42]" style={{ fontFamily: "Inter, sans-serif" }}>simple, clear,</strong>
             <br />
-            <strong className="font-extrabold text-[#283f42]"> &amp; effective</strong>
+            <strong className="text-[20px] font-bold leading-[28px] text-[#283f42]" style={{ fontFamily: "Inter, sans-serif" }}> &amp; effective</strong>
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
@@ -66,8 +67,9 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[0.65rem] justify-self-start md:justify-self-end">
+        <div className="relative aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-[0.65rem] self-start">
           <Image src="/pic1.jpg" alt="Ishan Kavinda portrait" fill loading="lazy" sizes="(max-width: 820px) 100vw, 360px" className="object-cover object-center" />
+        </div>
         </div>
       </section>
 
