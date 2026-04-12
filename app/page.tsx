@@ -34,27 +34,29 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
       <Header />
 
-      <section className={`${shell} mt-8 grid gap-6 md:grid-cols-[minmax(360px,1fr)_minmax(280px,360px)] md:items-center`}>
-        <div>
-          <h1 className="m-0 leading-[0.88] text-[#0a4a58]">
-            <span className="block font-[var(--font-display)] text-[clamp(3rem,8.2vw,6rem)] font-normal">Ishan</span>
-            <strong className="block font-[var(--font-body)] text-[clamp(2.7rem,5.8vw,4.75rem)] font-medium tracking-[-0.02em] text-[#083a44]">Kavinda</strong>
+      <section className={`${shell} mt-7 grid items-start gap-6 md:mt-8 md:grid-cols-[minmax(360px,1fr)_minmax(280px,360px)] md:items-center`}>
+        <div className="max-w-[370px]">
+          <h1 className="m-0 leading-[0.84] text-[#053b45]">
+            <span className="block font-[var(--font-signature)] text-[clamp(4rem,15vw,5.9rem)] font-normal">Ishan</span>
+            <strong className="block font-[var(--font-name)] text-[clamp(2.95rem,11.3vw,4.8rem)] font-medium tracking-[-0.015em] text-[#053b45]">Kavinda</strong>
           </h1>
 
-          <p className="mt-6 max-w-[30ch] text-[0.82rem] leading-[1.5] text-[#586869]">
-            I design digital products that are <strong className="font-extrabold text-[#283f42]">simple, clear, &amp; effective.</strong>
+          <p className="mt-6 max-w-[34ch] text-[0.72rem] leading-[1.42] text-[#586869] sm:text-[0.82rem] sm:leading-[1.5]">
+            I design digital products that are <strong className="font-extrabold text-[#283f42]">simple, clear,</strong>
+            <br className="sm:hidden" />
+            <strong className="font-extrabold text-[#283f42]"> &amp; effective</strong>
           </p>
 
-          <div className="mt-[1.1rem] flex flex-wrap gap-[0.45rem]">
-            <Link href="/projects" className="rounded-[6px] border border-[#0f3a44] bg-[#0e1113] px-[0.76rem] py-[0.37rem] text-[0.6rem] font-semibold text-[#f2f4f5] no-underline">
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link href="/projects" className="rounded-[10px] border border-[#0f3a44] bg-[#0e1113] px-[0.95rem] py-[0.5rem] text-[0.62rem] font-semibold text-[#f2f4f5] no-underline">
               View My Work
             </Link>
-            <button type="button" className="rounded-[6px] border border-[#0f3a44] bg-transparent px-[0.76rem] py-[0.37rem] text-[0.6rem] font-semibold text-[#294b51]">
+            <button type="button" className="rounded-[10px] border border-[#0f3a44] bg-transparent px-[1.15rem] py-[0.5rem] text-[0.62rem] font-semibold text-[#294b51]">
               Let&apos;s Talk
             </button>
           </div>
 
-          <p className="mt-[2.2rem] max-w-[32ch] text-[0.57rem] leading-[1.45] text-[#677474]">
+          <p className="mt-10 max-w-[31ch] text-[0.56rem] leading-[1.42] text-[#677474] sm:mt-[2.2rem] sm:max-w-[32ch] sm:text-[0.57rem] sm:leading-[1.45]">
             Helping <strong className="font-extrabold text-[#1f383d]">startups and businesses</strong> turn ideas into <br />
             <strong className="font-extrabold text-[#1f383d]">clean, usable experiences.</strong>
           </p>
@@ -74,7 +76,7 @@ export default function Home() {
           <h2 className="m-0 text-[clamp(2.2rem,4.6vw,3.5rem)] leading-[1] tracking-[-0.01em] text-[#123f47]">
             <strong className="font-semibold">Selected</strong>
             <br />
-            <span className="font-medium">Product Work</span>
+            <span className="font-normal">Product Work</span>
           </h2>
           <Link href="/projects" className="rounded-[12px] border border-[#262f33] px-[1.35rem] py-[0.58rem] text-[0.9rem] leading-none text-[#151b1e] no-underline">
             View Project -&gt;
