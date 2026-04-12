@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+@keyframes marquee-slide {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.marquee-track {
+	animation: marquee-slide 36s linear infinite;
+	will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marquee-track {
+		animation: none;
+	}
+}
+
+.mobileCarousel {
+	overflow: hidden;
+	opacity: 1;
+}
+
+.mobileTrack {
+	display: flex;
+	width: max-content;
+	gap: 1rem;
+	animation: marquee-slide 38s linear infinite;
+	will-change: transform;
+}
+
+.mobileCard {
+	width: 282px;
+	flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mobileTrack {
+		animation: none;
+	}
+}

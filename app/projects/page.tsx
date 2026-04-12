@@ -4,10 +4,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function ProjectsPage() {
-  const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
+  const shell = "mx-auto w-[min(1440px,calc(100%-2rem))]";
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
-  const sampleProjectImage = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=max&auto=format&q=85";
+  const sampleProjectImage = "/blue-small.gif";
 
   const projects = [
     { slug: "prjectName", title: "prjectName", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-200 via-zinc-100 to-zinc-300" },
@@ -17,6 +17,7 @@ export default function ProjectsPage() {
     { slug: "analytics-hub", title: "ANALYTICS HUB", subtitle: cardSubtitle, description: cardDescription, gradient: "from-purple-900 via-purple-700 to-blue-700" },
     { slug: "mobile-banking", title: "MOBILE BANKING", subtitle: cardSubtitle, description: cardDescription, gradient: "from-emerald-900 via-emerald-700 to-teal-700" },
   ];
+  const marqueeProjects = [...projects, ...projects, ...projects];
 
   return (
     <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
@@ -28,7 +29,7 @@ export default function ProjectsPage() {
         </Link>
       </nav>
 
-      <section className={`${shell} mt-4`}>
+      <section className="mx-auto mt-4 h-[890px] w-full max-w-[1920px] opacity-100 rotate-0">
         <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.66rem] text-[#6e7d80]">
           <span className="text-[0.7rem] leading-none text-[#123f47]" aria-hidden="true">•</span>
           Showcase
@@ -48,19 +49,22 @@ export default function ProjectsPage() {
         </p>
       </section>
 
-      <section className={`${shell} mt-6`}>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              slug={project.slug}
-              title={project.title}
-              subtitle={project.subtitle}
-              description={project.description}
-              gradient={project.gradient}
-              imageUrl={sampleProjectImage}
-            />
+      <section className={`${shell} mt-6`} aria-label="Always scrolling selected project work">
+        <div className="mobileCarousel">
+          <div className="mobileTrack">
+          {marqueeProjects.map((project, index) => (
+            <div key={`${project.slug}-${index}`} className="mobileCard">
+              <ProjectCard
+                slug={project.slug}
+                title={project.title}
+                subtitle={project.subtitle}
+                description={project.description}
+                gradient={project.gradient}
+                imageUrl={sampleProjectImage}
+              />
+            </div>
           ))}
+          </div>
         </div>
       </section>
 

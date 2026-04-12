@@ -20,11 +20,11 @@ export default function Header() {
   };
 
   return (
-    <header className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-start justify-between gap-3 pt-4 sm:flex-row sm:items-center">
-      <Link href="/" className="text-[0.72rem] font-bold tracking-[0.01em] text-[#0d3b46] no-underline">
+    <header className="mx-auto flex h-[81px] w-full max-w-[1920px] items-center justify-between border-b border-[#d4dbda] px-[320px]">
+      <Link href="/" className="inline-flex h-[19px] w-[77px] items-center text-[0.72rem] font-bold tracking-[0.01em] text-[#0d3b46] no-underline opacity-100 rotate-0">
         Ishan.
       </Link>
-      <div className="flex w-full flex-wrap items-center gap-[0.45rem] text-[0.58rem] text-[#2f555d] sm:w-auto sm:justify-end">
+      <div className="flex items-center gap-[0.45rem] text-[0.58rem] text-[#2f555d]">
         <a
           href="https://www.behance.net"
           target="_blank"
@@ -43,7 +43,7 @@ export default function Header() {
         >
           <FaLinkedinIn aria-hidden="true" focusable="false" />
         </a>
-        <span className="sm:ml-1">Let&apos;s Work Together</span>
+        <span className="ml-1">Let&apos;s Work Together</span>
         <button
           type="button"
           onClick={handleCopyEmail}
