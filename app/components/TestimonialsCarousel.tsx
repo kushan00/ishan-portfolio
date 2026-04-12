@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type Testimonial = {
   company: string;
@@ -14,112 +14,163 @@ const testimonials: Testimonial[] = [
     company: "ABC Company",
     role: "Product Manager",
     copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
+      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
     theme: "dark",
   },
   {
     company: "Hatch Works",
     role: "Product Designer",
     copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
+      "Ishan helped us turn a dense workflow into something that felt obvious and calm. The product became easier to understand and a lot faster to use.",
     theme: "light",
   },
   {
     company: "Eth LLC",
     role: "Founder",
     copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
+      "The designs were clear, practical, and very easy to hand off. We saw a real improvement in how users moved through the product.",
     theme: "dark",
   },
   {
     company: "Ford Australia",
     role: "Creative Director",
     copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
+      "Ishan quickly understood the problem and translated it into a cleaner experience. The final result felt modern, direct, and usable.",
     theme: "light",
   },
   {
     company: "Mango Media",
     role: "Manager",
     copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
+      "We valued the structured thinking and the attention to detail. Every step of the experience was simplified without losing clarity.",
     theme: "dark",
+  },
+  {
+    company: "Loopcore Studio",
+    role: "Lead Designer",
+    copy:
+      "The carousel work was thoughtful and refined. It made the page feel much more polished and easy to scan.",
+    theme: "light",
   },
 ];
 
 export default function TestimonialsCarousel() {
+  const items = useMemo(() => testimonials, []);
+  const trackRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeControl, setActiveControl] = useState<"prev" | "next">("next");
-  const visibleItems = [
-    testimonials[activeIndex],
-    testimonials[(activeIndex + 1) % testimonials.length],
-  ];
+
+  const scrollToIndex = (index: number) => {
+    const track = trackRef.current;
+    const card = track?.children[index] as HTMLElement | undefined;
+
+    if (!track || !card) {
+      return;
+    }
+
+    const offset = Math.max(0, card.offsetLeft - 24);
+    track.scrollTo({ left: offset, behavior: "smooth" });
+    setActiveIndex(index);
+  };
 
   const goPrevious = () => {
-    setActiveControl("prev");
-    setActiveIndex((current) =>
-      current === 0 ? testimonials.length - 1 : current - 1,
-    );
+    scrollToIndex(activeIndex === 0 ? items.length - 1 : activeIndex - 1);
   };
 
   const goNext = () => {
-    setActiveControl("next");
-    setActiveIndex((current) => (current + 1) % testimonials.length);
+    scrollToIndex((activeIndex + 1) % items.length);
   };
 
-  return (
-    <div className="flex w-full flex-col gap-4">
-      <div className="flex gap-3 overflow-hidden" aria-live="polite">
-        {visibleItems.map((item, idx) => (
-          <article
-            key={item.company + item.role + idx}
-            className={`flex min-h-[310px] w-[460px] flex-[0_0_460px] flex-col rounded-[18px] px-[1.15rem] pb-[0.95rem] pt-[1.1rem] ${
-              item.theme === "dark"
-                ? "bg-[#303236] text-[#f1f4f4]"
-                : "bg-[#888a8d] text-[#f4f7f7]"
-            }`}
-          >
-            <p className="m-0 text-[2.15rem] font-bold leading-none">&ldquo;</p>
-            <p className="mt-[0.25rem] text-[0.77rem] leading-[1.35]">{item.copy}</p>
-            <footer className="mt-auto flex items-center gap-[0.45rem] pt-[0.8rem]">
-              <span className="h-[22px] w-[22px] rounded-full bg-[#004a56]" aria-hidden="true" />
-              <div>
-                <p className="m-0 text-[0.7rem]">{item.company}</p>
-                <small className="text-[0.5rem] text-[#c7d0d1]">{item.role}</small>
-              </div>
-            </footer>
-          </article>
-        ))}
-      </div>
+  useEffect(() => {
+    scrollToIndex(0);
+  }, []);
 
-      <div className="flex gap-2">
-        <button
-          type="button"
-          aria-pressed={activeControl === "prev"}
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition ${
-            activeControl === "prev"
-              ? "border-[#272e3f] bg-[#272e3f] text-white"
-              : "border-[#d5dfe1] bg-[#eef2f3] text-[#4f666b] hover:border-[#272e3f] hover:text-[#272e3f]"
-          }`}
-          onClick={goPrevious}
-          aria-label="Previous testimonial"
-        >
-          &lt;
-        </button>
-        <button
-          type="button"
-          aria-pressed={activeControl === "next"}
-          className={`inline-flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition ${
-            activeControl === "next"
-              ? "border-[#272e3f] bg-[#272e3f] text-white"
-              : "border-[#d5dfe1] bg-[#eef2f3] text-[#4f666b] hover:border-[#272e3f] hover:text-[#272e3f]"
-          }`}
-          onClick={goNext}
-          aria-label="Next testimonial"
-        >
-          &gt;
-        </button>
+  return (
+    <section className="mx-auto h-[709px] w-full max-w-[1920px] bg-[#eceeed] opacity-100 rotate-0" aria-label="Testimonials">
+      <div className="mx-auto grid h-full w-full max-w-[1920px] content-center gap-6 px-[clamp(1rem,10vw,320px)] md:grid-cols-[284px_1fr] md:items-start">
+        <div className="flex h-[160px] w-[284px] flex-col gap-[12px] opacity-100 rotate-0">
+          <p
+            className="m-0 inline-flex h-[24px] w-[83px] items-center text-[14px] font-normal leading-[24px] text-[#000000]"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Testimonials
+          </p>
+          <h3 className="m-0 h-[124px] w-[284px] text-[#123f47] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
+            <strong className="block text-[54px] font-semibold leading-[62px]">What</strong>
+            <span className="block text-[54px] font-normal leading-[62px]">People Say</span>
+          </h3>
+
+          <div className="mt-[18px] flex gap-2">
+            <button
+              type="button"
+              aria-label="Previous testimonial"
+              className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#eceeed] bg-[#f8f9f7] text-[#8c8c8c] transition hover:border-[#2E2E2E] hover:text-[#2E2E2E]"
+              onClick={goPrevious}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Next testimonial"
+              className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#eceeed] bg-[#011214] text-[#ffffff] transition hover:bg-[#2E2E2E]"
+              onClick={goNext}
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className="flex w-full items-start justify-end">
+          <div
+            ref={trackRef}
+            className="flex w-full gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Testimonials carousel"
+          >
+            {items.map((item, index) => {
+              const isActive = index === activeIndex;
+
+              return (
+                <article
+                  key={item.company + item.role + index}
+                  className={`relative h-[538px] w-[738px] shrink-0 rounded-[28px] px-[24px] py-[86px] text-[#ffffff] opacity-100 rotate-0 transition-colors duration-300 ${
+                    isActive ? "bg-[#2E2E2E]" : "bg-[#8C8C8C]"
+                  }`}
+                  aria-label={`${item.company} testimonial`}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <p className="m-0 text-[64px] leading-none text-[#ffffff]" aria-hidden="true" style={{ fontFamily: "Inter, sans-serif" }}>
+                    &ldquo;
+                  </p>
+
+                  <p
+                    className="mt-[22px] max-w-[690px] text-[24px] font-normal leading-[32px] tracking-[0] text-[#ffffff]"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    {item.copy}
+                  </p>
+
+                  <footer className="absolute bottom-[24px] left-[24px] flex items-center gap-[10px]">
+                    <span
+                      className="inline-flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full bg-[#011214] text-[0.9rem] font-medium text-[#f8f9f7]"
+                      aria-hidden="true"
+                      style={{ fontFamily: "Inter, sans-serif" }}
+                    >
+                      {item.company.charAt(0)}
+                    </span>
+                    <div>
+                      <p className="m-0 h-[32px] w-[164px] text-[24px] font-normal leading-[32px] text-[#ffffff]" style={{ fontFamily: "Inter, sans-serif" }}>
+                        {item.company}
+                      </p>
+                      <p className="m-0 text-[14px] leading-[24px] text-[#d8d8d8]" style={{ fontFamily: "Inter, sans-serif" }}>
+                        {item.role}
+                      </p>
+                    </div>
+                  </footer>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

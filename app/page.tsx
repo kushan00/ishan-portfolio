@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import TestimonialsCarousel from "@/app/components/TestimonialsCarousel";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
 export default function Home() {
   const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
@@ -190,22 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-[#eceeed] py-7" aria-label="Testimonials">
-        <div className={`${shell} grid grid-cols-1 gap-6 md:grid-cols-[240px_1fr] md:items-start`}>
-          <div>
-            <p className="m-0 inline-flex items-center gap-[0.36rem] text-[0.58rem] text-[#66797d]">
-              <span aria-hidden="true">• </span>
-              Testimonials
-            </p>
-            <h3 className="mt-[0.4rem] text-[2.8rem] leading-[0.95] tracking-[-0.01em] text-[#123f47]">
-              <strong>What</strong>
-              <br />
-              People Say
-            </h3>
-          </div>
-          <TestimonialsCarousel />
-        </div>
-      </section>
+      <TestimonialsCarousel />
 
       <section className="mx-auto h-[329px] w-full max-w-[1920px] bg-[#F8F9F7] opacity-100 rotate-0" aria-label="Contact call to action">
         <div className="mx-auto flex h-full w-[min(1350px,calc(100%-2rem))] flex-col items-center justify-center text-center opacity-100 rotate-0">
