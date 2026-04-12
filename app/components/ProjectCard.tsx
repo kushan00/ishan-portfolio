@@ -84,8 +84,18 @@ export default function ProjectCard({ slug, title, subtitle, description, gradie
           )}
         </div>
         <div>
-          <h4 className="m-0 text-[0.54rem] font-medium leading-[1.2] text-[#0f3a44]">{subtitle}</h4>
-          <p className="mt-[0.18rem] text-[0.42rem] leading-[1.35] text-[#6f7f83]">{description}</p>
+          <h4
+            className="m-0 h-[32px] w-full max-w-[588px] text-[24px] font-normal leading-[32px] text-[#002B31] opacity-100 rotate-0"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            {subtitle}
+          </h4>
+          <p
+            className="m-0 mt-1 h-[22px] w-full max-w-[588px] text-[14px] font-normal leading-[22px] text-[#002B31] opacity-100 rotate-0"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            {description}
+          </p>
         </div>
       </article>
     </Link>
