@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -99,45 +100,50 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="portfolio-page">
+    <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
       <Header />
 
-      <nav className="project-breadcrumb">
-        <Link href="/projects" className="breadcrumb-back">
+      <nav className="mx-auto mt-6 w-[min(980px,calc(100%-0.4rem))]">
+        <Link href="/projects" className="inline-flex items-center text-[0.62rem] font-medium text-[#1d464f] no-underline transition hover:text-[#0a3a44]">
           ← Home
         </Link>
       </nav>
 
-      <div className="project-header">
-        <p className="project-kicker">
+      <div className="mx-auto mt-9 w-[min(980px,calc(100%-0.4rem))]">
+        <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.56rem] text-[#6e7d80]">
           <span>•</span> Case Studies
         </p>
-        <h1 className="project-title">
+        <h1 className="mt-[0.5rem] text-[3.2rem] leading-[0.9] tracking-[-0.01em] text-[#123f47]">
           {project.slug === 'prjectName' ? (
             <>
-              <span>Project </span>
-              <strong>Name</strong>
+              <span className="font-normal text-[#123f47]">Project </span>
+              <strong className="font-bold text-[#0a2f38]">Name</strong>
             </>
           ) : (
-            <strong>{project.selectedTitle}</strong>
+            <strong className="font-bold text-[#0a2f38]">{project.selectedTitle}</strong>
           )}
         </h1>
       </div>
 
-      <div className="project-hero">
-        <img
-          src={project.image}
-          alt={project.selectedTitle}
-          className="project-hero-image"
-        />
+      <div className="mx-auto mt-8 w-[min(980px,calc(100%-0.4rem))]">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem]">
+          <Image
+            src={project.image}
+            alt={project.selectedTitle}
+            fill
+            loading="lazy"
+            sizes="(max-width: 980px) 100vw, 980px"
+            className="object-cover object-center"
+          />
+        </div>
       </div>
 
-      <div className="project-content">
-        <div className="project-content-inner">
-          <h2 className="project-subtitle">{project.subtitle}</h2>
-          <p className="project-description">{project.description}</p>
-          <div className="project-full-description">
-            <p>{project.fullDescription}</p>
+      <div className="mx-auto mb-12 mt-10 w-[min(980px,calc(100%-0.4rem))]">
+        <div className="max-w-[840px]">
+          <h2 className="m-0 text-[1.8rem] font-semibold leading-[1.2] text-[#123f47]">{project.subtitle}</h2>
+          <p className="mt-4 text-[0.95rem] leading-[1.6] text-[#617477]">{project.description}</p>
+          <div className="mt-8 border-t border-[#d4dbda] pt-8">
+            <p className="m-0 text-[0.9rem] leading-[1.8] text-[#677474]">{project.fullDescription}</p>
           </div>
         </div>
       </div>
