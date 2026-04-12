@@ -207,16 +207,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full border-t border-[#d2d8d8] bg-[#e4e6e6] py-[1.28rem]" aria-label="Contact call to action">
-        <div className={`${shell} text-center`}>
-          <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.56rem] text-[#6f8084]">
-            <span className="h-[6px] w-[6px] rounded-full bg-[#21363a]" aria-hidden="true" />
+      <section className="mx-auto h-[329px] w-full max-w-[1920px] bg-[#F8F9F7] opacity-100 rotate-0" aria-label="Contact call to action">
+        <div className="mx-auto flex h-full w-[min(1350px,calc(100%-2rem))] flex-col items-center justify-center text-center opacity-100 rotate-0">
+          <p
+            className="m-0 inline-flex h-[24px] w-[139px] items-center justify-center text-[14px] font-normal leading-[24px] text-[#011214]"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
             Ready When You Are
           </p>
-          <h3 className="mt-[0.55rem] text-[3.35rem] leading-[1.04] tracking-[-0.012em] text-[#14252a]">
+          <h3
+            className="mt-[0.55rem] h-[62px] w-[min(1350px,100%)] text-[54px] font-medium leading-[62px] text-[#011214]"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
             Let&apos;s build something simple and effective together.
           </h3>
-          <a className="mt-[0.75rem] inline-block rounded-full bg-[#0b0f11] px-[0.66rem] py-[0.3rem] text-[0.5rem] text-[#f0f3f4] no-underline" href="mailto:ishan.kavinda@example.com">
+          <a
+            className="mt-[0.75rem] inline-flex h-[52px] w-[134px] items-center justify-center rounded-[16px] bg-[#0b0f11] px-[24px] py-[14px] text-[14px] font-medium leading-[24px] text-[#f0f3f4] no-underline opacity-100 rotate-0"
+            style={{ fontFamily: "Inter, sans-serif" }}
+            href="mailto:ishan.kavinda@example.com"
+          >
             Book a Call
           </a>
         </div>
