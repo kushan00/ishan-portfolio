@@ -103,13 +103,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
       <Header />
 
-      <nav className="mx-auto mt-6 w-[min(980px,calc(100%-0.4rem))]">
+      <nav className="mx-auto mt-6 w-[min(1280px,calc(100%-2rem))]">
         <Link href="/projects" className="inline-flex items-center text-[0.62rem] font-medium text-[#1d464f] no-underline transition hover:text-[#0a3a44]">
           ← Home
         </Link>
       </nav>
 
-      <div className="mx-auto mt-9 w-[min(980px,calc(100%-0.4rem))]">
+      <div className="mx-auto mt-9 w-[min(1280px,calc(100%-2rem))]">
         <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.56rem] text-[#6e7d80]">
           <span>•</span> Case Studies
         </p>
@@ -125,7 +125,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </h1>
       </div>
 
-      <div className="mx-auto mt-8 w-[min(980px,calc(100%-0.4rem))]">
+      <div className="mx-auto mt-8 w-[min(1280px,calc(100%-2rem))]">
         <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem]">
           <Image
             src={project.image}
@@ -138,7 +138,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </div>
 
-      <div className="mx-auto mb-12 mt-10 w-[min(980px,calc(100%-0.4rem))]">
+      <div className="mx-auto mb-12 mt-10 w-[min(1280px,calc(100%-2rem))]">
         <div className="max-w-[840px]">
           <h2 className="m-0 text-[1.8rem] font-semibold leading-[1.2] text-[#123f47]">{project.subtitle}</h2>
           <p className="mt-4 text-[0.95rem] leading-[1.6] text-[#617477]">{project.description}</p>

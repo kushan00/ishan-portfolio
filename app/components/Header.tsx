@@ -1,9 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { FaBehance, FaLinkedinIn } from "react-icons/fa";
 
 export default function Header() {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    const email = "ishan.kavinda@example.com";
+
+    try {
+      await navigator.clipboard.writeText(email);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
   return (
-    <header className="mx-auto flex w-[min(980px,calc(100%-0.4rem))] flex-col items-start justify-between gap-3 pt-4 sm:flex-row sm:items-center">
+    <header className="mx-auto flex w-[min(1280px,calc(100%-2rem))] flex-col items-start justify-between gap-3 pt-4 sm:flex-row sm:items-center">
       <Link href="/" className="text-[0.72rem] font-bold tracking-[0.01em] text-[#0d3b46] no-underline">
         Ishan.
       </Link>
@@ -27,12 +44,17 @@ export default function Header() {
           <FaLinkedinIn aria-hidden="true" focusable="false" />
         </a>
         <span className="sm:ml-1">Let&apos;s Work Together</span>
-        <a
-          className="rounded-full border border-[#a9b8b9] px-[0.55rem] py-[0.26rem] text-[#1d464f] no-underline transition hover:border-[#0f3a44] hover:text-[#0f3a44]"
-          href="mailto:ishan.kavinda@example.com"
+        <button
+          type="button"
+          onClick={handleCopyEmail}
+          className={`rounded-full border px-[0.55rem] py-[0.26rem] no-underline transition ${
+            isCopied
+              ? "border-[#0b0f11] bg-[#0b0f11] text-[#f2f4f5]"
+              : "border-[#a9b8b9] text-[#1d464f] hover:border-[#0f3a44] hover:text-[#0f3a44]"
+          }`}
         >
-          Copy Email
-        </a>
+          {isCopied ? "Copied" : "Copy Email"}
+        </button>
       </div>
     </header>
   );

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function ProjectsPage() {
-  const shell = "mx-auto w-[min(980px,calc(100%-0.4rem))]";
+  const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
   const sampleProjectImage = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=max&auto=format&q=85";

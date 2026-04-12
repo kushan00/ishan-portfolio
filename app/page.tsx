@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import TestimonialsCarousel from "@/app/components/TestimonialsCarousel";
 
 export default function Home() {
-  const shell = "mx-auto w-[min(980px,calc(100%-0.4rem))]";
+  const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
 
   const works = [
     { title: "Analytics Command Center", imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=700&fit=crop" },
@@ -41,9 +41,9 @@ export default function Home() {
             <strong className="block font-[var(--font-name)] text-[clamp(2.95rem,11.3vw,4.8rem)] font-medium tracking-[-0.015em] text-[#053b45]">Kavinda</strong>
           </h1>
 
-          <p className="mt-6 max-w-[34ch] text-[0.72rem] leading-[1.42] text-[#586869] sm:text-[0.82rem] sm:leading-[1.5]">
+          <p className="mt-6 max-w-[34ch] text-[0.72rem] leading-[1.42] text-[#586869]">
             I design digital products that are <strong className="font-extrabold text-[#283f42]">simple, clear,</strong>
-            <br className="sm:hidden" />
+            <br />
             <strong className="font-extrabold text-[#283f42]"> &amp; effective</strong>
           </p>
 
