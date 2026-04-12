@@ -82,7 +82,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={`${shell} mt-4 flex gap-[0.9rem] overflow-x-auto pb-[0.55rem]`} aria-label="Selected work gallery">
+      <section
+        className={`${shell} mt-4 flex gap-[0.9rem] overflow-x-auto pb-[0.55rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden`}
+        aria-label="Selected work gallery"
+      >
         {works.map((work) => (
           <article key={work.title} aria-label={work.title} className="w-[clamp(280px,29vw,360px)] shrink-0">
             <div className="relative h-[clamp(170px,20vw,230px)] overflow-hidden rounded-[0.78rem] bg-[#dfe5e6]">
