@@ -14,6 +14,7 @@ export default function Home() {
     { title: "SaaS Project Tracker", imageUrl: "/blue-small.gif" },
     { title: "Fitness Product Suite", imageUrl: "/blue-small.gif" },
   ];
+  const scrollingWorks = [...works, ...works];
 
   const projects = [
     { title: "prjectName", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#002B31] via-[#002B31] to-[#002B31]" },
@@ -99,12 +100,12 @@ export default function Home() {
         </div>
 
         <div
-          className="mx-auto mt-[104px] h-[425px] w-full max-w-[1920px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mobileCarousel mx-auto mt-[128px] h-[425px] w-full max-w-[1920px] opacity-100 rotate-0"
           aria-label="Selected work gallery"
         >
-          <div className="flex h-full w-max min-w-full gap-6 px-4">
-            {works.map((work) => (
-              <article key={work.title} aria-label={work.title} className="h-full w-[380px] shrink-0">
+          <div className="mobileTrack h-full gap-6 px-4">
+            {scrollingWorks.map((work, index) => (
+              <article key={`${work.title}-${index}`} aria-label={work.title} className="h-full w-[380px] shrink-0">
                 <div className="relative h-full overflow-hidden rounded-[16px] bg-[#dfe5e6]">
                   <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 768px) 80vw, 380px" className="object-cover object-center" />
                 </div>
