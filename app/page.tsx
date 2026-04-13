@@ -120,7 +120,10 @@ export default function Home() {
       <section className="mx-auto mt-3 h-[606px] w-full max-w-[1920px] bg-[#011214] opacity-100 rotate-0" aria-label="Process section">
         <div className="mx-auto flex h-[486px] w-[min(1340px,calc(100%-2rem))] flex-col justify-between pt-[60px] opacity-100 rotate-0">
           <div className="flex h-[132px] w-[514px] flex-col gap-[12px] opacity-100 rotate-0">
-            <p className="m-0 inline-flex items-center gap-[0.42rem] text-[0.72rem] text-[#d2dee1]">
+            <p
+              className="m-0 inline-flex h-[24px] w-auto items-center gap-[0.42rem] whitespace-nowrap text-[16px] font-normal leading-[24px] tracking-[0] capitalize text-[#d2dee1]"
+              style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
+            >
               <span className="h-[7px] w-[7px] rounded-full bg-[#e6ecee]" aria-hidden="true" />
               My Process
             </p>
@@ -171,9 +174,12 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-[1920px] py-10 opacity-100 rotate-0" aria-label="Project Breakdown section">
         <div className={`${shell} grid gap-6 md:grid-cols-[220px_1fr] md:items-start`}>
-          <div>
-            <p className="text-[0.56rem] text-[#738487]">
-              <span aria-hidden="true">• </span>
+          <div className="md:sticky md:top-24 md:self-start">
+            <p
+              className="m-0 inline-flex h-[24px] w-[88px] items-center whitespace-nowrap text-[14px] font-normal leading-[24px] tracking-[0] text-[#738487]"
+              style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
+            >
+              <span className="mr-[6px]" aria-hidden="true">•</span>
               Case Studies
             </p>
             <h3 className="mt-1 text-[2.7rem] leading-[0.9] text-[#133f47]">
