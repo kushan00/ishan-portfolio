@@ -21,6 +21,7 @@ const projects = [
     fullDescription:
       'prjectName is a revolutionary crypto wallet designed for everyday users who want to manage their digital assets with confidence. We focused on simplifying the onboarding process, making portfolio tracking intuitive, and providing clear feedback at every step. The design emphasizes clarity, security, and accessibility.',
     gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
+    video: '/sample1.mp4',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop',
   },
   {
@@ -33,6 +34,7 @@ const projects = [
     fullDescription:
       'CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.',
     gradient: 'from-red-900 via-fuchsia-700 to-amber-400',
+    video: '/sample2.mp4',
     image: 'https://images.unsplash.com/photo-1516535541601-4dba8344ce5e?w=1200&h=675&fit=crop',
   },
   {
@@ -45,6 +47,7 @@ const projects = [
     fullDescription:
       'TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.',
     gradient: 'from-zinc-950 via-zinc-900 to-zinc-700',
+    video: '/sample3.mp4',
     image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&h=675&fit=crop',
   },
   {
@@ -57,6 +60,7 @@ const projects = [
     fullDescription:
       'DATA CONSOLE brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
     gradient: 'from-zinc-900 via-slate-800 to-slate-600',
+    video: '/sample4.mp4',
     image: 'https://images.unsplash.com/photo-1633356713697-812ab3fb49f5?w=1200&h=675&fit=crop',
   },
   {
@@ -129,6 +133,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span className="font-normal text-[#123f47]">Project </span>
               <strong className="font-bold text-[#0a2f38]">Name</strong>
             </>
+          ) : project.slug === 'casino-xp' ? (
+            <>
+              <span className="font-normal text-[#123f47]">Casino </span>
+              <strong className="font-bold text-[#0a2f38]">XP</strong>
+            </>
+          ) : project.slug === 'token-landing' ? (
+            <>
+              <span className="font-normal text-[#123f47]">Token </span>
+              <strong className="font-bold text-[#0a2f38]">Landing</strong>
+            </>
           ) : (
             <strong className="font-bold text-[#0a2f38]">{project.selectedTitle}</strong>
           )}
@@ -137,14 +151,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <div className="mx-auto mt-8 w-[min(1280px,calc(100%-2rem))]">
         <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem]">
-          <Image
-            src={project.image}
-            alt={project.selectedTitle}
-            fill
-            loading="lazy"
-            sizes="(max-width: 980px) 100vw, 980px"
-            className="object-cover object-center"
-          />
+          {project.video ? (
+            <video
+              src={project.video}
+              className="h-full w-full object-cover object-center"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <Image
+              src={project.image}
+              alt={project.selectedTitle}
+              fill
+              loading="lazy"
+              sizes="(max-width: 980px) 100vw, 980px"
+              className="object-cover object-center"
+            />
+          )}
         </div>
       </div>
 

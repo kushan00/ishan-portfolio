@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProjectCard from "../components/ProjectCard";
-import LazyProjectVideo from "../components/LazyProjectVideo";
 
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -22,11 +21,43 @@ export default function ProjectsPage() {
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
 
-  const videos = [
-    { src: "/sample1.mp4", title: "PROJECTNAME", subtitle: cardSubtitle, description: cardDescription },
-    { src: "/sample2.mp4", title: "CASINO XP", subtitle: cardSubtitle, description: cardDescription },
-    { src: "/sample3.mp4", title: "TOKEN LANDING", subtitle: cardSubtitle, description: cardDescription },
-    { src: "/sample4.mp4", title: "DATA CONSOLE", subtitle: cardSubtitle, description: cardDescription },
+  const projects = [
+    {
+      slug: "prjectName",
+      title: "PROJECTNAME",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
+      imageUrl: "/ishan.png",
+      videoUrl: "/sample1.mp4",
+    },
+    {
+      slug: "casino-xp",
+      title: "CASINO XP",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-red-900 via-fuchsia-700 to-amber-400",
+      imageUrl: "/ishan.png",
+      videoUrl: "/sample2.mp4",
+    },
+    {
+      slug: "token-landing",
+      title: "TOKEN LANDING",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
+      imageUrl: "/ishan.png",
+      videoUrl: "/sample3.mp4",
+    },
+    {
+      slug: "data-console",
+      title: "DATA CONSOLE",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-zinc-900 via-slate-800 to-slate-600",
+      imageUrl: "/ishan.png",
+      videoUrl: "/sample4.mp4",
+    },
   ];
 
   return (
@@ -40,7 +71,7 @@ export default function ProjectsPage() {
             className="group flex items-center gap-2 text-base font-medium text-brand-text-muted transition hover:text-brand-primary"
           >
             <span className="transition-transform group-hover:-translate-x-1">&lt;-</span>
-            Back to Home
+            Home
           </Link>
         </Reveal>
       </nav>
@@ -79,18 +110,17 @@ export default function ProjectsPage() {
 
         <div className="main-container mt-24">
           <div className="grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2">
-            {videos.map((video, index) => (
-              <Reveal key={`${video.src}-${index}`} delay={0.1 * (index % 2)}>
-                <div className="flex flex-col gap-4">
-                  <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-[#F0F0F0]">
-                    <LazyProjectVideo src={video.src} className="rounded-2xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-brand-primary">{video.title}</h3>
-                    <p className="text-sm text-brand-text-muted mt-1">{video.subtitle}</p>
-                    <p className="text-sm text-brand-text-muted leading-relaxed mt-2">{video.description}</p>
-                  </div>
-                </div>
+            {projects.map((project, index) => (
+              <Reveal key={`${project.slug}-${index}`} delay={0.1 * (index % 2)}>
+                <ProjectCard
+                  slug={project.slug}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  description={project.description}
+                  gradient={project.gradient}
+                  imageUrl={project.imageUrl}
+                  videoUrl={project.videoUrl}
+                />
               </Reveal>
             ))}
           </div>
