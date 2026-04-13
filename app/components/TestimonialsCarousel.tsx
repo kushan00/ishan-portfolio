@@ -57,41 +57,44 @@ const testimonials: Testimonial[] = [
 export default function TestimonialsCarousel() {
   const items = useMemo(() => testimonials, []);
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
 
-  const scrollToIndex = (index: number) => {
+  const orderedItems = useMemo(
+    () => items.map((_, index) => items[(startIndex + index) % items.length]),
+    [items, startIndex],
+  );
+
+  const scrollToStart = () => {
     const track = trackRef.current;
-    const card = track?.children[index] as HTMLElement | undefined;
 
-    if (!track || !card) {
+    if (!track) {
       return;
     }
 
-    const offset = Math.max(0, card.offsetLeft - 24);
-    track.scrollTo({ left: offset, behavior: "smooth" });
-    setActiveIndex(index);
+    track.scrollTo({ left: 0, behavior: "smooth" });
   };
 
   const goPrevious = () => {
-    scrollToIndex(activeIndex === 0 ? items.length - 1 : activeIndex - 1);
+    setStartIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
   const goNext = () => {
-    scrollToIndex((activeIndex + 1) % items.length);
+    setStartIndex((prev) => (prev + 1) % items.length);
   };
 
   useEffect(() => {
-    scrollToIndex(0);
-  }, []);
+    scrollToStart();
+  }, [startIndex]);
 
   return (
     <section className="mx-auto h-[709px] w-full max-w-[1920px] bg-[#eceeed] opacity-100 rotate-0" aria-label="Testimonials">
       <div className="mx-auto grid h-full w-full max-w-[1920px] content-center gap-6 px-[clamp(1rem,10vw,320px)] md:grid-cols-[284px_1fr] md:items-start">
         <div className="flex h-[160px] w-[284px] flex-col gap-[12px] opacity-100 rotate-0">
           <p
-            className="m-0 inline-flex h-[24px] w-[83px] items-center text-[14px] font-normal leading-[24px] text-[#000000]"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="m-0 inline-flex h-[24px] w-[83px] items-center whitespace-nowrap text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]"
+            style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
           >
+            <span className="mr-[6px]" aria-hidden="true">•</span>
             Testimonials
           </p>
           <h3 className="m-0 h-[124px] w-[284px] text-[#123f47] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -125,17 +128,15 @@ export default function TestimonialsCarousel() {
             className="flex w-full gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             aria-label="Testimonials carousel"
           >
-            {items.map((item, index) => {
-              const isActive = index === activeIndex;
-
+            {orderedItems.map((item, index) => {
               return (
                 <article
                   key={item.company + item.role + index}
                   className={`relative h-[538px] w-[738px] shrink-0 rounded-[28px] px-[24px] py-[86px] text-[#ffffff] opacity-100 rotate-0 transition-colors duration-300 ${
-                    isActive ? "bg-[#2E2E2E]" : "bg-[#8C8C8C]"
+                    index === 0 ? "bg-[#2E2E2E]" : "bg-[#8C8C8C]"
                   }`}
                   aria-label={`${item.company} testimonial`}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => setStartIndex((prev) => (prev + index) % items.length)}
                 >
                   <p className="m-0 text-[64px] leading-none text-[#ffffff]" aria-hidden="true" style={{ fontFamily: "Inter, sans-serif" }}>
                     &ldquo;

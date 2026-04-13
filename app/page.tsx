@@ -39,8 +39,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
       <Header />
 
-      <section className="mx-auto h-[890px] w-full max-w-[1920px] opacity-100 rotate-0" aria-label="Hero section">
-        <div className="mx-auto mt-[153px] flex h-[665px] w-[min(1280px,calc(100%-2rem))] justify-between opacity-100 rotate-0">
+      <section className="mx-auto h-[809px] w-full max-w-[1920px] opacity-100 rotate-0" aria-label="Hero section">
+        <div className="mx-auto mt-[144px] flex h-[665px] w-[min(1280px,calc(100%-2rem))] justify-between opacity-100 rotate-0">
         <div className="max-w-[565px]">
           <h1 className="m-0 h-[245px] w-[565px] text-[#053b45] opacity-100 rotate-0">
             <span className="block font-[var(--font-signature)] text-[150px] font-normal leading-[127.2px] tracking-[-1.4px]">Ishan</span>
@@ -264,9 +264,10 @@ export default function Home() {
       <section className="mx-auto h-[329px] w-full max-w-[1920px] bg-[#F8F9F7] opacity-100 rotate-0" aria-label="Contact call to action">
         <div className="mx-auto flex h-full w-[min(1350px,calc(100%-2rem))] flex-col items-center justify-center text-center opacity-100 rotate-0">
           <p
-            className="m-0 inline-flex h-[24px] w-[139px] items-center justify-center text-[14px] font-normal leading-[24px] text-[#011214]"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="m-0 inline-flex h-[24px] w-[139px] items-center justify-center whitespace-nowrap text-[14px] font-normal leading-[24px] tracking-[0] text-[#011214]"
+            style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
           >
+            <span className="mr-[6px]" aria-hidden="true">•</span>
             Ready When You Are
           </p>
           <h3
