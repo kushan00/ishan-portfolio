@@ -9,11 +9,11 @@ export default function Home() {
   const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
 
   const works = [
-    { title: "Analytics Command Center", imageUrl: "/blue-small.gif" },
-    { title: "Workspace Planner", imageUrl: "/blue-small.gif" },
-    { title: "Mobile Banking Flow", imageUrl: "/blue-small.gif" },
-    { title: "SaaS Project Tracker", imageUrl: "/blue-small.gif" },
-    { title: "Fitness Product Suite", imageUrl: "/blue-small.gif" },
+    { title: "Analytics Command Center", videoSrc: "/sample3.mp4" },
+    { title: "Workspace Planner", videoSrc: "/sample4.mp4" },
+    { title: "Mobile Banking Flow", videoSrc: "/sample3.mp4" },
+    { title: "SaaS Project Tracker", videoSrc: "/sample4.mp4" },
+    { title: "Fitness Product Suite", videoSrc: "/sample3.mp4" },
   ];
   const scrollingWorks = [...works, ...works];
 
@@ -111,7 +111,7 @@ export default function Home() {
               <Link key={`${work.title}-${index}`} href="/projects/token-landing" aria-label={work.title} className="block h-full w-[380px] shrink-0 cursor-pointer">
                 <article className="h-full w-full">
                   <div className="relative h-full overflow-hidden rounded-[16px] bg-[#dfe5e6]">
-                    <Image src={work.imageUrl} alt={work.title} fill loading="lazy" quality={85} sizes="(max-width: 768px) 80vw, 380px" className="object-cover object-center" />
+                    <LazyProjectVideo src={work.videoSrc} className="absolute inset-0" />
                   </div>
                 </article>
               </Link>
