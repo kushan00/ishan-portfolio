@@ -20,51 +20,52 @@ export default function Header() {
   };
 
   return (
-    <header className="mx-auto h-[81px] w-full max-w-[1920px] border-b border-b-[1px] border-[#F0F0F0] opacity-100 rotate-0">
-      <div className="mx-auto flex h-[80px] w-full max-w-[1280px] items-center justify-between opacity-100 rotate-0">
+    <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-[#eceeed]/80 backdrop-blur-md">
+      <div className="main-container flex h-20 items-center justify-between">
         <Link
           href="/"
-          className="relative -top-[3px] left-[7px] inline-flex h-[24px] w-[64px] items-center text-[24px] font-medium leading-[24px] tracking-[-1px] text-[#0d3b46] no-underline opacity-100 rotate-0"
-          style={{ fontFamily: "Inter, sans-serif" }}
+          className="text-2xl font-medium tracking-tighter text-brand-secondary"
         >
           Ishan.
         </Link>
-        <div className="flex items-center gap-[0.45rem] text-[0.58rem] text-[#2f555d]">
-          <a
-            href="https://www.behance.net"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open Behance"
-            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] opacity-100 rotate-0 transition hover:border-[#a9b8b9]"
-          >
-            <FaBehance aria-hidden="true" focusable="false" className="h-[20px] w-[20px]" />
-          </a>
-          <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open LinkedIn"
-            className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#d4dbda] bg-[#f4f6f5] text-[#1d464f] opacity-100 rotate-0 transition hover:border-[#a9b8b9]"
-          >
-            <FaLinkedinIn aria-hidden="true" focusable="false" className="h-[20px] w-[20px]" />
-          </a>
-          <span className="ml-1 inline-flex h-[22px] w-[132px] items-center text-[14px] font-normal leading-[22px] text-[#002B31] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
-            Let&apos;s Work Together
-          </span>
-          <button
-            type="button"
-            onClick={handleCopyEmail}
-            className={`rounded-full border px-[0.55rem] py-[0.26rem] no-underline transition ${
-              isCopied
-                ? "border-[#0b0f11] bg-[#0b0f11] text-[#f2f4f5]"
-                : "border-[#a9b8b9] text-[#1d464f] hover:border-[#0f3a44] hover:text-[#0f3a44]"
-            }`}
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            <span className="inline-flex h-[22px] w-[75px] items-center justify-center text-center text-[14px] font-medium leading-[22px] opacity-100 rotate-0">
-              {isCopied ? "Copied" : "Copy Email"}
+        <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-2 sm:flex">
+            <a
+              href="https://www.behance.net"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Behance"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition"
+            >
+              <FaBehance className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open LinkedIn"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition"
+            >
+              <FaLinkedinIn className="h-5 w-5" />
+            </a>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm text-brand-accent md:inline">
+              Let&apos;s Work Together
             </span>
-          </button>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                isCopied
+                  ? "border-brand-secondary bg-brand-secondary text-white"
+                  : "border-[#a9b8b9] text-brand-secondary hover:border-brand-primary hover:text-brand-primary"
+              }`}
+            >
+              {isCopied ? "Copied" : "Copy Email"}
+            </button>
+          </div>
         </div>
       </div>
     </header>

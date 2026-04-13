@@ -34,10 +34,10 @@ export default function LazyProjectVideo({ src, className }: LazyProjectVideoPro
   }, []);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={`relative overflow-hidden bg-[#151a1c] ${className}`}>
       {shouldLoad ? (
         <video
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover"
           src={src}
           muted
           playsInline
@@ -46,7 +46,7 @@ export default function LazyProjectVideo({ src, className }: LazyProjectVideoPro
           preload="metadata"
         />
       ) : (
-        <div className="h-full w-full bg-[#0e1113]" />
+        <div className="h-full w-full bg-[#151a1c]" />
       )}
     </div>
   );

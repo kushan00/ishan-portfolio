@@ -1,176 +1,194 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 type Testimonial = {
   company: string;
   role: string;
+  name: string;
   copy: string;
-  theme: "dark" | "light";
+  initial: string;
+  avatarBg?: string;
 };
 
 const testimonials: Testimonial[] = [
   {
-    company: "ABC Company",
-    role: "Product Manager",
-    copy:
-      "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
-    theme: "dark",
+    name: "Sabreen Rezvie",
+    role: "Founder & CEO, Drifting Desk",
+    company: "Drifting Desk",
+    initial: "S",
+    avatarBg: "#1A6BFF",
+    copy: "Peshala has been instrumental in helping us build multiple products, both for clients and internally. Working with him is a breeze—he understands products at a PO level and helps us build agile solutions efficiently. ",
   },
   {
+    name: "Alol...",
+    role: "Business Developer",
     company: "Hatch Works",
-    role: "Product Designer",
-    copy:
-      "Ishan helped us turn a dense workflow into something that felt obvious and calm. The product became easier to understand and a lot faster to use.",
-    theme: "light",
+    initial: "A",
+    avatarBg: "#444",
+    copy: "I've known Peshala to be the go-to for design. What I like about him is that he takes the time to see the bigger picture and build in the real world.",
   },
   {
+    name: "John Doe",
+    role: "Founding Engineer",
     company: "Eth LLC",
+    initial: "J",
+    avatarBg: "#333",
+    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+  },
+  {
+    name: "John Doe 3",
+    role: "Engineer",
+    company: "QWE LLC",
+    initial: "J",
+    avatarBg: "#333",
+    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+  },
+  {
+    name: "John Doe 4",
     role: "Founder",
-    copy:
-      "The designs were clear, practical, and very easy to hand off. We saw a real improvement in how users moved through the product.",
-    theme: "dark",
+    company: "EDF LLC",
+    initial: "J",
+    avatarBg: "#333",
+    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
   },
   {
-    company: "Ford Australia",
-    role: "Creative Director",
-    copy:
-      "Ishan quickly understood the problem and translated it into a cleaner experience. The final result felt modern, direct, and usable.",
-    theme: "light",
-  },
-  {
-    company: "Mango Media",
-    role: "Manager",
-    copy:
-      "We valued the structured thinking and the attention to detail. Every step of the experience was simplified without losing clarity.",
-    theme: "dark",
-  },
-  {
-    company: "Loopcore Studio",
-    role: "Lead Designer",
-    copy:
-      "The carousel work was thoughtful and refined. It made the page feel much more polished and easy to scan.",
-    theme: "light",
+    name: "John Doe 5",
+    role: "CEO",
+    company: "ABC LLC",
+    initial: "J",
+    avatarBg: "#333",
+    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
   },
 ];
 
+const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+  >
+    {children}
+  </motion.div>
+);
+
+// How far the next card peeks from the right (in %)
+const PEEK_WIDTH = "36%";
+
+function getCardState(i: number, index: number): "past" | "active" | "next" | "hidden" {
+  if (i < index) return "past";
+  if (i === index) return "active";
+  if (i === index + 1) return "next";
+  return "hidden";
+}
+
 export default function TestimonialsCarousel() {
-  const items = useMemo(() => testimonials, []);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [startIndex, setStartIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
-  const orderedItems = useMemo(
-    () => items.map((_, index) => items[(startIndex + index) % items.length]),
-    [items, startIndex],
-  );
-
-  const scrollToStart = () => {
-    const track = trackRef.current;
-
-    if (!track) {
-      return;
-    }
-
-    track.scrollTo({ left: 0, behavior: "smooth" });
+  const next = () => {
+    if (index < testimonials.length - 1) setIndex(index + 1);
   };
 
-  const goPrevious = () => {
-    setStartIndex((prev) => (prev - 1 + items.length) % items.length);
+  const prev = () => {
+    if (index > 0) setIndex(index - 1);
   };
-
-  const goNext = () => {
-    setStartIndex((prev) => (prev + 1) % items.length);
-  };
-
-  useEffect(() => {
-    scrollToStart();
-  }, [startIndex]);
 
   return (
-    <section className="mx-auto h-[709px] w-full max-w-[1920px] bg-[#eceeed] opacity-100 rotate-0" aria-label="Testimonials">
-      <div className="mx-auto grid h-full w-full max-w-[1920px] content-center gap-6 px-[clamp(1rem,10vw,320px)] md:grid-cols-[284px_1fr] md:items-start">
-        <div className="flex h-[160px] w-[284px] flex-col gap-[12px] opacity-100 rotate-0">
-          <p
-            className="m-0 inline-flex h-[24px] w-[83px] items-center whitespace-nowrap text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]"
-            style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
-          >
-            <span className="mr-[6px]" aria-hidden="true">•</span>
-            Testimonials
-          </p>
-          <h3 className="m-0 h-[124px] w-[284px] text-[#123f47] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
-            <strong className="block text-[54px] font-semibold leading-[62px]">What</strong>
-            <span className="block text-[54px] font-normal leading-[62px]">People Say</span>
-          </h3>
+    <section className="section-gap bg-brand-bg overflow-hidden" aria-label="Testimonials">
+      <div className="main-container flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
 
-          <div className="mt-[18px] flex gap-2">
-            <button
-              type="button"
-              aria-label="Previous testimonial"
-              className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#eceeed] bg-[#f8f9f7] text-[#8c8c8c] transition hover:border-[#2E2E2E] hover:text-[#2E2E2E]"
-              onClick={goPrevious}
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              aria-label="Next testimonial"
-              className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#eceeed] bg-[#011214] text-[#ffffff] transition hover:bg-[#2E2E2E]"
-              onClick={goNext}
-            >
-              →
-            </button>
-          </div>
+        {/* Left: title + navigation */}
+        <div className="flex flex-col justify-center flex-shrink-0 lg:w-72 relative z-10">
+          <Reveal>
+            <div className="mb-8 inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-brand-primary" aria-hidden="true" />
+              <span className="text-sm font-medium uppercase tracking-widest text-brand-primary">Testimonials</span>
+            </div>
+
+            <h3 className="text-5xl font-bold leading-tight md:text-6xl text-brand-text">
+              What <br /> <span className="font-normal opacity-70">People Say</span>
+            </h3>
+
+            <div className="mt-12 flex gap-4">
+              <button
+                onClick={prev}
+                disabled={index === 0}
+                className={`flex h-14 w-14 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-900 transition-all ${
+                  index === 0 ? "opacity-30 cursor-not-allowed" : "hover:bg-zinc-50 active:scale-95 shadow-sm"
+                }`}
+                aria-label="Previous testimonial"
+              >
+                <span className="text-xl">←</span>
+              </button>
+              <button
+                onClick={next}
+                disabled={index === testimonials.length - 1}
+                className={`flex h-14 w-14 items-center justify-center rounded-full bg-zinc-900 text-white transition-all ${
+                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-zinc-800 active:scale-95 shadow-lg"
+                }`}
+                aria-label="Next testimonial"
+              >
+                <span className="text-xl">→</span>
+              </button>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="flex w-full items-start justify-end">
-          <div
-            ref={trackRef}
-            className="flex w-full gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            aria-label="Testimonials carousel"
-          >
-            {orderedItems.map((item, index) => {
+        {/* Right: absolute-stacked cards — past cards sit under active, next peeks from right */}
+        <div className="flex-1 min-w-0">
+          {/* Height holder so the container doesn't collapse */}
+          <div className="relative" style={{ height: "480px" }}>
+            {testimonials.map((testimonial, i) => {
+              const state = getCardState(i, index);
+              if (state === "hidden") return null;
+
               return (
-                <article
-                  key={item.company + item.role + index}
-                  className={`relative h-[538px] w-[738px] shrink-0 rounded-[28px] px-[24px] py-[86px] text-[#ffffff] opacity-100 rotate-0 transition-colors duration-300 ${
-                    index === 0 ? "bg-[#2E2E2E]" : "bg-[#8C8C8C]"
-                  }`}
-                  aria-label={`${item.company} testimonial`}
-                  onClick={() => setStartIndex((prev) => (prev + index) % items.length)}
+                <motion.div
+                  key={i}
+                  initial={false}
+                  animate={{
+                    // past: sits right at x:0 under the active card
+                    // active: sits at x:0, on top
+                    // next: offset to the right, peeking
+                    x: state === "next" ? "calc(100% + 260px - " + PEEK_WIDTH + ")" : "0%",
+                    opacity: state === "next" ? 0.5 : 1,
+                    scale: state === "next" ? 0.97 : 1,
+                    zIndex: state === "past" ? i : state === "active" ? 100 : 50,
+                  }}
+                  transition={{ type: "spring", stiffness: 220, damping: 26 }}
+                  className="max-w-[640px] absolute inset-0 flex flex-col justify-between rounded-[2.5rem] text-white p-8 md:p-10 border border-white/5"
+                  style={{
+                    background: state === "active" ? "#1e2022" : "#2d2f31",
+                    pointerEvents: state === "active" ? "auto" : "none",
+                  }}
                 >
-                  <p className="m-0 text-[64px] leading-none text-[#ffffff]" aria-hidden="true" style={{ fontFamily: "Inter, sans-serif" }}>
-                    &ldquo;
-                  </p>
+                  <div className="relative">
+                    <span className="text-5xl font-serif text-white/20 select-none">&ldquo;</span>
+                    <p className="mt-4 text-lg font-normal leading-relaxed text-white/90 md:text-xl">
+                      {testimonial.copy}
+                    </p>
+                  </div>
 
-                  <p
-                    className="mt-[22px] max-w-[690px] text-[24px] font-normal leading-[32px] tracking-[0] text-[#ffffff]"
-                    style={{ fontFamily: "Inter, sans-serif" }}
-                  >
-                    {item.copy}
-                  </p>
-
-                  <footer className="absolute bottom-[24px] left-[24px] flex items-center gap-[10px]">
-                    <span
-                      className="inline-flex h-[64px] w-[64px] shrink-0 items-center justify-center rounded-full bg-[#011214] text-[0.9rem] font-medium text-[#f8f9f7]"
-                      aria-hidden="true"
-                      style={{ fontFamily: "Inter, sans-serif" }}
+                  <div className="mt-10 flex items-center gap-5">
+                    <div
+                      className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full text-xl font-bold overflow-hidden text-white border border-white/10"
+                      style={{ background: testimonial.avatarBg ?? "#333" }}
                     >
-                      {item.company.charAt(0)}
-                    </span>
-                    <div>
-                      <p className="m-0 h-[32px] w-[164px] text-[24px] font-normal leading-[32px] text-[#ffffff]" style={{ fontFamily: "Inter, sans-serif" }}>
-                        {item.company}
-                      </p>
-                      <p className="m-0 text-[14px] leading-[24px] text-[#d8d8d8]" style={{ fontFamily: "Inter, sans-serif" }}>
-                        {item.role}
-                      </p>
+                      {testimonial.initial}
                     </div>
-                  </footer>
-                </article>
+                    <div>
+                      <p className="text-xl font-semibold leading-tight text-white">{testimonial.name}</p>
+                      <p className="text-xs text-white/40 uppercase tracking-widest mt-1.5">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
+
       </div>
     </section>
   );

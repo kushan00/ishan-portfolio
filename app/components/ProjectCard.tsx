@@ -41,14 +41,14 @@ export default function ProjectCard({ slug, title, subtitle, description, gradie
   }, [videoUrl]);
 
   return (
-    <Link href={`/projects/${slug}`} className="text-inherit no-underline">
-      <article className="flex flex-col gap-2" aria-label={title}>
-        <div className={`relative aspect-video overflow-hidden rounded-lg bg-gradient-to-br ${gradient} shadow-lg`}>
+    <Link href={`/projects/${slug}`} className="group block no-underline">
+      <article className="flex flex-col gap-6" aria-label={title}>
+        <div className={`relative aspect-[16/10] overflow-hidden rounded-[2rem] bg-gradient-to-br ${gradient} shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:scale-[1.01]`}>
           {videoUrl && !videoError ? (
             <>
               <video
                 ref={mediaRef}
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:grayscale-0"
                 muted
                 loop
                 autoPlay
@@ -65,9 +65,9 @@ export default function ProjectCard({ slug, title, subtitle, description, gradie
                   alt={title}
                   fill
                   loading="lazy"
-                  quality={75}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover grayscale transition duration-700 group-hover:grayscale-0"
                 />
               ) : null}
             </>
@@ -77,23 +77,18 @@ export default function ProjectCard({ slug, title, subtitle, description, gradie
               alt={title}
               fill
               loading="lazy"
-              quality={75}
-              sizes="(max-width: 640px) 100vw, 50vw"
-              className="object-cover object-center"
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover grayscale transition duration-700 group-hover:grayscale-0"
             />
           )}
+          <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/5" />
         </div>
-        <div>
-          <h4
-            className="m-0 h-[32px] w-full max-w-[588px] text-[24px] font-normal leading-[32px] text-[#002B31] opacity-100 rotate-0"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
+        <div className="px-2">
+          <h4 className="text-2xl font-semibold leading-tight text-brand-primary">
             {subtitle}
           </h4>
-          <p
-            className="m-0 mt-1 h-[22px] w-full max-w-[588px] text-[14px] font-normal leading-[22px] text-[#002B31] opacity-100 rotate-0"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
+          <p className="mt-3 text-base leading-relaxed text-brand-text-muted">
             {description}
           </p>
         </div>

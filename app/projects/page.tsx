@@ -1,16 +1,29 @@
-import ProjectCard from "../components/ProjectCard";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ProjectCard from "../components/ProjectCard";
+
+const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function ProjectsPage() {
-  const shell = "mx-auto w-[min(1280px,calc(100%-2rem))]";
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
   const sampleProjectImage = "/blue-small.gif";
 
   const projects = [
-    { slug: "prjectName", title: "prjectName", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-200 via-zinc-100 to-zinc-300" },
+    { slug: "prjectName", title: "PROJECTNAME", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-200 via-zinc-100 to-zinc-300" },
     { slug: "casino-xp", title: "CASINO XP", subtitle: cardSubtitle, description: cardDescription, gradient: "from-red-900 via-fuchsia-700 to-amber-400" },
     { slug: "token-landing", title: "TOKEN LANDING", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-950 via-zinc-900 to-zinc-700" },
     { slug: "data-console", title: "DATA CONSOLE", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-900 via-slate-800 to-slate-600" },
@@ -19,59 +32,68 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
+    <main className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
       <Header />
 
-      <nav className={`${shell} mt-6`}>
-        <Link
-          href="/"
-          className="inline-flex h-[24px] w-[45px] items-center text-[16px] font-normal leading-[24px] tracking-[0] capitalize text-[#1d464f] no-underline opacity-100 transition hover:text-[#0a3a44]"
-          style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
-        >
-          Home
-        </Link>
+      <nav className="main-container mt-10">
+        <Reveal>
+          <Link
+            href="/"
+            className="group flex items-center gap-2 text-base font-medium text-brand-text-muted transition hover:text-brand-primary"
+          >
+            <span className="transition-transform group-hover:-translate-x-1">&lt;-</span>
+            Back to Home
+          </Link>
+        </Reveal>
       </nav>
 
-      <section className="mx-auto mt-4 w-full max-w-[1920px] opacity-100 rotate-0">
-        <div className={`${shell} flex h-[276px] flex-col gap-[40px] opacity-100 rotate-0`}>
-          <div>
-            <p className="m-0 inline-flex items-center gap-[0.35rem] text-[0.66rem] text-[#6e7d80]">
-              <span className="text-[0.7rem] leading-none text-[#123f47]" aria-hidden="true">•</span>
-              <span className="inline-flex h-[24px] w-[78px] items-center text-[16px] font-normal leading-[24px] opacity-100 rotate-0 text-[#4F5253]" style={{ fontFamily: "Inter, sans-serif" }}>
-                Showcase
-              </span>
-            </p>
+      <section className="section-gap overflow-hidden">
+        <div className="main-container">
+          <div className="flex flex-col gap-12 border-b border-[#F0F0F0] pb-16">
+            <Reveal>
+              <div className="flex items-center gap-2 text-brand-text">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
+                <span className="text-sm font-medium uppercase tracking-widest text-brand-text-muted">Showcase</span>
+              </div>
+            </Reveal>
 
-            <div className="mt-[0.32rem] flex items-start justify-between">
-              <h2 className="m-0 h-[144px] w-[708px] text-[#123f47] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
-                <span className="block text-[64px] font-normal leading-[72px] tracking-[-1.4px]">Selected</span>
-                <strong className="block text-[64px] font-semibold leading-[72px] tracking-[-1.4px] text-[#0a2f38]">Product Work</strong>
-              </h2>
-              <p className="m-0 h-[56px] w-[217px] text-right text-[20px] font-normal leading-[28px] text-[#5f7074] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
-                Not everything is <strong className="font-bold">visible at first glance</strong>
-              </p>
+            <div className="grid items-start justify-between gap-8 lg:grid-cols-[1fr_300px]">
+              <Reveal delay={0.1}>
+                <h2 className="flex flex-col text-6xl font-bold leading-tight tracking-tighter text-brand-primary md:text-[80px]">
+                  <span>Selected</span>
+                  <span className="font-normal opacity-70">Product Work</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="text-xl leading-relaxed text-brand-text-muted">
+                  Not everything is <strong className="font-bold text-brand-primary">visible at first glance.</strong>
+                </p>
+              </Reveal>
             </div>
+
+            <Reveal delay={0.3}>
+              <p className="max-w-3xl text-xl leading-relaxed text-brand-text-muted">
+                A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.
+              </p>
+            </Reveal>
           </div>
-
-          <p className="m-0 h-[28px] w-full max-w-[1280px] text-[20px] font-normal leading-[28px] text-[#4F5253] opacity-100 rotate-0" style={{ fontFamily: "Inter, sans-serif" }}>
-            A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.
-          </p>
         </div>
-      </section>
 
-      <section className={`${shell} mt-6 mb-12`} aria-label="Selected project work grid">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={`${project.slug}-${index}`}
-              slug="token-landing"
-              title={project.title}
-              subtitle={project.subtitle}
-              description={project.description}
-              gradient={project.gradient}
-              imageUrl={sampleProjectImage}
-            />
-          ))}
+        <div className="main-container mt-24">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2">
+            {projects.map((project, index) => (
+              <Reveal key={`${project.slug}-${index}`} delay={0.1 * (index % 2)}>
+                <ProjectCard
+                  slug="token-landing"
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  description={project.description}
+                  gradient={project.gradient}
+                  imageUrl={sampleProjectImage}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
