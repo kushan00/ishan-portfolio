@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -76,7 +75,7 @@ export default function Home() {
         </div>
 
         <div className="relative aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-[0.65rem] self-start">
-          <Image src="/pic1.jpg" alt="Ishan Kavinda portrait" fill loading="lazy" sizes="(max-width: 820px) 100vw, 360px" className="object-cover object-center" />
+          <LazyProjectVideo src="/intro.mp4" className="absolute inset-0" />
         </div>
         </div>
       </section>
