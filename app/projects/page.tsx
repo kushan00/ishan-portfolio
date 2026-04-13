@@ -23,8 +23,12 @@ export default function ProjectsPage() {
       <Header />
 
       <nav className={`${shell} mt-6`}>
-        <Link href="/" className="inline-flex items-center text-[0.62rem] font-medium text-[#1d464f] no-underline transition hover:text-[#0a3a44]">
-          ← Home
+        <Link
+          href="/"
+          className="inline-flex h-[24px] w-[45px] items-center text-[16px] font-normal leading-[24px] tracking-[0] capitalize text-[#1d464f] no-underline opacity-100 transition hover:text-[#0a3a44]"
+          style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
+        >
+          Home
         </Link>
       </nav>
 

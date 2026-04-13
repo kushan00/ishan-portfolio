@@ -248,7 +248,7 @@ export default function Home() {
                   <p className="m-0 text-[24px] font-medium leading-[32px] text-[#e4f1f4]" style={{ fontFamily: "Inter, sans-serif" }}>
                     {item.company}
                   </p>
-                  <p className="m-0 mt-[0.14rem] h-[22px] w-[84px] text-[14px] font-normal leading-[22px] tracking-[0%] text-[#7f9ca2]" style={{ fontFamily: "Inter, sans-serif" }}>
+                  <p className="m-0 mt-[0.14rem] h-[22px] w-auto whitespace-nowrap text-[14px] font-normal leading-[22px] tracking-[0%] text-[#7f9ca2]" style={{ fontFamily: "Inter, sans-serif" }}>
                     {item.year}
                   </p>
                 </div>
