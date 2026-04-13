@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProjectCard from "../components/ProjectCard";
+import LazyProjectVideo from "../components/LazyProjectVideo";
 
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -20,15 +21,12 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function ProjectsPage() {
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
-  const sampleProjectImage = "/blue-small.gif";
 
-  const projects = [
-    { slug: "prjectName", title: "PROJECTNAME", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-200 via-zinc-100 to-zinc-300" },
-    { slug: "casino-xp", title: "CASINO XP", subtitle: cardSubtitle, description: cardDescription, gradient: "from-red-900 via-fuchsia-700 to-amber-400" },
-    { slug: "token-landing", title: "TOKEN LANDING", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-950 via-zinc-900 to-zinc-700" },
-    { slug: "data-console", title: "DATA CONSOLE", subtitle: cardSubtitle, description: cardDescription, gradient: "from-zinc-900 via-slate-800 to-slate-600" },
-    { slug: "analytics-hub", title: "ANALYTICS HUB", subtitle: cardSubtitle, description: cardDescription, gradient: "from-purple-900 via-purple-700 to-blue-700" },
-    { slug: "mobile-banking", title: "MOBILE BANKING", subtitle: cardSubtitle, description: cardDescription, gradient: "from-emerald-900 via-emerald-700 to-teal-700" },
+  const videos = [
+    { src: "/sample1.mp4", title: "PROJECTNAME", subtitle: cardSubtitle, description: cardDescription },
+    { src: "/sample2.mp4", title: "CASINO XP", subtitle: cardSubtitle, description: cardDescription },
+    { src: "/sample3.mp4", title: "TOKEN LANDING", subtitle: cardSubtitle, description: cardDescription },
+    { src: "/sample4.mp4", title: "DATA CONSOLE", subtitle: cardSubtitle, description: cardDescription },
   ];
 
   return (
@@ -81,16 +79,18 @@ export default function ProjectsPage() {
 
         <div className="main-container mt-24">
           <div className="grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2">
-            {projects.map((project, index) => (
-              <Reveal key={`${project.slug}-${index}`} delay={0.1 * (index % 2)}>
-                <ProjectCard
-                  slug="token-landing"
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  description={project.description}
-                  gradient={project.gradient}
-                  imageUrl={sampleProjectImage}
-                />
+            {videos.map((video, index) => (
+              <Reveal key={`${video.src}-${index}`} delay={0.1 * (index % 2)}>
+                <div className="flex flex-col gap-4">
+                  <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-[#F0F0F0]">
+                    <LazyProjectVideo src={video.src} className="rounded-2xl" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-brand-primary">{video.title}</h3>
+                    <p className="text-sm text-brand-text-muted mt-1">{video.subtitle}</p>
+                    <p className="text-sm text-brand-text-muted leading-relaxed mt-2">{video.description}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
