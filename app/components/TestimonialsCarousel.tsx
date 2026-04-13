@@ -103,12 +103,12 @@ export default function TestimonialsCarousel() {
         <div className="flex flex-col justify-center flex-shrink-0 lg:w-72 relative z-10">
           <Reveal>
             <div className="mb-8 inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-brand-primary" aria-hidden="true" />
-              <span className="text-sm font-medium uppercase tracking-widest text-brand-primary">Testimonials</span>
+              <span className="h-2 w-2 rounded-full bg-[#002B31]" aria-hidden="true" />
+              <span className="text-sm font-medium uppercase tracking-widest text-[#000000]">Testimonials</span>
             </div>
 
-            <h3 className="text-5xl font-bold leading-tight md:text-6xl text-brand-text">
-              What <br /> <span className="font-normal opacity-70">People Say</span>
+            <h3 className="text-5xl font-bold leading-tight md:text-6xl text-[#002B31]">
+              What <br /> <span className="font-normal text-[#002B31]">People Say</span>
             </h3>
 
             <div className="mt-12 flex gap-4">
@@ -125,8 +125,8 @@ export default function TestimonialsCarousel() {
               <button
                 onClick={next}
                 disabled={index === testimonials.length - 1}
-                className={`flex h-14 w-14 items-center justify-center rounded-full bg-zinc-900 text-white transition-all ${
-                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-zinc-800 active:scale-95 shadow-lg"
+                className={`flex h-14 w-14 items-center justify-center rounded-full bg-[#002B31] text-white transition-all ${
+                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-[#002B31]/90 active:scale-95 shadow-lg"
                 }`}
                 aria-label="Next testimonial"
               >
@@ -174,7 +174,7 @@ export default function TestimonialsCarousel() {
                   <div className="mt-10 flex items-center gap-5">
                     <div
                       className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full text-xl font-bold overflow-hidden text-white border border-white/10"
-                      style={{ background: testimonial.avatarBg ?? "#333" }}
+                      style={{ background: "#002B31" }}
                     >
                       {testimonial.initial}
                     </div>

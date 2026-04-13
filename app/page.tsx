@@ -275,7 +275,7 @@ const works = [
       <TestimonialsCarousel />
 
       {/* Contact CTA */}
-      <section className="section-gap bg-white" aria-label="Contact call to action">
+      <section className="section-gap bg-[#F8F9F7]" aria-label="Contact call to action">
         <div className="main-container flex flex-col items-center text-center">
           <Reveal>
             <p className="mb-4 flex items-center justify-center gap-2">
@@ -287,7 +287,7 @@ const works = [
             </h3>
             <a
               href="mailto:ishan.kavinda@example.com"
-              className="w-full md:w-[50%] lg:w-[25%] mt-10 inline-flex items-center justify-center rounded-2xl bg-brand-secondary px-8 py-4 text-lg font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
+              className="w-full md:w-[50%] lg:w-[25%] mt-10 inline-flex items-center justify-center rounded-2xl bg-[#000000] px-8 py-4 text-lg font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
             >
               Book a Call
             </a>

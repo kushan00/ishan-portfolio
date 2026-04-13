@@ -143,6 +143,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span className="font-normal text-[#123f47]">Token </span>
               <strong className="font-bold text-[#0a2f38]">Landing</strong>
             </>
+          ) : project.slug === 'data-console' ? (
+            <>
+              <span className="font-normal text-[#123f47]">Data </span>
+              <strong className="font-bold text-[#0a2f38]">Console</strong>
+            </>
           ) : (
             <strong className="font-bold text-[#0a2f38]">{project.selectedTitle}</strong>
           )}
