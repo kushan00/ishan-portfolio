@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LazyProjectVideo from "./components/LazyProjectVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
 export default function Home() {
@@ -17,10 +18,10 @@ export default function Home() {
   const scrollingWorks = [...works, ...works];
 
   const projects = [
-    { title: "prjectName", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#002B31] via-[#002B31] to-[#002B31]" },
-    { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400" },
-    { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700" },
-    { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600" },
+    { title: "prjectName", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", videoSrc: "/sample1.mp4" },
+    { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", videoSrc: "/sample2.mp4" },
+    { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", videoSrc: "/sample1.mp4" },
+    { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", videoSrc: "/sample2.mp4" },
   ];
   const projectColumns = [
     [projects[0], projects[2]],
@@ -43,7 +44,9 @@ export default function Home() {
         <div className="mx-auto mt-[144px] flex h-[665px] w-[min(1280px,calc(100%-2rem))] justify-between opacity-100 rotate-0">
         <div className="max-w-[565px]">
           <h1 className="m-0 h-[245px] w-[565px] text-[#053b45] opacity-100 rotate-0">
-            <span className="block font-[var(--font-signature)] text-[150px] font-normal leading-[127.2px] tracking-[-1.4px]">Ishan</span>
+            <span className="block font-[var(--font-signature)] text-[150px] font-normal leading-[127.2px] tracking-[-1.4px]" style={{ fontStyle: "italic" }}>
+              Ishan
+            </span>
             <strong className="block font-[var(--font-name)] text-[120px] font-normal leading-[127.2px] tracking-[-1.4px] text-[#053b45]">Kavinda</strong>
           </h1>
 
@@ -197,20 +200,20 @@ export default function Home() {
                     return (
                       <article key={`${column}-${project.title}-${index}`} className="w-full max-w-[442px] rounded-[14px]">
                         <div className={`relative h-[287px] overflow-hidden rounded-[14px] bg-gradient-to-br ${project.gradient} shadow-[0_2px_12px_rgba(0,0,0,0.15)]`}>
-                          <Image src="/project.jpg" alt={project.title} fill loading="lazy" quality={75} sizes="442px" className="object-cover object-center" />
+                          <LazyProjectVideo src={project.videoSrc} className="absolute inset-0" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                           <p className="absolute bottom-4 left-4 text-[2rem] font-semibold tracking-[0.01em] text-white/90">{project.title}</p>
                         </div>
 
-                        <div className="mt-2" style={isPrimaryCard ? { background: "#002B31" } : undefined}>
+                        <div className="mt-2">
                           <h4
-                            className={isPrimaryCard ? "m-0 h-[64px] w-[442px] text-[24px] font-normal leading-[32px] text-white" : "m-0 text-[24px] font-normal leading-[32px] text-[#133f47]"}
-                            style={{ fontFamily: "Inter, sans-serif" }}
+                            className={isPrimaryCard ? "m-0 flex h-[64px] w-[442px] items-center text-[24px] font-normal leading-[32px] text-black" : "m-0 text-[24px] font-normal leading-[32px] text-[#133f47]"}
+                            style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}
                           >
                             {project.subtitle}
                           </h4>
                           <p
-                            className={isPrimaryCard ? "m-0 h-[44px] w-[442px] text-[14px] font-normal leading-[22px] text-white/80" : "m-0 mt-1 text-[14px] font-normal leading-[22px] text-[#617477]"}
+                            className={isPrimaryCard ? "m-0 h-[44px] w-[442px] text-[14px] font-normal leading-[22px] text-black" : "m-0 mt-1 text-[14px] font-normal leading-[22px] text-[#617477]"}
                             style={{ fontFamily: "Inter, sans-serif" }}
                           >
                             {project.description}
