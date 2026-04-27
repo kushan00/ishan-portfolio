@@ -94,8 +94,8 @@ export default function ProjectsPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-xl leading-relaxed text-brand-text-muted">
-                  Not everything is <strong className="font-bold text-brand-primary">visible at first glance.</strong>
+              <p className="max-w-[217px] h-[56px] text-right font-[var(--font-inter)] text-[20px] font-normal leading-[28px] tracking-[0] text-[#4F5253]">
+                  Not everything is <strong className="font-bold text-[#4F5253]">visible at first glance.</strong>
                 </p>
               </Reveal>
             </div>
