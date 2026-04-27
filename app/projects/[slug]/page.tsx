@@ -104,7 +104,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#eceeed] text-[#0d3b46]">
+    <main className="flex min-h-screen flex-col bg-white text-[#0d3b46]">
       <Header />
 
       <nav className="mx-auto mt-6 w-[min(1280px,calc(100%-2rem))]">

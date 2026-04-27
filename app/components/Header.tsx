@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { FaBehance, FaLinkedinIn } from "react-icons/fa";
+import { FaDribbble, FaLinkedinIn } from "react-icons/fa";
 
 export default function Header() {
   const [isCopied, setIsCopied] = useState(false);
@@ -20,24 +20,24 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-[#eceeed]/80 backdrop-blur-md">
-      <div className="main-container flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-white opacity-100 rotate-0">
+      <div className="mx-auto flex h-[80px] w-full max-w-[1280px] items-center justify-between">
         <Link
           href="/"
           className="text-2xl font-medium tracking-tighter text-brand-secondary"
         >
-          Ishan.
+          Ishan<span className="text-[#57DC86]">.</span>
         </Link>
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 sm:flex">
             <a
-              href="https://www.behance.net"
+              href="https://dribbble.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="Open Behance"
+              aria-label="Open Dribbble"
               className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition"
             >
-              <FaBehance className="h-5 w-5" />
+              <FaDribbble className="h-5 w-5" />
             </a>
             <a
               href="https://www.linkedin.com"

@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${signatureFont.variable} ${nameFont.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#eceeed] text-[#0d3b46]">
+      <body className="min-h-full flex flex-col bg-white text-[#0d3b46]">
         {children}
       </body>
     </html>
