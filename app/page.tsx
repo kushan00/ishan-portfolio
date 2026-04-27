@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -167,34 +168,42 @@ const works = [
       </section>
 
       {/* Process Section */}
-      <section className="section-gap bg-brand-primary pt-4 text-white md:pt-4 lg:pt-4" aria-label="Process section">
-        <div className="main-container">
+      <section className="section-gap bg-brand-primary text-white" aria-label="Process section">
+        <div className="main-container flex flex-col justify-between w-[1340px] h-[486px]">
           <Reveal>
             <div className="max-w-2xl">
               <p className="mb-6 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d2dee1]" aria-hidden="true" />
-                <span className="text-sm font-medium uppercase tracking-widest text-[#d2dee1]">My Process</span>
+                <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-base font-normal leading-6 tracking-[0] text-[#d2dee1] capitalize opacity-100 rotate-0">My process</span>
               </p>
-              <h2 className="text-3xl font-medium leading-normal md:text-4xl text-[#e6eef0]">
-                No unnecessary steps. Simple processes for complex products. Focused on clarity, usability, and real impact.
+              <h2 className="h-[96px] w-[514px] align-middle font-[var(--font-inter)] text-[24px] font-medium leading-[32px] tracking-[0] text-[#e6eef0] opacity-100 rotate-0">
+                No unnecessary steps.<br />
+                Simple processes for complex products.<br />
+                Focused on clarity, usability, and real impact.
               </h2>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 bg-[#FFFFFF] rounded-2xl p-4">
+          <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-4 bg-[#FFFFFF] rounded-[16px] pt-[36px] pr-[30px] pb-[36px] pl-[30px] w-[1340px] h-[320px]">
             {[
-              { icon: "⌂", title: "Understand the Problem", copy: "I start by understanding the user, the business, and the real problem to solve. Clear direction makes everything easier.", delay: 0 },
-              { icon: "✣", title: "Simplify the Experience", copy: "I break down complex flows into simple and clear screens, making each product easy to use and understand.", delay: 0.1 },
-              { icon: "◌", title: "Design the Interface", copy: "I design clean, modern interfaces that feel fast and smooth, using a structure my users can expect.", delay: 0.2 },
-              { icon: "◎", title: "Test & Improve", copy: "I refine the design based on feedback, ensuring the final product is functional for both users and business goals.", delay: 0.3 },
-            ].map((step) => (
+              { icon: "⌂", iconSrc: "/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we’re solving.\nClear direction makes everything easier.", delay: 0 },
+              { icon: "✣", iconSrc: "/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
+              { icon: "◌", iconSrc: "/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
+              { icon: "◎", iconSrc: "/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
+            ].map((step, index) => (
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-4">
                   <div className="bg-[#F8F9F7] mb-6 flex h-14 w-14 items-center justify-center rounded-xl  text-2xl text-[#002B31] backdrop-blur-sm">
-                    {step.icon}
+                    {step.iconSrc ? (
+                      <Image src={step.iconSrc} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" />
+                    ) : (
+                      step.icon
+                    )}
                   </div>
-                  <h4 className="text-[#002B31] mb-3 text-xl font-semibold">{step.title}</h4>
-                  <p className="text-[#002B31] text-base leading-relaxed">{step.copy}</p>
+                  <div className={index === 0 || index === 1 || index === 2 || index === 3 ? "flex h-[106px] w-[302px] flex-col gap-4" : ""}>
+                    <h4 className={index === 0 ? "h-[24px] w-[187px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 1 ? "h-[24px] w-[181px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 2 ? "h-[24px] w-[156px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 3 ? "h-[24px] w-[114px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : "text-[#002B31] mb-3 text-xl font-semibold"}>{step.title}</h4>
+                    <p className={index === 0 || index === 1 || index === 2 || index === 3 ? "h-[66px] w-[302px] align-middle whitespace-pre-line font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31] opacity-100 rotate-0" : "text-[#002B31] text-base leading-relaxed"}>{step.copy}</p>
+                  </div>
                 </article>
               </Reveal>
             ))}
