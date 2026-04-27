@@ -65,7 +65,7 @@ const works = [
       <Header />
 
       {/* Hero Section */}
-      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden py-20" aria-label="Hero section">
+      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-2 pb-8" aria-label="Hero section">
         <div className="main-container grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <Reveal>
@@ -87,10 +87,10 @@ const works = [
 
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/projects" className="inline-flex items-center justify-center rounded-2xl bg-[#0e1113] px-8 py-4 text-base font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                <Link href="/projects" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98]">
                   View My Work
                 </Link>
-                <button type="button" className="inline-flex items-center justify-center rounded-2xl border border-brand-primary bg-white px-8 py-4 text-base font-medium text-brand-primary transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                <button type="button" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98]">
                   Let&apos;s Talk
                 </button>
               </div>
@@ -105,7 +105,7 @@ const works = [
           </div>
 
           <Reveal delay={0.5}>
-            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]">
               <HeroVideo src="/intro.mp4" poster="/ishan.png" />
             </div>
           </Reveal>
@@ -113,10 +113,10 @@ const works = [
       </section>
 
       {/* Showcase Section */}
-      <section className="section-gap overflow-hidden" aria-label="Selected Product Work section">
+      <section className="section-gap overflow-hidden bg-white pt-6 pb-4 md:pb-4 lg:pb-4" aria-label="Selected Product Work section">
         <div className="main-container mb-12">
           <Reveal>
-            <div className="flex items-end justify-between border-b border-[#F0F0F0] pb-12">
+            <div className="flex items-end justify-between pb-12">
               <div className="max-w-xl">
                 <p className="mb-4 flex items-center gap-2 text-brand-text">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
@@ -141,7 +141,7 @@ const works = [
             onMouseLeave={() => setIsMarqueePaused(false)}
           >
             <motion.div
-              className="flex w-max items-center gap-8 px-4"
+              className="flex w-max items-center gap-8 bg-white px-4"
               animate={isMarqueePaused ? {} : { x: "-50%" }}
               transition={{
                 duration: 60,
@@ -156,9 +156,9 @@ const works = [
               {[...works, ...works, ...works, ...works].map((work, index) => (
                 <div 
                   key={`${work.title}-${index}`} 
-                  className="marquee-item border-gray-100/10 transition-transform duration-500 hover:scale-[1.02]"
+                  className="marquee-item"
                 >
-                  <LazyProjectVideo src={work.videoSrc} className="h-full w-full flex items-center justify-center overflow-hidden" />
+                  <LazyProjectVideo src={work.videoSrc} className="h-full w-full flex items-center justify-center overflow-hidden bg-white" />
                 </div>
               ))}
             </motion.div>
@@ -167,7 +167,7 @@ const works = [
       </section>
 
       {/* Process Section */}
-      <section className="section-gap bg-brand-primary text-white" aria-label="Process section">
+      <section className="section-gap bg-brand-primary pt-4 text-white md:pt-4 lg:pt-4" aria-label="Process section">
         <div className="main-container">
           <Reveal>
             <div className="max-w-2xl">

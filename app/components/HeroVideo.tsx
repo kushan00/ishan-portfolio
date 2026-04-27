@@ -20,7 +20,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
   };
 
   return (
-    <div className="relative h-full w-full bg-[#0e1113] group overflow-hidden rounded-2xl shadow-2xl">
+    <div className="relative h-full w-full bg-[#0e1113] group overflow-hidden rounded-2xl">
       <AnimatePresence>
         {!isPlaying && (
           <motion.div
@@ -37,7 +37,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
             )}
             <button
               onClick={handlePlay}
-              className="relative z-20 flex h-24 w-24 items-center justify-center rounded-full bg-brand-primary text-white shadow-2xl transition-transform duration-300 hover:scale-110 active:scale-95"
+              className="relative z-20 flex h-24 w-24 items-center justify-center rounded-full bg-brand-primary text-white transition-transform duration-300 hover:scale-110 active:scale-95"
               aria-label="Play video"
             >
               <svg 

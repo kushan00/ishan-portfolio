@@ -49,21 +49,25 @@
 }
 
 .marquee-container {
-  @apply w-full overflow-hidden whitespace-nowrap py-10;
+  @apply w-full overflow-hidden whitespace-nowrap bg-white py-10;
 }
 
 .marquee-track {
-  @apply flex w-max items-center gap-6;
+  @apply flex w-max items-center gap-6 bg-white;
 }
 
 .marquee-item {
-  @apply relative flex-shrink-0 overflow-hidden rounded-[2.5rem] shadow-2xl;
+  @apply relative flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-white;
+  box-shadow: none !important;
+  filter: none !important;
   height: 300px;
   width: 540px;
 }
 
 .marquee-item video, .marquee-item img {
   @apply h-full w-full object-cover;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 .mobileCarousel:active {
