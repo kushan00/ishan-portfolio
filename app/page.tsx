@@ -127,7 +127,7 @@ const works = [
                 </h2>
               </div>
               <Link href="/projects" className="group hidden items-center gap-2 rounded-xl border border-brand-secondary px-6 py-3 text-sm font-medium transition hover:bg-brand-secondary hover:text-white sm:flex">
-                View All Projects
+                View Project
                 <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
               </Link>
             </div>
