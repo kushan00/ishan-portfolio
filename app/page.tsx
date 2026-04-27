@@ -251,7 +251,7 @@ const works = [
       </section>
 
       {/* Experience Section */}
-      <section className="section-gap bg-brand-primary text-white" aria-label="Where I have worked">
+      <section className="bg-brand-primary py-10 text-white md:py-12 lg:py-14" aria-label="Where I have worked">
         <div className="main-container grid gap-20 lg:grid-cols-[280px_1fr]">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
@@ -259,8 +259,8 @@ const works = [
                 <span className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]" aria-hidden="true" />
                 <span className="text-sm font-medium uppercase tracking-widest text-[#dbe8eb]">Experience</span>
               </p>
-              <h3 className="text-5xl font-bold leading-tight md:text-6xl text-white">
-                Where <br /> <span className="font-normal opacity-70">I&apos;ve Worked</span>
+              <h3 className="h-[124px] w-[364px] align-middle font-[var(--font-inter)] text-[54px] font-semibold leading-[62px] tracking-[0] text-white opacity-100 rotate-0">
+                Where <br /> <span className="align-middle font-[var(--font-inter)] text-[54px] font-normal leading-[62px] tracking-[0] text-white opacity-100 rotate-0">I&apos;ve Worked</span>
               </h3>
             </Reveal>
           </div>
