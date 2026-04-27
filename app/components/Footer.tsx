@@ -22,7 +22,7 @@ export default function Footer() {
           ].map((social) => (
             <a
               key={social.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition hover:bg-white/20"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white text-lg text-[#7a7a7a] transition hover:bg-[#f2f2f2] hover:text-[#5f5f5f]"
               href="#"
               aria-label={social.label}
             >

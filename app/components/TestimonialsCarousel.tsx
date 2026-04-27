@@ -104,7 +104,7 @@ export default function TestimonialsCarousel() {
           <Reveal>
             <div className="mb-8 inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#002B31]" aria-hidden="true" />
-              <span className="text-sm font-medium uppercase tracking-widest text-[#000000]">Testimonials</span>
+              <span className="h-[24px] w-[83px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">Testimonials</span>
             </div>
 
             <h3 className="text-5xl font-bold leading-tight md:text-6xl text-[#002B31]">

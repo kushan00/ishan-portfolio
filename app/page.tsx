@@ -47,10 +47,10 @@ const works = [
 ];
 
   const projects = [
-    { title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", videoSrc: "/sample1.mp4" },
-    { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", videoSrc: "/sample2.mp4" },
-    { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", videoSrc: "/sample1.mp4" },
-    { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", videoSrc: "/sample2.mp4" },
+    { title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "/Background.png" },
+    { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "/Frame1.png" },
+    { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "/frame3.png" },
+    { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: "/frame4.png" },
   ];
 
   const experiences = [
@@ -81,8 +81,8 @@ const works = [
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mt-8 max-w-lg text-xl leading-relaxed text-brand-text-muted md:text-2xl">
-                I design digital products that are <strong className="font-bold text-brand-accent">simple, clear, & effective.</strong>
+              <p className="mt-8 max-w-[1350px] font-[var(--font-inter)] text-[54px] font-medium leading-[62px] tracking-[0] text-[#011214]">
+                I design digital products that are <strong className="font-medium text-[#011214]">simple, clear, &amp; effective.</strong>
               </p>
             </Reveal>
 
@@ -121,7 +121,7 @@ const works = [
               <div className="max-w-xl">
                 <p className="mb-4 flex items-center gap-2 text-brand-text">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-                  <span className="text-sm font-medium uppercase tracking-widest text-brand-text-muted">Showcase</span>
+                  <span className="h-[24px] w-[78px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">Showcase</span>
                 </p>
                 <h2 className="text-5xl font-bold leading-tight md:text-6xl text-brand-primary">
                   Selected <br /> <span className="font-normal opacity-70">Product Work</span>
@@ -218,7 +218,7 @@ const works = [
             <Reveal>
               <p className="mb-4 flex items-center gap-2 text-brand-text">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-                <span className="text-sm font-medium uppercase tracking-widest text-brand-text-muted">Case Studies</span>
+                <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">Case Studies</span>
               </p>
               <h3 className="text-5xl font-bold leading-[0.9] text-brand-primary md:text-6xl">
                 Project <br /> <span className="font-normal opacity-70">Breakdown</span>
@@ -231,16 +231,53 @@ const works = [
               <div key={project.title} className={index % 2 === 1 ? "md:mt-24" : ""}>
                 <Reveal delay={0.1 * index}>
                   <article className="group">
-                    <div className={`relative h-120 md:h-120 lg:h-[520px] overflow-hidden rounded-3xl bg-gradient-to-br ${project.gradient} shadow-lg transition-all duration-500 group-hover:shadow-2xl`}>
-                      <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-10" />
-                      <div className="absolute bottom-8 left-8">
-                        <p className="text-2xl font-bold tracking-tight text-white">{project.title}</p>
-                      </div>
+                    <div className={`relative h-120 md:h-120 lg:h-[520px] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`} transition-all duration-500 group-hover:shadow-2xl`}>
+                      {project.imageSrc ? (
+                        <Image
+                          src={project.imageSrc}
+                          alt={project.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      )}
+                      {index !== 0 && <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-10" />}
+                      {index !== 0 && index !== 1 && index !== 2 && index !== 3 && (
+                        <div className="absolute bottom-8 left-8">
+                          <p className="text-2xl font-bold tracking-tight text-white">{project.title}</p>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-8">
-                      <h4 className="text-2xl font-semibold text-brand-primary">{project.subtitle}</h4>
-                      <p className="mt-3 text-lg leading-relaxed text-brand-text-muted">{project.description}</p>
+                      <h4
+                        className={
+                          index === 0
+                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
+                            : index === 1
+                            ? "max-w-[442px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
+                            : index === 2
+                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
+                            : index === 3
+                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
+                            : "text-2xl font-semibold text-brand-primary"
+                        }
+                      >
+                        {project.subtitle}
+                      </h4>
+                      <p
+                        className={
+                          index === 0
+                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
+                            : index === 2
+                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
+                            : index === 3
+                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
+                            : "mt-3 text-lg leading-relaxed text-brand-text-muted"
+                        }
+                      >
+                        {project.description}
+                      </p>
                     </div>
                   </article>
                 </Reveal>
@@ -257,7 +294,7 @@ const works = [
             <Reveal>
               <p className="mb-4 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]" aria-hidden="true" />
-                <span className="text-sm font-medium uppercase tracking-widest text-[#dbe8eb]">Experience</span>
+                <span className="h-[24px] w-[84px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-[#dbe8eb]">Experience</span>
               </p>
               <h3 className="h-[124px] w-[364px] align-middle font-[var(--font-inter)] text-[54px] font-semibold leading-[62px] tracking-[0] text-white opacity-100 rotate-0">
                 Where <br /> <span className="align-middle font-[var(--font-inter)] text-[54px] font-normal leading-[62px] tracking-[0] text-white opacity-100 rotate-0">I&apos;ve Worked</span>
@@ -284,19 +321,21 @@ const works = [
       <TestimonialsCarousel />
 
       {/* Contact CTA */}
-      <section className="section-gap bg-[#F8F9F7]" aria-label="Contact call to action">
+      <section className="flex h-[329px] w-full items-center bg-[#F8F9F7]" aria-label="Contact call to action">
         <div className="main-container flex flex-col items-center text-center">
           <Reveal>
             <p className="mb-4 flex items-center justify-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-              <span className="text-sm font-medium uppercase tracking-widest text-brand-text-muted">Ready When You Are</span>
+              <span className="font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">
+                Ready When You Are
+              </span>
             </p>
             <h3 className="text-xl font-semibold leading-snug md:text-4xl text-brand-primary">
               Let&apos;s build something simple and effective together.
             </h3>
             <a
               href="mailto:ishan.kavinda@example.com"
-              className="w-full md:w-[50%] lg:w-[25%] mt-10 inline-flex items-center justify-center rounded-2xl bg-[#000000] px-8 py-4 text-lg font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
+              className="mt-10 inline-flex h-[52px] w-[134px] items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
             >
               Book a Call
             </a>
