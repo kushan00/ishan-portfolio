@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-white opacity-100 rotate-0">
-      <div className="mx-auto flex h-[80px] w-full max-w-[1280px] items-center justify-between">
+      <div className="main-container flex h-[80px] items-center justify-between">
         <Link
           href="/"
           className="text-2xl font-medium tracking-tighter text-brand-secondary"

@@ -46,7 +46,7 @@ const works = [
   },
 ];
 
-  const projects = [
+  const projects: { title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; videoSrc?: string }[] = [
     { title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "/Background.png" },
     { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "/Frame1.png" },
     { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "/frame3.png" },
@@ -70,20 +70,99 @@ const works = [
         <div className="main-container grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <Reveal>
-              <h1 className="flex flex-col text-brand-text">
-                <span className="font-[var(--font-signature)] text-8xl md:text-[140px] italic leading-[0.85] tracking-tight">
+              <h1 style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: 565,
+                height: 245,
+                opacity: 1,
+                margin: 0,
+                padding: 0,
+              }}>
+                <span style={{
+                  fontFamily: 'Satisfy, serif',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  fontSize: '150px',
+                  lineHeight: '127.2px',
+                  letterSpacing: '-1.4px',
+                  verticalAlign: 'middle',
+                  color: '#002B31',
+                  margin: 0,
+                  padding: 0,
+                }}>
                   Ishan
                 </span>
-                <strong className="font-[var(--font-name)] text-7xl md:text-[110px] uppercase leading-[0.85] tracking-tight">
-                  Kavinda
-                </strong>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  margin: 0,
+                  padding: 0,
+                }}>
+                  <strong style={{
+                    fontFamily: 'Satisfy, serif',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: '120px',
+                    lineHeight: '127.2px',
+                    letterSpacing: '-1.4px',
+                    verticalAlign: 'middle',
+                    color: '#002B31',
+                    margin: 0,
+                    padding: 0,
+                  }}>
+                    Kavinda
+                  </strong>
+                  <span style={{
+                    fontFamily: 'Satisfy, serif',
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    fontSize: '120px',
+                    lineHeight: '127.2px',
+                    letterSpacing: '-10.4px',
+                    verticalAlign: 'middle',
+                    color: '#002B31',
+                    margin: 0,
+                    padding: 0,
+                  }}>
+                    .
+                  </span>
+                </div>
               </h1>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mt-8 max-w-[1350px] font-[var(--font-inter)] text-[54px] font-medium leading-[62px] tracking-[0] text-[#011214]">
-                I design digital products that are <strong className="font-medium text-[#011214]">simple, clear, &amp; effective.</strong>
-              </p>
+              <div style={{
+                width: 565,
+                opacity: 1,
+              }}>
+                <p style={{
+                  margin: 0,
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  fontSize: '20px',
+                  lineHeight: '28px',
+                  letterSpacing: '0%',
+                  verticalAlign: 'middle',
+                  color: '#4F5253',
+                }}>
+                  I design digital products that are <strong style={{ fontWeight: 700 }}>simple, clear,</strong>
+                </p>
+                <p style={{
+                  margin: 0,
+                  fontFamily: 'Inter, sans-serif',
+                  fontWeight: 700,
+                  fontStyle: 'normal',
+                  fontSize: '20px',
+                  lineHeight: '28px',
+                  letterSpacing: '0%',
+                  verticalAlign: 'middle',
+                  color: '#4F5253',
+                }}>
+                  &amp; <strong style={{ fontWeight: 700 }}>effective.</strong>
+                </p>
+              </div>
             </Reveal>
 
             <Reveal delay={0.3}>
@@ -169,7 +248,7 @@ const works = [
 
       {/* Process Section */}
       <section className="section-gap bg-brand-primary text-white" aria-label="Process section">
-        <div className="main-container flex flex-col justify-between w-[1340px] h-[486px]">
+        <div className="mx-auto w-[1280px] flex flex-col justify-between h-[568px]">
           <Reveal>
             <div className="max-w-2xl">
               <p className="mb-6 flex items-center gap-2">
@@ -178,13 +257,13 @@ const works = [
               </p>
               <h2 className="h-[96px] w-[514px] align-middle font-[var(--font-inter)] text-[24px] font-medium leading-[32px] tracking-[0] text-[#e6eef0] opacity-100 rotate-0">
                 No unnecessary steps.<br />
-                Simple processes for complex products.<br />
+                A Simple processes for complex products.<br />
                 Focused on clarity, usability, and real impact.
               </h2>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-4 bg-[#FFFFFF] rounded-[16px] pt-[36px] pr-[30px] pb-[36px] pl-[30px] w-[1340px] h-[320px]">
+          <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-4 bg-[#FFFFFF] rounded-[16px] pt-[36px] pr-[30px] pb-[36px] pl-[30px] w-[1280px] h-[320px]">
             {[
               { icon: "⌂", iconSrc: "/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we’re solving.\nClear direction makes everything easier.", delay: 0 },
               { icon: "✣", iconSrc: "/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
@@ -239,9 +318,9 @@ const works = [
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                      ) : (
+                      ) : project.videoSrc ? (
                         <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                      )}
+                      ) : null}
                       {index !== 0 && <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-10" />}
                       {index !== 0 && index !== 1 && index !== 2 && index !== 3 && (
                         <div className="absolute bottom-8 left-8">
