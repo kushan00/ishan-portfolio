@@ -50,8 +50,8 @@ export default function ProjectsPage() {
       videoUrl: "/sample3.mp4",
     },
     {
-      slug: "data-console",
-      title: "DATA CONSOLE",
+      slug: "paw-chain",
+      title: "PAW CHAIN",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-900 via-slate-800 to-slate-600",

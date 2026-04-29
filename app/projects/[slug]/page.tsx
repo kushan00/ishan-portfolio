@@ -49,14 +49,14 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&h=675&fit=crop',
   },
   {
-    slug: 'data-console',
-    title: 'DATA CONSOLE',
-    selectedTitle: 'Data Console',
+    slug: 'paw-chain',
+    title: 'PAW CHAIN',
+    selectedTitle: 'PAW CHAIN',
     subtitle: 'Designing Data-Heavy Dashboards That Make Sense',
     description:
       'Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.',
     fullDescription:
-      'DATA CONSOLE brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
+      'PAW CHAIN brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
     gradient: 'from-zinc-900 via-slate-800 to-slate-600',
     image: '/pp1.png',
   },
@@ -95,7 +95,7 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  const isDataConsole = project?.slug === 'data-console';
+  const isPawChain = project?.slug === 'paw-chain';
 
   if (!project) {
     notFound();
@@ -107,7 +107,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <nav className="main-container mt-6">
         <Link
-          href="/projects"
+          href="/"
           className="inline-flex h-[24px] w-[45px] items-center gap-[4.58px] text-[16px] font-normal leading-[24px] text-[#1d464f] no-underline opacity-100 rotate-0 capitalize transition hover:text-[#0a3a44]"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
@@ -155,7 +155,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span className="font-normal text-[#123f47]">Token </span>
               <strong className="font-bold text-[#0a2f38]">Landing</strong>
             </>
-          ) : project.slug === 'data-console' ? (
+          ) : project.slug === 'paw-chain' ? (
             <>
               <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>PAW</span>
               <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>CHAIN</strong>
@@ -167,7 +167,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       {/* Subtitle/description for specific projects */}
-      {project.slug === 'data-console' && (
+      {project.slug === 'paw-chain' && (
         <div className="main-container mt-4">
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', lineHeight: '32px', color: '#002B31', margin: 0 }}>
             Designing a Crypto Wallet for Real Users
@@ -190,12 +190,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isDataConsole ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
-        <div className={isDataConsole ? "relative aspect-[1280/660] overflow-hidden rounded-[17.71px] bg-white" : "relative aspect-[16/9] overflow-hidden rounded-[1.2rem]"}>
+      <div className={isPawChain ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
+        <div className={isPawChain ? "relative aspect-[1280/660] overflow-hidden rounded-[17.71px] bg-white" : "relative aspect-[16/9] overflow-hidden rounded-[1.2rem]"}>
           {project.video ? (
             <video
               src={project.video}
-              className={isDataConsole ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
+              className={isPawChain ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
               autoPlay
               loop
               muted
@@ -209,7 +209,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               fill
               loading="lazy"
               sizes="(max-width: 980px) 100vw, 980px"
-              className={isDataConsole ? "object-contain object-center" : "object-cover object-center"}
+              className={isPawChain ? "object-contain object-center" : "object-cover object-center"}
             />
           )}
         </div>
@@ -240,16 +240,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
             </div>
           </div>
-        ) : project.slug === 'data-console' ? (
+        ) : project.slug === 'paw-chain' ? (
           <div className="flex flex-col items-center gap-6">
           
-            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <div className="relative h-[552px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp2.png" alt="pp2" fill className="object-cover" />
             </div>
-            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <div className="relative h-[552px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp3.png" alt="pp3" fill className="object-cover" />
             </div>
-            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <div className="relative h-[552px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp4.png" alt="pp4" fill className="object-cover" />
             </div>
           </div>
