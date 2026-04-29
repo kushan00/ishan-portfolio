@@ -96,6 +96,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   const isPawChain = project?.slug === 'paw-chain';
+  const isCasinoXp = project?.slug === 'casino-xp';
+  const isLargeHero = isPawChain || isCasinoXp;
 
   if (!project) {
     notFound();
@@ -147,8 +149,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </>
           ) : project.slug === 'casino-xp' ? (
             <>
-              <span className="font-normal text-[#123f47]">Casino </span>
-              <strong className="font-bold text-[#0a2f38]">XP</strong>
+              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>CASINO</span>
+              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>XP</strong>
             </>
           ) : project.slug === 'token-landing' ? (
             <>
@@ -190,12 +192,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isPawChain ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
-        <div className={isPawChain ? "relative aspect-[1280/660] overflow-hidden rounded-[17.71px] bg-white" : "relative aspect-[16/9] overflow-hidden rounded-[1.2rem]"}>
+      <div className={isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
+        <div className={isLargeHero ? "relative aspect-[1280/660] overflow-hidden rounded-[17.71px] bg-white" : "relative aspect-[16/9] overflow-hidden rounded-[1.2rem]"}>
           {project.video ? (
             <video
               src={project.video}
-              className={isPawChain ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
+              className={isLargeHero ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
               autoPlay
               loop
               muted
@@ -209,7 +211,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               fill
               loading="lazy"
               sizes="(max-width: 980px) 100vw, 980px"
-              className={isPawChain ? "object-contain object-center" : "object-cover object-center"}
+              className={isLargeHero ? "object-contain object-center" : "object-cover object-center"}
             />
           )}
         </div>
