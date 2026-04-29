@@ -23,40 +23,74 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      slug: "prjectName",
-      title: "PROJECTNAME",
+      title: "PS 01",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
-      imageUrl: "/ishan.png",
-      videoUrl: "/sample1.mp4",
+      imageUrl: "/ps1.png",
     },
     {
-      slug: "casino-xp",
-      title: "CASINO XP",
+      title: "PS 02",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
-      imageUrl: "/ishan.png",
-      videoUrl: "/sample2.mp4",
+      imageUrl: "/ps2.png",
     },
     {
-      slug: "token-landing",
-      title: "TOKEN LANDING",
+      title: "PS 03",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
-      imageUrl: "/ishan.png",
-      videoUrl: "/sample3.mp4",
+      imageUrl: "/ps3.png",
     },
     {
-      slug: "paw-chain",
-      title: "PAW CHAIN",
+      title: "PS 04",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
-      imageUrl: "/ishan.png",
-      videoUrl: "/sample4.mp4",
+      imageUrl: "/ps4.png",
+    },
+    {
+      title: "PS 05",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-purple-900 via-purple-700 to-blue-700",
+      imageUrl: "/ps5.png",
+    },
+    {
+      title: "PS 06",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-emerald-900 via-emerald-700 to-teal-700",
+      imageUrl: "/ps6.png",
+    },
+    {
+      title: "PS 07",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-zinc-800 via-zinc-700 to-zinc-500",
+      imageUrl: "/ps7.png",
+    },
+    {
+      title: "PS 08",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-slate-900 via-slate-800 to-slate-600",
+      imageUrl: "/ps8.png",
+    },
+    {
+      title: "PS 09",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-cyan-900 via-cyan-700 to-blue-500",
+      imageUrl: "/ps9.png",
+    },
+    {
+      title: "PS 10",
+      subtitle: cardSubtitle,
+      description: cardDescription,
+      gradient: "from-neutral-900 via-stone-800 to-stone-600",
+      imageUrl: "/ps10.png",
     },
   ];
 
@@ -92,7 +126,7 @@ export default function ProjectsPage() {
 
       <section className="section-gap overflow-hidden">
         <div className="main-container">
-          <div className="flex flex-col gap-12 border-b border-[#F0F0F0] pb-16">
+          <div className="flex min-h-[354px] flex-col gap-12 pb-16">
             <Reveal>
               <div className="flex items-center gap-2 text-brand-text">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
@@ -100,7 +134,7 @@ export default function ProjectsPage() {
               </div>
             </Reveal>
 
-            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
+            <div className="grid items-start gap-[54px] lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
               <Reveal delay={0.1}>
                 <h2 className="flex flex-col text-6xl font-bold leading-tight tracking-tighter text-brand-primary md:text-[80px]">
                   <span>Selected</span>
@@ -115,7 +149,7 @@ export default function ProjectsPage() {
             </div>
 
             <Reveal delay={0.3}>
-              <p className="max-w-3xl text-xl leading-relaxed text-brand-text-muted">
+                <p className="max-w-none whitespace-nowrap text-xl leading-relaxed text-brand-text-muted">
                 A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.
               </p>
             </Reveal>
@@ -123,17 +157,15 @@ export default function ProjectsPage() {
         </div>
 
         <div className="main-container mt-24">
-          <div className="grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-[40px] sm:grid-cols-2">
             {projects.map((project, index) => (
-              <Reveal key={`${project.slug}-${index}`} delay={0.1 * (index % 2)}>
+              <Reveal key={`${project.imageUrl}-${index}`} delay={0.1 * (index % 2)}>
                 <ProjectCard
-                  slug={project.slug}
                   title={project.title}
                   subtitle={project.subtitle}
                   description={project.description}
                   gradient={project.gradient}
                   imageUrl={project.imageUrl}
-                  videoUrl={project.videoUrl}
                 />
               </Reveal>
             ))}

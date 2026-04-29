@@ -10,7 +10,19 @@ type ProjectPageProps = {
   }>;
 };
 
-const projects = [
+type Project = {
+  slug: string;
+  title: string;
+  selectedTitle: string;
+  subtitle: string;
+  description: string;
+  fullDescription: string;
+  gradient: string;
+  image: string;
+  video?: string;
+};
+
+const projects: Project[] = [
   {
     slug: 'prjectName',
     title: 'Whale Change',
@@ -45,8 +57,7 @@ const projects = [
     fullDescription:
       'TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.',
     gradient: 'from-zinc-950 via-zinc-900 to-zinc-700',
-    video: '/sample3.mp4',
-    image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&h=675&fit=crop',
+    image: '/ps1.png',
   },
   {
     slug: 'paw-chain',

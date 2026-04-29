@@ -43,7 +43,7 @@ export default function LazyProjectVideo({ src, className }: LazyProjectVideoPro
           playsInline
           loop
           autoPlay
-          preload="metadata"
+          preload="none"
         />
       ) : (
         <div className="h-full w-full bg-white" />
