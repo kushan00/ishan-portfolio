@@ -95,16 +95,17 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
+  const isWhaleChange = project?.slug === 'prjectName';
   const isPawChain = project?.slug === 'paw-chain';
   const isCasinoXp = project?.slug === 'casino-xp';
-  const isLargeHero = isPawChain || isCasinoXp;
+  const isLargeHero = isWhaleChange || isPawChain || isCasinoXp;
 
   if (!project) {
     notFound();
   }
 
   return (
-    <main className="flex min-h-screen flex-col bg-white text-[#0d3b46]">
+    <main className={isWhaleChange ? "flex min-h-screen flex-col bg-[#F5F5F5] text-[#0d3b46]" : "flex min-h-screen flex-col bg-white text-[#0d3b46]"}>
       <Header />
 
       <nav className="main-container mt-6">
@@ -144,8 +145,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         >
           {project.slug === 'prjectName' ? (
             <>
-              <span style={{ display: 'block', fontWeight: 400, fontStyle: 'normal' }}>WHALE</span>
-              <strong style={{ display: 'block', fontWeight: 700, fontStyle: 'normal' }}>CHANGE</strong>
+              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>WHALE</span>
+              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>CHANGE</strong>
             </>
           ) : project.slug === 'casino-xp' ? (
             <>
@@ -184,9 +185,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               letterSpacing: '0%',
               color: '#002B31',
               margin: '8px 0 0',
-              maxWidth: '1280px',
+              width: '1280px',
+              maxWidth: '100%',
             }}
           >
+            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+          </p>
+        </div>
+      )}
+
+      {project.slug === 'casino-xp' && (
+        <div className="main-container mt-4">
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', lineHeight: '32px', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
+            Designing a Crypto Wallet for Real Users
+          </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '14px', lineHeight: '22px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', width: '1280px', maxWidth: '100%' }}>
+            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+          </p>
+        </div>
+      )}
+
+      {project.slug === 'prjectName' && (
+        <div className="main-container mt-4">
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', lineHeight: '32px', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
+            Designing a Crypto Wallet for Real Users
+          </p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '14px', lineHeight: '22px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', width: '1280px', maxWidth: '100%' }}>
             Simplifying onboarding, transactions, and portfolio tracking for everyday users.
           </p>
         </div>
@@ -236,12 +260,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : project.slug === 'prjectName' ? (
           <div className="flex flex-col items-center gap-6">
             <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/pf1.png" alt="pf1" fill className="object-cover" />
-            </div>
-            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
             </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/fp6.png" alt="fp6" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/fp4.png" alt="fp4" fill className="object-cover" />
+            </div>
           </div>
+          
         ) : project.slug === 'paw-chain' ? (
           <div className="flex flex-col items-center gap-6">
           
