@@ -68,9 +68,23 @@ export default function ProjectsPage() {
         <Reveal>
           <Link
             href="/"
-            className="group flex items-center gap-2 text-base font-medium text-brand-text-muted transition hover:text-brand-primary"
+            className="inline-flex h-[24px] w-[45px] items-center gap-[4.58px] capitalize text-[16px] font-normal leading-[24px] text-brand-text-muted transition hover:text-brand-primary"
+            style={{ fontFamily: "Inter, sans-serif" }}
           >
-            <span className="transition-transform group-hover:-translate-x-1">&lt;-</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 12 10"
+              className="h-[10px] w-[11.25px] shrink-0"
+            >
+              <path
+                d="M11 5H1.8M1.8 5L5.8 1M1.8 5L5.8 9"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.25"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             Home
           </Link>
         </Reveal>
@@ -86,7 +100,7 @@ export default function ProjectsPage() {
               </div>
             </Reveal>
 
-            <div className="grid items-start justify-between gap-8 lg:grid-cols-[1fr_300px]">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
               <Reveal delay={0.1}>
                 <h2 className="flex flex-col text-6xl font-bold leading-tight tracking-tighter text-brand-primary md:text-[80px]">
                   <span>Selected</span>
@@ -94,7 +108,7 @@ export default function ProjectsPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.2}>
-              <p className="max-w-[217px] h-[56px] text-right font-[var(--font-inter)] text-[20px] font-normal leading-[28px] tracking-[0] text-[#4F5253]">
+              <p className="ml-auto max-w-[217px] justify-self-end text-right font-[var(--font-inter)] text-[20px] font-normal leading-[28px] tracking-[0] text-[#4F5253]">
                   Not everything is <strong className="font-bold text-[#4F5253]">visible at first glance.</strong>
                 </p>
               </Reveal>

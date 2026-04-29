@@ -95,6 +95,7 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
+  const isDataConsole = project?.slug === 'data-console';
 
   if (!project) {
     notFound();
@@ -104,17 +105,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main className="flex min-h-screen flex-col bg-white text-[#0d3b46]">
       <Header />
 
-      <nav className="mx-auto mt-6 w-[min(1280px,calc(100%-2rem))]">
+      <nav className="main-container mt-6">
         <Link
           href="/projects"
-          className="inline-flex h-[24px] w-[45px] items-center text-[16px] font-normal leading-[24px] text-[#1d464f] no-underline opacity-100 rotate-0 capitalize transition hover:text-[#0a3a44]"
+          className="inline-flex h-[24px] w-[45px] items-center gap-[4.58px] text-[16px] font-normal leading-[24px] text-[#1d464f] no-underline opacity-100 rotate-0 capitalize transition hover:text-[#0a3a44]"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 12 10"
+            className="h-[10px] w-[11.25px] shrink-0"
+          >
+            <path
+              d="M11 5H1.8M1.8 5L5.8 1M1.8 5L5.8 9"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
           Home
         </Link>
       </nav>
 
-      <div className="mx-auto mt-9 w-[min(1280px,calc(100%-2rem))]">
+      <div className="main-container mt-9">
         <p
           className="m-0 inline-flex items-center gap-[0.35rem] text-[16px] font-normal leading-[24px] text-[#6e7d80] opacity-100 rotate-0"
           style={{ fontFamily: "Inter, sans-serif" }}
@@ -142,8 +157,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </>
           ) : project.slug === 'data-console' ? (
             <>
-              <span className="font-normal text-[#123f47]">Data </span>
-              <strong className="font-bold text-[#0a2f38]">Console</strong>
+              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>PAW</span>
+              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>CHAIN</strong>
             </>
           ) : (
             <strong className="font-bold text-[#0a2f38]">{project.selectedTitle}</strong>
@@ -151,12 +166,36 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </h1>
       </div>
 
-      <div className="mx-auto mt-8 w-[min(1280px,calc(100%-2rem))]">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem]">
+      {/* Subtitle/description for specific projects */}
+      {project.slug === 'data-console' && (
+        <div className="main-container mt-4">
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', lineHeight: '32px', color: '#002B31', margin: 0 }}>
+            Designing a Crypto Wallet for Real Users
+          </p>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: '14px',
+              lineHeight: '22px',
+              letterSpacing: '0%',
+              color: '#002B31',
+              margin: '8px 0 0',
+              maxWidth: '1280px',
+            }}
+          >
+            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+          </p>
+        </div>
+      )}
+
+      <div className={isDataConsole ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
+        <div className={isDataConsole ? "relative aspect-[1280/660] overflow-hidden rounded-[17.71px] bg-white" : "relative aspect-[16/9] overflow-hidden rounded-[1.2rem]"}>
           {project.video ? (
             <video
               src={project.video}
-              className="h-full w-full object-cover object-center"
+              className={isDataConsole ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
               autoPlay
               loop
               muted
@@ -170,7 +209,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               fill
               loading="lazy"
               sizes="(max-width: 980px) 100vw, 980px"
-              className="object-cover object-center"
+              className={isDataConsole ? "object-contain object-center" : "object-cover object-center"}
             />
           )}
         </div>
@@ -179,7 +218,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* subtitle/description removed as requested */}
 
       {/* Gallery: project-specific */}
-      <div className="mx-auto mb-16 mt-8 w-[min(1280px,calc(100%-2rem))]">
+      <div className="main-container mb-16 mt-8">
         {project.slug === 'casino-xp' ? (
           <div className="flex flex-col items-center gap-6">
                         <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
