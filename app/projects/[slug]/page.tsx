@@ -58,8 +58,7 @@ const projects = [
     fullDescription:
       'DATA CONSOLE brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
     gradient: 'from-zinc-900 via-slate-800 to-slate-600',
-    video: '/sample4.mp4',
-    image: 'https://images.unsplash.com/photo-1633356713697-812ab3fb49f5?w=1200&h=675&fit=crop',
+    image: '/pp1.png',
   },
   {
     slug: 'analytics-hub',
@@ -200,6 +199,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
+            </div>
+          </div>
+        ) : project.slug === 'data-console' ? (
+          <div className="flex flex-col items-center gap-6">
+          
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/pp2.png" alt="pp2" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/pp3.png" alt="pp3" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/pp4.png" alt="pp4" fill className="object-cover" />
             </div>
           </div>
         ) : (
