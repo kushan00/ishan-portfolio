@@ -13,16 +13,15 @@ type ProjectPageProps = {
 const projects = [
   {
     slug: 'prjectName',
-    title: 'Project Name',
-    selectedTitle: 'Whale Chance',
+    title: 'Whale Change',
+    selectedTitle: 'WHALE CHANGE',
     subtitle: 'Designing a Crypto Wallet for Real Users',
     description:
-      'Simplifying wallet onboarding, portfolio tracking for everyday crypto users.',
+      'Simplifying wallet onboarding and portfolio tracking for everyday crypto users.',
     fullDescription:
-      'prjectName is a revolutionary crypto wallet designed for everyday users who want to manage their digital assets with confidence. We focused on simplifying the onboarding process, making portfolio tracking intuitive, and providing clear feedback at every step. The design emphasizes clarity, security, and accessibility.',
+      'Whale Change is a crypto wallet case study focused on simplifying onboarding, clarifying transactions, and making portfolio tracking accessible for new users. The work includes a pared-back onboarding flow, clear hierarchy for balances and transactions, and a cohesive visual system that communicates trust and clarity.',
     gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
-    video: '/sample1.mp4',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=675&fit=crop',
+    image: '/pf1.png',
   },
   {
     slug: 'casino-xp',
@@ -34,8 +33,7 @@ const projects = [
     fullDescription:
       'CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.',
     gradient: 'from-red-900 via-fuchsia-700 to-amber-400',
-    video: '/sample2.mp4',
-    image: 'https://images.unsplash.com/photo-1516535541601-4dba8344ce5e?w=1200&h=675&fit=crop',
+    image: '/cp1.png',
   },
   {
     slug: 'token-landing',
@@ -125,13 +123,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <span>•</span> Case Studies
         </p>
         <h1
-          className="mt-[0.5rem] h-[144px] w-[708px] text-[64px] leading-[72px] tracking-[-1.4px] text-[#123f47] opacity-100 rotate-0"
+          className="mt-[0.5rem] h-[144px] w-[708px] text-[64px] leading-[72px] tracking-[-1.4px] text-[#002B31] opacity-100 rotate-0"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {project.slug === 'prjectName' ? (
             <>
-              <span className="font-normal text-[#123f47]">Project </span>
-              <strong className="font-bold text-[#0a2f38]">Name</strong>
+              <span style={{ display: 'block', fontWeight: 400, fontStyle: 'normal' }}>WHALE</span>
+              <strong style={{ display: 'block', fontWeight: 700, fontStyle: 'normal' }}>CHANGE</strong>
             </>
           ) : project.slug === 'casino-xp' ? (
             <>
@@ -179,16 +177,40 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </div>
 
-      <div className="mx-auto mb-12 mt-10 w-[min(1280px,calc(100%-2rem))]">
-        <div className="max-w-[840px]">
-          <h2 className="m-0 text-[1.8rem] font-semibold leading-[1.2] text-[#123f47]">{project.subtitle}</h2>
-          <p className="mt-4 text-[0.95rem] leading-[1.6] text-[#617477]">{project.description}</p>
-          <div className="mt-8 border-t border-[#d4dbda] pt-8">
-            <p className="m-0 text-[0.9rem] leading-[1.8] text-[#677474]">{project.fullDescription}</p>
+      {/* subtitle/description removed as requested */}
+
+      {/* Gallery: project-specific */}
+      <div className="mx-auto mb-16 mt-8 w-[min(1280px,calc(100%-2rem))]">
+        {project.slug === 'casino-xp' ? (
+          <div className="flex flex-col items-center gap-6">
+                        <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/cp2.png" alt="cp2" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/cp3.png" alt="cp3" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/cp4.png" alt="cp4" fill className="object-cover" />
+            </div>
           </div>
-        </div>
+        ) : project.slug === 'prjectName' ? (
+          <div className="flex flex-col items-center gap-6">
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/pf1.png" alt="pf1" fill className="object-cover" />
+            </div>
+            <div className="relative h-[520px] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
+            </div>
+          </div>
+        ) : (
+          <div className="relative h-[520px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <Image src={project.image} alt={project.selectedTitle} fill className="object-cover" />
+          </div>
+        )}
       </div>
 
+
+      {/* Site footer */}
       <Footer />
     </main>
   );

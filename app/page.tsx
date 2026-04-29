@@ -46,11 +46,11 @@ const works = [
   },
 ];
 
-  const projects: { title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; videoSrc?: string }[] = [
-    { title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "/Background.png" },
-    { title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "/Frame1.png" },
-    { title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "/frame3.png" },
-    { title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: "/frame4.png" },
+  const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; videoSrc?: string }[] = [
+    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "/Background.png" },
+    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "/Frame1.png" },
+    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "/frame3.png" },
+    { slug: "data-console", title: "DATA CONSOLE", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: "/frame4.png" },
   ];
 
   const experiences = [
@@ -309,7 +309,8 @@ const works = [
             {projects.map((project, index) => (
               <div key={project.title} className={index % 2 === 1 ? "md:mt-24" : ""}>
                 <Reveal delay={0.1 * index}>
-                  <article className="group">
+                  <Link href={`/projects/${project.slug ?? project.title}`} className="group block">
+                    <article className="group">
                     <div className={`relative h-120 md:h-120 lg:h-[520px] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`} transition-all duration-500 group-hover:shadow-2xl`}>
                       {project.imageSrc ? (
                         <Image
@@ -358,7 +359,8 @@ const works = [
                         {project.description}
                       </p>
                     </div>
-                  </article>
+                    </article>
+                  </Link>
                 </Reveal>
               </div>
             ))}
