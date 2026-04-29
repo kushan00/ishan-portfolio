@@ -122,8 +122,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <nav className="main-container mt-6">
         <Link
           href="/"
-          className="inline-flex h-[24px] w-[45px] items-center gap-[4.58px] text-[16px] font-normal leading-[24px] text-[#1d464f] no-underline opacity-100 rotate-0 capitalize transition hover:text-[#0a3a44]"
-          style={{ fontFamily: "Inter, sans-serif" }}
+          className="inline-flex h-[24px] items-center capitalize transition hover:opacity-70"
+          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', letterSpacing: '0', width: '75px', height: '24px', gap: '10px', opacity: 1, color: '#000000' }}
         >
           <svg
             aria-hidden="true"

@@ -102,8 +102,8 @@ export default function ProjectsPage() {
         <Reveal>
           <Link
             href="/"
-            className="inline-flex h-[24px] w-[45px] items-center gap-[4.58px] capitalize text-[16px] font-normal leading-[24px] text-brand-text-muted transition hover:text-brand-primary"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="inline-flex h-[24px] items-center capitalize transition hover:opacity-70"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', letterSpacing: '0', width: '75px', height: '24px', gap: '10px', opacity: 1, color: '#000000' }}
           >
             <svg
               aria-hidden="true"
@@ -126,7 +126,7 @@ export default function ProjectsPage() {
 
       <section className="section-gap overflow-hidden">
         <div className="main-container">
-          <div className="flex min-h-[354px] flex-col gap-12 pb-16">
+          <div className="flex min-h-[354px] flex-col gap-6 pb-16">
             <Reveal>
               <div className="flex items-center gap-2 text-brand-text">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
@@ -136,15 +136,20 @@ export default function ProjectsPage() {
 
             <div className="grid items-start gap-[54px] lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
               <Reveal delay={0.1}>
-                <h2 className="flex flex-col text-6xl font-bold leading-tight tracking-tighter text-brand-primary md:text-[80px]">
-                  <span>Selected</span>
-                  <span className="font-normal opacity-70">Product Work</span>
-                </h2>
+                <div style={{ width: '708px', height: '144px', opacity: 1 }}>
+                  <h2 className="flex flex-col" style={{ fontFamily: 'Inter, sans-serif', fontSize: '64px', lineHeight: '72px', letterSpacing: '-1.4px', color: '#002B31' }}>
+                    <span style={{ fontWeight: 400 }}>Selected</span>
+                    <span style={{ fontWeight: 600 }}>Product Work</span>
+                  </h2>
+                </div>
               </Reveal>
               <Reveal delay={0.2}>
-              <p className="ml-auto max-w-[217px] justify-self-end text-right font-[var(--font-inter)] text-[20px] font-normal leading-[28px] tracking-[0] text-[#4F5253]">
-                  Not everything is <strong className="font-bold text-[#4F5253]">visible at first glance.</strong>
-                </p>
+                <div style={{ width: '217px', height: '56px', opacity: 1 }}>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '20px', lineHeight: '28px', letterSpacing: '0', textAlign: 'right', color: '#4F5253' }}>
+                    <span style={{ fontWeight: 400 }}>Not everything is </span>
+                    <span style={{ fontWeight: 700 }}>visible at first glance.</span>
+                  </p>
+                </div>
               </Reveal>
             </div>
 
@@ -156,7 +161,7 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        <div className="main-container mt-24">
+        <div className="main-container mt-12">
           <div className="grid grid-cols-1 gap-[40px] sm:grid-cols-2">
             {projects.map((project, index) => (
               <Reveal key={`${project.imageUrl}-${index}`} delay={0.1 * (index % 2)}>
