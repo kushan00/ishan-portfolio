@@ -66,15 +66,16 @@ const works = [
       <Header />
 
       {/* Hero Section */}
-      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-2 pb-8" aria-label="Hero section">
-        <div className="main-container grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-4 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
+        <div className="main-container grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <Reveal>
               <h1 style={{
                 display: 'flex',
                 flexDirection: 'column',
-                width: 565,
-                height: 245,
+                width: '100%',
+                maxWidth: 565,
+                height: 'auto',
                 opacity: 1,
                 margin: 0,
                 padding: 0,
@@ -83,8 +84,8 @@ const works = [
                   fontFamily: 'Satisfy, serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: '150px',
-                  lineHeight: '127.2px',
+                  fontSize: 'clamp(72px, 18vw, 150px)',
+                  lineHeight: '0.9',
                   letterSpacing: '-1.4px',
                   verticalAlign: 'middle',
                   color: '#002B31',
@@ -103,8 +104,8 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: '120px',
-                    lineHeight: '127.2px',
+                    fontSize: 'clamp(56px, 14vw, 120px)',
+                    lineHeight: '0.9',
                     letterSpacing: '-1.4px',
                     verticalAlign: 'middle',
                     color: '#002B31',
@@ -117,8 +118,8 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: '120px',
-                    lineHeight: '127.2px',
+                    fontSize: 'clamp(56px, 14vw, 120px)',
+                    lineHeight: '0.9',
                     letterSpacing: '-10.4px',
                     verticalAlign: 'middle',
                     color: '#002B31',
@@ -133,7 +134,8 @@ const works = [
 
             <Reveal delay={0.2}>
               <div style={{
-                width: 565,
+                width: '100%',
+                maxWidth: 565,
                 opacity: 1,
               }}>
                 <p style={{
@@ -141,7 +143,7 @@ const works = [
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: '20px',
+                  fontSize: 'clamp(16px, 4vw, 20px)',
                   lineHeight: '28px',
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
@@ -166,11 +168,11 @@ const works = [
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/projects" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+                <Link href="/projects" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
                   View My Work
                 </Link>
-                <button type="button" className="inline-flex h-[52px] w-[158px] items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                <button type="button" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
                   Let&apos;s Talk
                 </button>
               </div>
@@ -185,7 +187,7 @@ const works = [
           </div>
 
           <Reveal delay={0.5}>
-            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
               <HeroVideo src="/intro.mp4" poster="/ishan.png" />
             </div>
           </Reveal>
@@ -194,15 +196,15 @@ const works = [
 
       {/* Showcase Section */}
       <section className="section-gap overflow-hidden bg-white pt-6 pb-4 md:pb-4 lg:pb-4" aria-label="Selected Product Work section">
-        <div className="main-container mb-12">
+        <div className="main-container mb-8 sm:mb-12">
           <Reveal>
-            <div className="flex items-end justify-between pb-12">
+            <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between lg:pb-12">
               <div className="max-w-xl">
                 <p className="mb-4 flex items-center gap-2 text-brand-text">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
                   <span className="h-[24px] w-[78px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">Showcase</span>
                 </p>
-                <h2 className="text-5xl font-bold leading-tight md:text-6xl text-brand-primary">
+                <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-bold leading-tight text-brand-primary">
                   Selected <br /> <span className="font-normal opacity-70">Product Work</span>
                 </h2>
               </div>
@@ -263,7 +265,7 @@ const works = [
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-4 bg-[#FFFFFF] rounded-[16px] pt-[36px] pr-[30px] pb-[36px] pl-[30px] w-[1280px] h-[320px]">
+          <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
             {[
               { icon: "⌂", iconSrc: "/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we’re solving.\nClear direction makes everything easier.", delay: 0 },
               { icon: "✣", iconSrc: "/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
@@ -271,17 +273,17 @@ const works = [
               { icon: "◎", iconSrc: "/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
             ].map((step, index) => (
               <Reveal key={step.title} delay={step.delay}>
-                <article className="flex h-full flex-col p-4">
-                  <div className="bg-[#F8F9F7] mb-6 flex h-14 w-14 items-center justify-center rounded-xl  text-2xl text-[#002B31] backdrop-blur-sm">
+                <article className="flex h-full flex-col p-2 sm:p-4">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
                     {step.iconSrc ? (
                       <Image src={step.iconSrc} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" />
                     ) : (
                       step.icon
                     )}
                   </div>
-                  <div className={index === 0 || index === 1 || index === 2 || index === 3 ? "flex h-[106px] w-[302px] flex-col gap-4" : ""}>
-                    <h4 className={index === 0 ? "h-[24px] w-[187px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 1 ? "h-[24px] w-[181px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 2 ? "h-[24px] w-[156px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : index === 3 ? "h-[24px] w-[114px] align-middle font-[var(--font-inter)] text-[16px] font-medium leading-6 tracking-[0] text-[#002B31] opacity-100 rotate-0" : "text-[#002B31] mb-3 text-xl font-semibold"}>{step.title}</h4>
-                    <p className={index === 0 || index === 1 || index === 2 || index === 3 ? "h-[66px] w-[302px] align-middle whitespace-pre-line font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31] opacity-100 rotate-0" : "text-[#002B31] text-base leading-relaxed"}>{step.copy}</p>
+                  <div className="flex flex-col gap-3">
+                    <h4 className="font-[var(--font-inter)] text-base font-medium leading-6 tracking-[0] text-[#002B31] sm:text-lg">{step.title}</h4>
+                    <p className="whitespace-pre-line font-[var(--font-inter)] text-sm font-normal leading-[22px] tracking-[0] text-[#002B31] sm:text-[14px]">{step.copy}</p>
                   </div>
                 </article>
               </Reveal>
@@ -292,26 +294,26 @@ const works = [
 
       {/* Project Breakdown (Sticky Header effect simulation) */}
       <section className="section-gap" aria-label="Project Breakdown section">
-        <div className="main-container grid gap-20 lg:grid-cols-[280px_1fr]">
+        <div className="main-container grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
               <p className="mb-4 flex items-center gap-2 text-brand-text">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
                 <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">Case Studies</span>
               </p>
-              <h3 className="text-5xl font-bold leading-[0.9] text-brand-primary md:text-6xl">
+              <h3 className="text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-[0.95] text-brand-primary">
                 Project <br /> <span className="font-normal opacity-70">Breakdown</span>
               </h3>
             </Reveal>
           </div>
 
-          <div className="grid gap-16 md:grid-cols-2">
+          <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
             {projects.map((project, index) => (
               <div key={project.title} className={index % 2 === 1 ? "md:mt-24" : ""}>
                 <Reveal delay={0.1 * index}>
                   <Link href={`/projects/${project.slug ?? project.title}`} className="group block">
                     <article className="group">
-                    <div className={`relative h-120 md:h-120 lg:h-[520px] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`} transition-all duration-500 group-hover:shadow-2xl`}>
+                    <div className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`} transition-all duration-500 group-hover:shadow-2xl`}>
                       {project.imageSrc ? (
                         <Image
                           src={project.imageSrc}
@@ -332,28 +334,14 @@ const works = [
                     <div className="mt-8">
                       <h4
                         className={
-                          index === 0
-                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
-                            : index === 1
-                            ? "max-w-[442px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
-                            : index === 2
-                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
-                            : index === 3
-                            ? "max-w-[442px] h-[64px] font-[var(--font-inter)] text-[24px] font-normal leading-[32px] tracking-[0] text-[#002B31]"
-                            : "text-2xl font-semibold text-brand-primary"
+                          "max-w-full font-[var(--font-inter)] text-[clamp(1.25rem,4vw,1.5rem)] font-normal leading-[1.33] tracking-[0] text-[#002B31]"
                         }
                       >
                         {project.subtitle}
                       </h4>
                       <p
                         className={
-                          index === 0
-                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
-                            : index === 2
-                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
-                            : index === 3
-                            ? "mt-3 max-w-[442px] font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#002B31]"
-                            : "mt-3 text-lg leading-relaxed text-brand-text-muted"
+                          "mt-3 max-w-full font-[var(--font-inter)] text-sm font-normal leading-[22px] tracking-[0] text-[#002B31]"
                         }
                       >
                         {project.description}
@@ -370,14 +358,14 @@ const works = [
 
       {/* Experience Section */}
       <section className="bg-brand-primary py-10 text-white md:py-12 lg:py-14" aria-label="Where I have worked">
-        <div className="main-container grid gap-20 lg:grid-cols-[280px_1fr]">
+        <div className="main-container grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
               <p className="mb-4 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]" aria-hidden="true" />
                 <span className="h-[24px] w-[84px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-[#dbe8eb]">Experience</span>
               </p>
-              <h3 className="h-[124px] w-[364px] align-middle font-[var(--font-inter)] text-[54px] font-semibold leading-[62px] tracking-[0] text-white opacity-100 rotate-0">
+              <h3 className="max-w-[364px] align-middle font-[var(--font-inter)] text-[clamp(2.5rem,8vw,3.375rem)] font-semibold leading-[1.05] tracking-[0] text-white opacity-100 rotate-0">
                 Where <br /> <span className="align-middle font-[var(--font-inter)] text-[54px] font-normal leading-[62px] tracking-[0] text-white opacity-100 rotate-0">I&apos;ve Worked</span>
               </h3>
             </Reveal>
@@ -386,12 +374,12 @@ const works = [
           <div className="divide-y divide-white/10">
             {experiences.map((experience, index) => (
               <Reveal key={experience.company} delay={0.1 * index}>
-                <article className="flex flex-col justify-between py-10 transition-colors hover:bg-white/5 sm:flex-row sm:items-center">
+                <article className="flex flex-col justify-between gap-2 py-6 transition-colors hover:bg-white/5 sm:flex-row sm:items-center sm:py-10">
                   <div>
-                    <p className="text-2xl font-medium text-white">{experience.company}</p>
-                    <p className="mt-1 text-sm text-[#7f9ca2] uppercase tracking-wider">{experience.year}</p>
+                    <p className="text-xl font-medium text-white sm:text-2xl">{experience.company}</p>
+                    <p className="mt-1 text-xs uppercase tracking-wider text-[#7f9ca2] sm:text-sm">{experience.year}</p>
                   </div>
-                  <p className="mt-4 text-xl font-medium text-[#dce9eb] sm:mt-0">{experience.role}</p>
+                  <p className="mt-2 text-lg font-medium text-[#dce9eb] sm:mt-0 sm:text-xl">{experience.role}</p>
                 </article>
               </Reveal>
             ))}
@@ -402,7 +390,7 @@ const works = [
       <TestimonialsCarousel />
 
       {/* Contact CTA */}
-      <section className="flex h-[329px] w-full items-center bg-[#F8F9F7]" aria-label="Contact call to action">
+      <section className="flex w-full items-center bg-[#F8F9F7] py-12 sm:py-16" aria-label="Contact call to action">
         <div className="main-container flex flex-col items-center text-center">
           <Reveal>
             <p className="mb-4 flex items-center justify-center gap-2">
@@ -411,12 +399,12 @@ const works = [
                 Ready When You Are
               </span>
             </p>
-            <h3 className="text-xl font-semibold leading-snug md:text-4xl text-brand-primary">
+            <h3 className="max-w-2xl text-[clamp(1.5rem,5vw,2.5rem)] font-semibold leading-snug text-brand-primary">
               Let&apos;s build something simple and effective together.
             </h3>
             <a
               href="mailto:ishan.kavinda@example.com"
-              className="mt-10 inline-flex h-[52px] w-[134px] items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95"
+              className="mt-8 inline-flex h-[52px] w-full items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95 sm:w-[134px]"
             >
               Book a Call
             </a>
