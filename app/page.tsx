@@ -66,15 +66,14 @@ const works = [
       <Header />
 
       {/* Hero Section */}
-      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-4 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
-        <div className="main-container grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
+      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-8 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
+        <div className="main-container flex flex-col items-center gap-8 lg:grid lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="w-full lg:max-w-[565px]">
             <Reveal>
               <h1 style={{
                 display: 'flex',
                 flexDirection: 'column',
                 width: '100%',
-                maxWidth: 565,
                 height: 'auto',
                 opacity: 1,
                 margin: 0,
@@ -84,7 +83,7 @@ const works = [
                   fontFamily: 'Satisfy, serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(72px, 18vw, 150px)',
+                  fontSize: 'clamp(48px, 16vw, 150px)',
                   lineHeight: '0.9',
                   letterSpacing: '-1.4px',
                   verticalAlign: 'middle',
@@ -104,7 +103,7 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: 'clamp(56px, 14vw, 120px)',
+                    fontSize: 'clamp(40px, 12vw, 120px)',
                     lineHeight: '0.9',
                     letterSpacing: '-1.4px',
                     verticalAlign: 'middle',
@@ -118,7 +117,7 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: 'clamp(56px, 14vw, 120px)',
+                    fontSize: 'clamp(40px, 12vw, 120px)',
                     lineHeight: '0.9',
                     letterSpacing: '-10.4px',
                     verticalAlign: 'middle',
@@ -135,16 +134,16 @@ const works = [
             <Reveal delay={0.2}>
               <div style={{
                 width: '100%',
-                maxWidth: 565,
                 opacity: 1,
+                marginTop: '1.5rem',
               }}>
                 <p style={{
                   margin: 0,
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(16px, 4vw, 20px)',
-                  lineHeight: '28px',
+                  fontSize: 'clamp(15px, 4vw, 18px)',
+                  lineHeight: '1.55',
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
                   color: '#4F5253',
@@ -156,8 +155,8 @@ const works = [
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 700,
                   fontStyle: 'normal',
-                  fontSize: '20px',
-                  lineHeight: '28px',
+                  fontSize: 'clamp(15px, 4vw, 18px)',
+                  lineHeight: '1.55',
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
                   color: '#4F5253',
@@ -168,18 +167,18 @@ const works = [
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href="/projects" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
+              <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+                <Link href="/projects" className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-[#0e1113] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto sm:px-8">
                   View My Work
                 </Link>
-                <button type="button" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
+                <button type="button" className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-brand-primary bg-white px-6 py-3 text-base font-medium text-brand-primary transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto sm:px-8">
                   Let&apos;s Talk
                 </button>
               </div>
             </Reveal>
 
             <Reveal delay={0.4}>
-              <p className="mt-12 text-base leading-relaxed text-brand-text">
+              <p className="mt-8 text-sm leading-relaxed text-brand-text sm:text-base">
                 Helping <strong className="font-bold text-[#1f383d]">startups and businesses</strong> turn ideas into <br className="hidden sm:block" />
                 <strong className="font-bold text-[#1f383d]">clean, usable experiences.</strong>
               </p>
@@ -187,7 +186,7 @@ const works = [
           </div>
 
           <Reveal delay={0.5}>
-            <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
+            <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
               <HeroVideo src="/intro.mp4" poster="/ishan.png" />
             </div>
           </Reveal>
