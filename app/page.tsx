@@ -66,14 +66,15 @@ const works = [
       <Header />
 
       {/* Hero Section */}
-      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-8 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
-        <div className="main-container flex flex-col items-center gap-8 lg:grid lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="w-full lg:max-w-[565px]">
+      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-4 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
+        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-10 px-[6%] md:px-[4%] lg:grid-cols-[1.2fr_0.8fr] lg:px-0">
+          <div>
             <Reveal>
               <h1 style={{
                 display: 'flex',
                 flexDirection: 'column',
                 width: '100%',
+                maxWidth: 565,
                 height: 'auto',
                 opacity: 1,
                 margin: 0,
@@ -83,7 +84,7 @@ const works = [
                   fontFamily: 'Satisfy, serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(48px, 16vw, 150px)',
+                  fontSize: 'clamp(72px, 18vw, 150px)',
                   lineHeight: '0.9',
                   letterSpacing: '-1.4px',
                   verticalAlign: 'middle',
@@ -103,7 +104,7 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: 'clamp(40px, 12vw, 120px)',
+                    fontSize: 'clamp(56px, 14vw, 120px)',
                     lineHeight: '0.9',
                     letterSpacing: '-1.4px',
                     verticalAlign: 'middle',
@@ -117,7 +118,7 @@ const works = [
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
-                    fontSize: 'clamp(40px, 12vw, 120px)',
+                    fontSize: 'clamp(56px, 14vw, 120px)',
                     lineHeight: '0.9',
                     letterSpacing: '-10.4px',
                     verticalAlign: 'middle',
@@ -134,16 +135,16 @@ const works = [
             <Reveal delay={0.2}>
               <div style={{
                 width: '100%',
+                maxWidth: 565,
                 opacity: 1,
-                marginTop: '1.5rem',
               }}>
                 <p style={{
                   margin: 0,
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 400,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(15px, 4vw, 18px)',
-                  lineHeight: '1.55',
+                  fontSize: 'clamp(16px, 4vw, 20px)',
+                  lineHeight: '28px',
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
                   color: '#4F5253',
@@ -155,8 +156,8 @@ const works = [
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 700,
                   fontStyle: 'normal',
-                  fontSize: 'clamp(15px, 4vw, 18px)',
-                  lineHeight: '1.55',
+                  fontSize: '20px',
+                  lineHeight: '28px',
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
                   color: '#4F5253',
@@ -167,18 +168,18 @@ const works = [
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href="/projects" className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-[#0e1113] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto sm:px-8">
+              <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+                <Link href="/projects" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
                   View My Work
                 </Link>
-                <button type="button" className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-brand-primary bg-white px-6 py-3 text-base font-medium text-brand-primary transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto sm:px-8">
+                <button type="button" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
                   Let&apos;s Talk
                 </button>
               </div>
             </Reveal>
 
             <Reveal delay={0.4}>
-              <p className="mt-8 text-sm leading-relaxed text-brand-text sm:text-base">
+              <p className="mt-12 text-base leading-relaxed text-brand-text">
                 Helping <strong className="font-bold text-[#1f383d]">startups and businesses</strong> turn ideas into <br className="hidden sm:block" />
                 <strong className="font-bold text-[#1f383d]">clean, usable experiences.</strong>
               </p>
@@ -186,7 +187,7 @@ const works = [
           </div>
 
           <Reveal delay={0.5}>
-            <div className="relative aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
+            <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
               <HeroVideo src="/intro.mp4" poster="/ishan.png" />
             </div>
           </Reveal>
@@ -194,8 +195,8 @@ const works = [
       </section>
 
       {/* Showcase Section */}
-      <section className="section-gap overflow-hidden bg-white pt-6 pb-4 md:pb-4 lg:pb-4" aria-label="Selected Product Work section">
-        <div className="main-container mb-8 sm:mb-12">
+      <section className="overflow-hidden bg-white py-16 pt-6 pb-4 md:py-20 md:pb-4 lg:py-[100px] lg:pb-4" aria-label="Selected Product Work section">
+        <div className="mx-auto mb-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:mb-12 lg:px-0">
           <Reveal>
             <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between lg:pb-12">
               <div className="max-w-xl">
@@ -217,7 +218,7 @@ const works = [
 
         <Reveal delay={0.2}>
           <div 
-            className="marquee-container cursor-grab active:cursor-grabbing"
+            className="w-full cursor-grab overflow-hidden whitespace-nowrap bg-white py-10 active:cursor-grabbing"
             onMouseEnter={() => setIsMarqueePaused(true)}
             onMouseLeave={() => setIsMarqueePaused(false)}
           >
@@ -237,7 +238,7 @@ const works = [
               {[...works, ...works, ...works, ...works].map((work, index) => (
                 <div 
                   key={`${work.title}-${index}`} 
-                  className="marquee-item"
+                  className="relative h-[300px] w-[540px] flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-white"
                 >
                   <LazyProjectVideo src={work.videoSrc} className="h-full w-full flex items-center justify-center overflow-hidden bg-white" />
                 </div>
@@ -248,8 +249,8 @@ const works = [
       </section>
 
       {/* Process Section */}
-      <section className="section-gap bg-brand-primary text-white" aria-label="Process section">
-        <div className="mx-auto w-[1280px] flex flex-col justify-between h-[568px]">
+      <section className="py-16 bg-brand-primary text-white md:py-20 lg:py-[100px]" aria-label="Process section">
+        <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-between gap-10 px-[6%] md:px-[4%] lg:min-h-[568px] lg:px-0">
           <Reveal>
             <div className="max-w-2xl">
               <p className="mb-6 flex items-center gap-2">
@@ -270,7 +271,7 @@ const works = [
               { icon: "✣", iconSrc: "/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
               { icon: "◌", iconSrc: "/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
               { icon: "◎", iconSrc: "/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
-            ].map((step, index) => (
+            ].map((step) => (
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-2 sm:p-4">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
@@ -292,8 +293,8 @@ const works = [
       </section>
 
       {/* Project Breakdown (Sticky Header effect simulation) */}
-      <section className="section-gap" aria-label="Project Breakdown section">
-        <div className="main-container grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-20">
+      <section className="py-16 md:py-20 lg:py-[100px]" aria-label="Project Breakdown section">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
               <p className="mb-4 flex items-center gap-2 text-brand-text">
@@ -357,7 +358,7 @@ const works = [
 
       {/* Experience Section */}
       <section className="bg-brand-primary py-10 text-white md:py-12 lg:py-14" aria-label="Where I have worked">
-        <div className="main-container grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-20">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
               <p className="mb-4 flex items-center gap-2">
@@ -390,7 +391,7 @@ const works = [
 
       {/* Contact CTA */}
       <section className="flex w-full items-center bg-[#F8F9F7] py-12 sm:py-16" aria-label="Contact call to action">
-        <div className="main-container flex flex-col items-center text-center">
+        <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-[6%] text-center md:px-[4%] lg:px-0">
           <Reveal>
             <p className="mb-4 flex items-center justify-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />

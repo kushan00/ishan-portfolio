@@ -116,10 +116,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className={isWhaleChange ? "flex min-h-screen flex-col bg-[#F5F5F5] text-[#0d3b46]" : "flex min-h-screen flex-col bg-white text-[#0d3b46]"}>
+    <main className={isWhaleChange ? "flex min-h-screen flex-col overflow-x-hidden bg-[#F5F5F5] text-[#0d3b46]" : "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]"}>
       <Header />
 
-      <nav className="main-container mt-6">
+      <nav className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
         <Link
           href="/"
           className="inline-flex h-[24px] items-center capitalize transition hover:opacity-70"
@@ -143,7 +143,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </Link>
       </nav>
 
-      <div className="main-container mt-6 flex flex-col gap-3 sm:mt-9">
+      <div className="mx-auto mt-6 flex w-full max-w-[1200px] flex-col gap-3 px-[6%] sm:mt-9 md:px-[4%] lg:px-0">
         <p
           className="m-0 inline-flex items-center gap-[0.35rem] text-[16px] font-normal leading-[24px] text-[#6e7d80] opacity-100 rotate-0"
           style={{ fontFamily: "Inter, sans-serif" }}
@@ -182,7 +182,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Subtitle/description for specific projects */}
       {project.slug === 'paw-chain' && (
-        <div className="main-container mt-3">
+        <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', color: '#002B31', margin: 0 }}>
             Designing a Crypto Wallet for Real Users
           </p>
@@ -207,18 +207,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       {project.slug === 'casino-xp' && (
-        <div className="main-container mt-3">
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
+        <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
+          <p className="max-w-full break-words" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0 }}>
             Designing a Crypto Wallet for Real Users
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '12px', lineHeight: '20px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', whiteSpace: 'nowrap', verticalAlign: 'middle', opacity: 1 }}>
+          <p className="mt-2 max-w-full text-sm leading-5 text-[#002B31] sm:whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', letterSpacing: '0%', verticalAlign: 'middle', opacity: 1 }}>
             Simplifying onboarding, transactions, and portfolio tracking for everyday users.
           </p>
         </div>
       )}
 
       {project.slug === 'prjectName' && (
-        <div className="main-container mt-3">
+        <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
             Designing a Crypto Wallet for Real Users
           </p>
@@ -228,7 +228,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "main-container mt-8"}>
+      <div className={isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
         <div className={isLargeHero ? "relative aspect-[4/3] overflow-hidden rounded-[17.71px] bg-white sm:aspect-[1280/660]" : "relative aspect-[4/3] overflow-hidden rounded-[1.2rem] sm:aspect-[16/9]"}>
           {project.video ? (
             <video
@@ -256,47 +256,47 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* subtitle/description removed as requested */}
 
       {/* Gallery: project-specific */}
-      <div className="main-container mb-16 mt-6 sm:mt-8">
+      <div className="mx-auto mb-16 mt-6 w-full max-w-[1200px] px-[6%] sm:mt-8 md:px-[4%] lg:px-0">
         {project.slug === 'casino-xp' ? (
-          <div className="flex flex-col items-center gap-4 sm:gap-6">
-                        <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+          <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
+                          <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/cp2.png" alt="cp2" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/cp3.png" alt="cp3" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/cp4.png" alt="cp4" fill className="object-cover" />
             </div>
           </div>
         ) : project.slug === 'prjectName' ? (
-          <div className="flex flex-col items-center gap-4 sm:gap-6">
-            <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/fp6.png" alt="fp6" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/fp4.png" alt="fp4" fill className="object-cover" />
             </div>
           </div>
           
         ) : project.slug === 'paw-chain' ? (
-          <div className="flex flex-col items-center gap-4 sm:gap-6">
+            <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
           
-            <div className="relative h-[clamp(260px,80vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp2.png" alt="pp2" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp3.png" alt="pp3" fill className="object-cover" />
             </div>
-            <div className="relative h-[clamp(260px,80vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="/pp4.png" alt="pp4" fill className="object-cover" />
             </div>
           </div>
         ) : (
-          <div className="relative h-[clamp(260px,80vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
             <Image src={project.image} alt={project.selectedTitle} fill className="object-cover" />
           </div>
         )}

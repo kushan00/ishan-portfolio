@@ -98,7 +98,7 @@ export default function ProjectsPage() {
     <main className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
       <Header />
 
-      <nav className="main-container mt-10">
+      <nav className="mx-auto mt-10 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
         <Reveal>
           <Link
             href="/"
@@ -124,8 +124,8 @@ export default function ProjectsPage() {
         </Reveal>
       </nav>
 
-      <section className="section-gap overflow-hidden">
-        <div className="main-container">
+      <section className="overflow-hidden py-16 md:py-20 lg:py-[100px]">
+        <div className="mx-auto w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
           <div className="flex min-h-auto flex-col gap-6 pb-8 sm:gap-8 sm:pb-10 lg:min-h-[354px]">
             <Reveal>
               <div className="flex items-center gap-2 text-brand-text">
@@ -164,7 +164,7 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        <div className="main-container">
+        <div className="mx-auto w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
           <div className="grid grid-cols-1 gap-5 sm:gap-6 md:gap-7 lg:gap-8 sm:grid-cols-2">
             {projects.map((project, index) => (
               <Reveal key={`${project.imageUrl}-${index}`} delay={0.1 * (index % 2)}>

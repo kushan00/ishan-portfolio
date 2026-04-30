@@ -96,11 +96,11 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="section-gap bg-brand-bg overflow-hidden" aria-label="Testimonials">
-      <div className="main-container flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
+    <section className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]" aria-label="Testimonials">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-16 px-[6%] md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
 
         {/* Left: title + navigation */}
-        <div className="flex flex-col justify-center flex-shrink-0 lg:w-72 relative z-10">
+        <div className="relative z-10 flex flex-shrink-0 flex-col justify-center lg:w-72">
           <Reveal>
             <div className="mb-8 inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#002B31]" aria-hidden="true" />
