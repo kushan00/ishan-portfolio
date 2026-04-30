@@ -126,26 +126,26 @@ export default function ProjectsPage() {
 
       <section className="section-gap overflow-hidden">
         <div className="main-container">
-          <div className="flex min-h-[354px] flex-col gap-4 pb-8">
+          <div className="flex min-h-auto flex-col gap-6 pb-8 sm:gap-8 sm:pb-10 lg:min-h-[354px]">
             <Reveal>
               <div className="flex items-center gap-2 text-brand-text">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-                <span className="text-sm font-medium uppercase tracking-widest text-brand-text-muted">Showcase</span>
+                <span className="text-xs font-medium uppercase tracking-widest text-brand-text-muted sm:text-sm">Showcase</span>
               </div>
             </Reveal>
 
-            <div className="grid items-start gap-4 sm:gap-6 md:gap-[54px] lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
+            <div className="flex flex-col gap-6 sm:gap-8 lg:grid lg:items-start lg:gap-[54px] lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
               <Reveal delay={0.1}>
-                <div style={{ width: '100%', maxWidth: '708px', height: 'auto', opacity: 1 }}>
-                  <h2 className="flex flex-col" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(40px, 8vw, 64px)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>
+                <div style={{ width: '100%', opacity: 1 }}>
+                  <h2 className="flex flex-col" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(32px, 9vw, 64px)', lineHeight: '1.1', letterSpacing: '-1.4px', color: '#002B31' }}>
                     <span style={{ fontWeight: 400 }}>Selected</span>
                     <span style={{ fontWeight: 600 }}>Product Work</span>
                   </h2>
                 </div>
               </Reveal>
               <Reveal delay={0.2}>
-                <div style={{ width: '100%', maxWidth: '217px', height: 'auto', opacity: 1 }}>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(16px, 4vw, 20px)', lineHeight: '1.4', letterSpacing: '0', textAlign: 'right', color: '#4F5253' }}>
+                <div style={{ width: '100%', opacity: 1 }}>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(14px, 4vw, 18px)', lineHeight: '1.5', letterSpacing: '0', textAlign: 'left', color: '#4F5253', marginTop: '0.5rem' }} className="lg:text-right">
                     <span style={{ fontWeight: 400 }}>Not everything is </span>
                     <span style={{ fontWeight: 700 }}>visible at first glance.</span>
                   </p>
@@ -155,8 +155,8 @@ export default function ProjectsPage() {
 
             <Reveal delay={0.3}>
               <p
-                className="w-full max-w-[1280px] text-left text-[20px] font-normal leading-[28px] tracking-[0] text-brand-text-muted"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                className="w-full text-left font-normal tracking-[0] text-brand-text-muted"
+                style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(14px, 4vw, 18px)', lineHeight: '1.6' }}
               >
                 A collection of product work, explorations, and design decisions across UI, crypto, and digital experiences.
               </p>
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="main-container">
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:gap-[40px] sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:gap-7 lg:gap-8 sm:grid-cols-2">
             {projects.map((project, index) => (
               <Reveal key={`${project.imageUrl}-${index}`} delay={0.1 * (index % 2)}>
                 <ProjectCard
