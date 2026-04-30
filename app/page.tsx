@@ -399,12 +399,12 @@ const works = [
                 Ready When You Are
               </span>
             </p>
-            <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: '#011214', width: '1350px', height: '62px', verticalAlign: 'middle', opacity: 1 }}>
+            <h3 className="mx-auto max-w-[18ch] text-[clamp(24px,7vw,54px)] font-medium leading-tight tracking-[0] text-[#011214] md:max-w-none md:w-[1350px] md:text-[54px] md:leading-[62px]" style={{ fontFamily: 'Inter, sans-serif', opacity: 1 }}>
               Let&apos;s build something simple and effective together.
             </h3>
             <a
               href="mailto:ishan.kavinda@example.com"
-              className="mt-8 inline-flex h-[52px] w-full items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95 sm:w-[134px]"
+              className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95 sm:h-[52px] sm:w-[134px]"
             >
               Book a Call
             </a>
