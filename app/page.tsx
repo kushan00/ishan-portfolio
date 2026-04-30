@@ -204,8 +204,8 @@ const works = [
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
                   <span className="h-[24px] w-[78px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">Showcase</span>
                 </p>
-                <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-bold leading-tight text-brand-primary">
-                  Selected <br /> <span className="font-normal opacity-70">Product Work</span>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: '#002B31', width: '364px', height: '124px', verticalAlign: 'middle', opacity: 1 }}>
+                  <span style={{ fontWeight: 600 }}>Selected</span> <br /> <span style={{ fontWeight: 400 }}>Product Work</span>
                 </h2>
               </div>
               <Link href="/projects" className="group hidden items-center gap-2 rounded-xl border border-brand-secondary px-6 py-3 text-sm font-medium transition hover:bg-brand-secondary hover:text-white sm:flex">
@@ -283,7 +283,7 @@ const works = [
                   </div>
                   <div className="flex flex-col gap-3">
                     <h4 className="font-[var(--font-inter)] text-base font-medium leading-6 tracking-[0] text-[#002B31] sm:text-lg">{step.title}</h4>
-                    <p className="whitespace-pre-line font-[var(--font-inter)] text-sm font-normal leading-[22px] tracking-[0] text-[#002B31] sm:text-[14px]">{step.copy}</p>
+                    <p className="whitespace-pre-line font-[var(--font-inter)] font-normal tracking-[0] text-[#002B31]" style={{ fontSize: '12px', lineHeight: '20px', width: '287px', height: '60px', verticalAlign: 'middle', opacity: 1 }}>{step.copy}</p>
                   </div>
                 </article>
               </Reveal>
@@ -365,8 +365,8 @@ const works = [
                 <span className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]" aria-hidden="true" />
                 <span className="h-[24px] w-[84px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-[#dbe8eb]">Experience</span>
               </p>
-              <h3 className="max-w-[364px] align-middle font-[var(--font-inter)] text-[clamp(2.5rem,8vw,3.375rem)] font-semibold leading-[1.05] tracking-[0] text-white opacity-100 rotate-0">
-                Where <br /> <span className="align-middle font-[var(--font-inter)] text-[54px] font-normal leading-[62px] tracking-[0] text-white opacity-100 rotate-0">I&apos;ve Worked</span>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: 'white', width: '364px', height: '124px', verticalAlign: 'middle', opacity: 1 }}>
+                <span style={{ fontWeight: 600 }}>Where</span> <br /> <span style={{ fontWeight: 400 }}>I&apos;ve Worked</span>
               </h3>
             </Reveal>
           </div>
@@ -399,7 +399,7 @@ const works = [
                 Ready When You Are
               </span>
             </p>
-            <h3 className="max-w-2xl text-[clamp(1.5rem,5vw,2.5rem)] font-semibold leading-snug text-brand-primary">
+            <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: '#011214', width: '1350px', height: '62px', verticalAlign: 'middle', opacity: 1 }}>
               Let&apos;s build something simple and effective together.
             </h3>
             <a

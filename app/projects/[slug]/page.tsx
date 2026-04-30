@@ -191,13 +191,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               fontStyle: 'normal',
-              fontSize: 'clamp(12px, 3vw, 14px)',
-              lineHeight: '1.57',
+              fontSize: '12px',
+              lineHeight: '20px',
               letterSpacing: '0%',
               color: '#002B31',
               margin: '8px 0 0',
-              width: '100%',
-              maxWidth: '1280px',
+              whiteSpace: 'nowrap',
+              verticalAlign: 'middle',
+              opacity: 1,
             }}
           >
             Simplifying onboarding, transactions, and portfolio tracking for everyday users.
@@ -210,7 +211,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
             Designing a Crypto Wallet for Real Users
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: '1.57', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', width: '100%', maxWidth: '1280px' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '12px', lineHeight: '20px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', whiteSpace: 'nowrap', verticalAlign: 'middle', opacity: 1 }}>
             Simplifying onboarding, transactions, and portfolio tracking for everyday users.
           </p>
         </div>
@@ -221,7 +222,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
             Designing a Crypto Wallet for Real Users
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: '1.57', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', width: '100%', maxWidth: '1280px' }}>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '12px', lineHeight: '20px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', whiteSpace: 'nowrap', verticalAlign: 'middle', opacity: 1 }}>
             Simplifying onboarding, transactions, and portfolio tracking for everyday users.
           </p>
         </div>
