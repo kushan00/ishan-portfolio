@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 type HeroVideoProps = {
   src: string;
@@ -11,6 +12,7 @@ type HeroVideoProps = {
 export default function HeroVideo({ src, poster }: HeroVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -29,10 +31,11 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
             className="absolute inset-0 z-10 flex items-center justify-center bg-black/20"
           >
             {poster && (
-              <img 
-                src={poster} 
-                alt="Video poster" 
-                className="absolute inset-0 h-full w-full object-cover opacity-60"
+              <Image
+                src={poster}
+                alt="Video poster"
+                fill
+                className="object-cover opacity-60"
               />
             )}
             <button
@@ -56,7 +59,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
 
       <video
         ref={videoRef}
-        src={src}
+        src={basePath + src}
         className={`h-full w-full object-cover transition-all duration-700 ${isPlaying ? 'scale-100 opacity-100' : 'scale-105 opacity-0'}`}
         playsInline
         loop
