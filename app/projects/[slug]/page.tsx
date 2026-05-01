@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className={isWhaleChange ? "flex min-h-screen flex-col overflow-x-hidden bg-[#F5F5F5] text-[#0d3b46]" : "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]"}>
+    <main className={isWhaleChange ? "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]" : "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]"}>
       <Header />
 
       <nav className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
