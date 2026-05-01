@@ -80,12 +80,12 @@ const works = [
                 margin: 0,
                 padding: 0,
               }}>
-                <span style={{
-                  fontFamily: 'Satisfy, serif',
+                <div style={{
+                  fontFamily: 'Satisfy',
                   fontWeight: 400,
-                  fontStyle: 'normal',
-                  fontSize: 'clamp(72px, 18vw, 150px)',
-                  lineHeight: '0.9',
+                  fontStyle: 'italic',
+                  fontSize: '150px',
+                  lineHeight: '127.2px',
                   letterSpacing: '-1.4px',
                   verticalAlign: 'middle',
                   color: '#002B31',
@@ -93,7 +93,7 @@ const works = [
                   padding: 0,
                 }}>
                   Ishan
-                </span>
+                </div>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -101,9 +101,9 @@ const works = [
                   padding: 0,
                 }}>
                   <strong style={{
-                    fontFamily: 'Satisfy, serif',
+                    fontFamily: 'Inter',
                     fontWeight: 400,
-                    fontStyle: 'normal',
+                    fontStyle: 'regular',
                     fontSize: 'clamp(56px, 14vw, 120px)',
                     lineHeight: '0.9',
                     letterSpacing: '-1.4px',
@@ -114,7 +114,7 @@ const works = [
                   }}>
                     Kavinda
                   </strong>
-                  <span style={{
+                  {/* <span style={{
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
@@ -127,7 +127,7 @@ const works = [
                     padding: 0,
                   }}>
                     .
-                  </span>
+                  </span> */}
                 </div>
               </h1>
             </Reveal>
@@ -148,7 +148,7 @@ const works = [
                   letterSpacing: '0%',
                   verticalAlign: 'middle',
                   color: '#4F5253',
-                }}>
+                }} className="">
                   I design digital products that are <strong style={{ fontWeight: 700 }}>simple, clear,</strong>
                 </p>
                 <p style={{
