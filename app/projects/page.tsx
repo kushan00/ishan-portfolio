@@ -21,76 +21,81 @@ export default function ProjectsPage() {
   const cardSubtitle = "Designing a Crypto Wallet for Real Users";
   const cardDescription = "Simplifying onboarding, transactions, and portfolio tracking for everyday users.";
 
+  const getImagePath = (path: string) => {
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    return basePath ? `${basePath}${path}` : path;
+  };
+
   const projects = [
     {
       title: "PS 01",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
-      imageUrl: "/ps1.png",
+      imageUrl: getImagePath("/ps1.png"),
     },
     {
       title: "PS 02",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
-      imageUrl: "/ps2.png",
+      imageUrl: getImagePath("/ps2.png"),
     },
     {
       title: "PS 03",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
-      imageUrl: "/ps3.png",
+      imageUrl: getImagePath("/ps3.png"),
     },
     {
       title: "PS 04",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
-      imageUrl: "/ps4.png",
+      imageUrl: getImagePath("/ps4.png"),
     },
     {
       title: "PS 05",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-purple-900 via-purple-700 to-blue-700",
-      imageUrl: "/ps5.png",
+      imageUrl: getImagePath("/ps5.png"),
     },
     {
       title: "PS 06",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-emerald-900 via-emerald-700 to-teal-700",
-      imageUrl: "/ps6.png",
+      imageUrl: getImagePath("/ps6.png"),
     },
     {
       title: "PS 07",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-zinc-800 via-zinc-700 to-zinc-500",
-      imageUrl: "/ps7.png",
+      imageUrl: getImagePath("/ps7.png"),
     },
     {
       title: "PS 08",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-slate-900 via-slate-800 to-slate-600",
-      imageUrl: "/ps8.png",
+      imageUrl: getImagePath("/ps8.png"),
     },
     {
       title: "PS 09",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-cyan-900 via-cyan-700 to-blue-500",
-      imageUrl: "/ps9.png",
+      imageUrl: getImagePath("/ps9.png"),
     },
     {
       title: "PS 10",
       subtitle: cardSubtitle,
       description: cardDescription,
       gradient: "from-neutral-900 via-stone-800 to-stone-600",
-      imageUrl: "/ps10.png",
+      imageUrl: getImagePath("/ps10.png"),
     },
   ];
 

@@ -10,6 +10,12 @@ import LazyProjectVideo from "./components/LazyProjectVideo";
 import HeroVideo from "./components/HeroVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
+// Helper function to prepend basePath for image URLs
+const getImagePath = (path: string) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return basePath ? `${basePath}${path}` : path;
+};
+
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -47,10 +53,10 @@ const works = [
 ];
 
   const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; videoSrc?: string }[] = [
-    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "/Background.png" },
-    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "/Frame1.png" },
-    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "/frame3.png" },
-    { slug: "paw-chain", title: "PAW CHAIN", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: "/frame4.png" },
+    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: getImagePath("/Background.png") },
+    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: getImagePath("/Frame1.png") },
+    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: getImagePath("/frame3.png") },
+    { slug: "paw-chain", title: "PAW CHAIN", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: getImagePath("/frame4.png") },
   ];
 
   const experiences = [
@@ -188,7 +194,7 @@ const works = [
 
           <Reveal delay={0.5}>
             <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
-              <HeroVideo src="/intro.mp4" poster="/ishan.png" />
+              <HeroVideo src="/intro.mp4" poster={getImagePath("/ishan.png")} />
             </div>
           </Reveal>
         </div>
@@ -267,10 +273,10 @@ const works = [
 
           <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
             {[
-              { icon: "⌂", iconSrc: "/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we’re solving.\nClear direction makes everything easier.", delay: 0 },
-              { icon: "✣", iconSrc: "/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
-              { icon: "◌", iconSrc: "/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
-              { icon: "◎", iconSrc: "/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
+              { icon: "⌂", iconSrc: getImagePath("/Item.png"), title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
+              { icon: "✣", iconSrc: getImagePath("/Item2.png"), title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
+              { icon: "◌", iconSrc: getImagePath("/Item3.png"), title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
+              { icon: "◎", iconSrc: getImagePath("/Item4.png"), title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
             ].map((step) => (
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-2 sm:p-4">
