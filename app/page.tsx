@@ -10,11 +10,7 @@ import LazyProjectVideo from "./components/LazyProjectVideo";
 import HeroVideo from "./components/HeroVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
-// Helper function to prepend basePath for image URLs
-const getImagePath = (path: string) => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  return basePath ? `${basePath}${path}` : path;
-};
+// Note: getImagePath is no longer needed as all images use direct GitHub raw links
 
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -195,7 +191,7 @@ const works = [
           <Reveal delay={0.5}>
             <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
 <HeroVideo 
-  src={getImagePath("https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/intro.mp4")} 
+  src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/intro.mp4" 
   poster="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ishan.png" 
 />            </div>
           </Reveal>
@@ -284,7 +280,7 @@ const works = [
                 <article className="flex h-full flex-col p-2 sm:p-4">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
                     {step.iconSrc ? (
-                      <Image src={step.iconSrc} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" />
+                      <Image src={step.iconSrc} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" loading="lazy" quality={85} />
                     ) : (
                       step.icon
                     )}
@@ -328,6 +324,8 @@ const works = [
                           alt={project.title}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                          quality={85}
                         />
                       ) : project.videoSrc ? (
                         <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />

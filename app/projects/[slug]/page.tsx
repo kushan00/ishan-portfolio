@@ -4,10 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-const getAssetPath = (path: string) => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  return basePath ? `${basePath}${path}` : path;
-};
+// Note: getAssetPath is no longer needed as all images use direct GitHub raw links
 
 type ProjectPageProps = {
   params: Promise<{
@@ -192,7 +189,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             Designing a Crypto Wallet for Real Users
           </p>
           <p
-            style={{
+              style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               fontStyle: 'normal',
@@ -247,7 +244,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             />
           ) : (
             <Image
-              src={project.image.startsWith("http") ? project.image : getAssetPath(project.image)}
+              src={project.image.startsWith("http") ? project.image : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.image}`}
               alt={project.selectedTitle}
               fill
               loading="lazy"
@@ -265,25 +262,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {project.slug === 'casino-xp' ? (
           <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
                           <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/cp2.png")} alt="cp2" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp2.png" alt="cp2" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/cp3.png")} alt="cp3" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp3.png" alt="cp3" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/cp4.png")} alt="cp4" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp4.png" alt="cp4" fill className="object-cover" loading="lazy" quality={85} />
             </div>
           </div>
         ) : project.slug === 'prjectName' ? (
             <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/fp5.png")} alt="fp5" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp5.png" alt="fp5" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/fp6.png")} alt="fp6" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp6.png" alt="fp6" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/fp4.png")} alt="fp4" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp4.png" alt="fp4" fill className="object-cover" loading="lazy" quality={85} />
             </div>
           </div>
           
@@ -291,18 +288,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
           
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/pp2.png")} alt="pp2" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp2.png" alt="pp2" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/pp3.png")} alt="pp3" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp3.png" alt="pp3" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src={getAssetPath("/pp4.png")} alt="pp4" fill className="object-cover" />
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp4.png" alt="pp4" fill className="object-cover" loading="lazy" quality={85} />
             </div>
           </div>
         ) : (
             <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
-            <Image src={project.image.startsWith("http") ? project.image : getAssetPath(project.image)} alt={project.selectedTitle} fill className="object-cover" />
+            <Image src={project.image.startsWith("http") ? project.image : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.image}`} alt={project.selectedTitle} fill className="object-cover" loading="lazy" quality={85} />
           </div>
         )}
       </div>
