@@ -194,8 +194,7 @@ const works = [
 
           <Reveal delay={0.5}>
             <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
-              <HeroVideo src="/intro.mp4" poster={getImagePath("/public/ishan.png")} />
-            </div>
+<HeroVideo src={getImagePath("/intro.mp4")} poster={getImagePath("/ishan.png")} />            </div>
           </Reveal>
         </div>
       </section>
