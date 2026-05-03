@@ -10,6 +10,11 @@ import LazyProjectVideo from "../components/LazyProjectVideo";
 import HeroVideo from "../components/HeroVideo";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
 
+const getAssetPath = (path: string) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return basePath ? `${basePath}${path}` : path;
+};
+
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -63,7 +68,7 @@ export default function Home() {
       description:
         "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.",
       gradient: "from-[#000000] via-[#000000] to-[#000000]",
-      imageSrc: "/Background.png",
+      imageSrc: getAssetPath("/Background.png"),
     },
     {
       slug: "casino-xp",
@@ -72,7 +77,7 @@ export default function Home() {
       description:
         "Designing fast, realtime game flows with clear feedback loops to increase retention.",
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
-      imageSrc: "/Frame1.png",
+      imageSrc: getAssetPath("/Frame1.png"),
     },
     {
       slug: "token-landing",
@@ -81,7 +86,7 @@ export default function Home() {
       description:
         "Creating visually engaging, performance-driven websites that turn visitors into community members.",
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
-      imageSrc: "/frame3.png",
+      imageSrc: getAssetPath("/frame3.png"),
     },
     {
       slug: "paw-chain",
@@ -90,7 +95,7 @@ export default function Home() {
       description:
         "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.",
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
-      imageSrc: "/frame4.png",
+      imageSrc: getAssetPath("/frame4.png"),
     },
   ];
 
@@ -172,7 +177,7 @@ export default function Home() {
           <div className="flex w-full justify-center md:w-1/2 md:justify-end">
             <Reveal delay={0.5}>
               <div className="relative aspect-4/5 w-80 md:w-95 overflow-hidden rounded-3xl transition-transform duration-500 hover:scale-[1.02]">
-                <HeroVideo src="/intro.mp4" poster="/ishan.png" />
+                <HeroVideo src="/intro.mp4" poster={getAssetPath("/ishan.png")} />
               </div>
             </Reveal>
           </div>
@@ -271,28 +276,28 @@ export default function Home() {
             {[
               {
                 icon: "⌂",
-                iconSrc: "/Item.png",
+                iconSrc: getAssetPath("/Item.png"),
                 title: "Understand the Problem",
                 copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.",
                 delay: 0,
               },
               {
                 icon: "✣",
-                iconSrc: "/Item2.png",
+                iconSrc: getAssetPath("/Item2.png"),
                 title: "Simplify the Experience",
                 copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.",
                 delay: 0.1,
               },
               {
                 icon: "◌",
-                iconSrc: "/Item3.png",
+                iconSrc: getAssetPath("/Item3.png"),
                 title: "Design the Interface",
                 copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.",
                 delay: 0.2,
               },
               {
                 icon: "◎",
-                iconSrc: "/Item4.png",
+                iconSrc: getAssetPath("/item4.png"),
                 title: "Test & Improve",
                 copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.",
                 delay: 0.3,

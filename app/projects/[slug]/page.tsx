@@ -4,6 +4,11 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
+const getAssetPath = (path: string) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return basePath ? `${basePath}${path}` : path;
+};
+
 type ProjectPageProps = {
   params: Promise<{
     slug: string;
@@ -242,7 +247,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             />
           ) : (
             <Image
-              src={project.image}
+              src={project.image.startsWith("http") ? project.image : getAssetPath(project.image)}
               alt={project.selectedTitle}
               fill
               loading="lazy"
@@ -260,25 +265,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {project.slug === 'casino-xp' ? (
           <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
                           <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/cp2.png" alt="cp2" fill className="object-cover" />
+              <Image src={getAssetPath("/cp2.png")} alt="cp2" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/cp3.png" alt="cp3" fill className="object-cover" />
+              <Image src={getAssetPath("/cp3.png")} alt="cp3" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/cp4.png" alt="cp4" fill className="object-cover" />
+              <Image src={getAssetPath("/cp4.png")} alt="cp4" fill className="object-cover" />
             </div>
           </div>
         ) : project.slug === 'prjectName' ? (
             <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/fp5.png" alt="fp5" fill className="object-cover" />
+              <Image src={getAssetPath("/fp5.png")} alt="fp5" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/fp6.png" alt="fp6" fill className="object-cover" />
+              <Image src={getAssetPath("/fp6.png")} alt="fp6" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/fp4.png" alt="fp4" fill className="object-cover" />
+              <Image src={getAssetPath("/fp4.png")} alt="fp4" fill className="object-cover" />
             </div>
           </div>
           
@@ -286,18 +291,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
           
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/pp2.png" alt="pp2" fill className="object-cover" />
+              <Image src={getAssetPath("/pp2.png")} alt="pp2" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/pp3.png" alt="pp3" fill className="object-cover" />
+              <Image src={getAssetPath("/pp3.png")} alt="pp3" fill className="object-cover" />
             </div>
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="/pp4.png" alt="pp4" fill className="object-cover" />
+              <Image src={getAssetPath("/pp4.png")} alt="pp4" fill className="object-cover" />
             </div>
           </div>
         ) : (
             <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
-            <Image src={project.image} alt={project.selectedTitle} fill className="object-cover" />
+            <Image src={project.image.startsWith("http") ? project.image : getAssetPath(project.image)} alt={project.selectedTitle} fill className="object-cover" />
           </div>
         )}
       </div>
