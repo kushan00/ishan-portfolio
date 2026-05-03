@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import LazyProjectVideo from "./components/LazyProjectVideo";
 import HeroVideo from "./components/HeroVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
+import SubMobilePage from "./sub/page";
 
 // Note: getImagePath is no longer needed as all images use direct GitHub raw links
 
@@ -65,6 +66,11 @@ const works = [
 
   return (
     <main className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
+      <div className="md:hidden">
+        <SubMobilePage />
+      </div>
+
+      <div className="hidden md:block">
       <Header />
 
       {/* Hero Section */}
@@ -419,6 +425,7 @@ const works = [
       </section>
 
       <Footer />
+      </div>
     </main>
   );
 }
