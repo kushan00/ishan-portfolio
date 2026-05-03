@@ -275,10 +275,10 @@ const works = [
 
           <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
             {[
-              { icon: "⌂", iconSrc: getImagePath("/Item.png"), title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
-              { icon: "✣", iconSrc: getImagePath("/Item2.png"), title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
-              { icon: "◌", iconSrc: getImagePath("/Item3.png"), title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
-              { icon: "◎", iconSrc: getImagePath("/item4.png"), title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
+              { icon: "⌂", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
+              { icon: "✣", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
+              { icon: "◌", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
+              { icon: "◎", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
             ].map((step) => (
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-2 sm:p-4">
