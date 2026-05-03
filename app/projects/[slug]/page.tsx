@@ -35,7 +35,7 @@ const projects: Project[] = [
     fullDescription:
       'Whale Change is a crypto wallet case study focused on simplifying onboarding, clarifying transactions, and making portfolio tracking accessible for new users. The work includes a pared-back onboarding flow, clear hierarchy for balances and transactions, and a cohesive visual system that communicates trust and clarity.',
     gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png',
+    image: '/pf1.png',
   },
   {
     slug: 'casino-xp',
@@ -47,7 +47,7 @@ const projects: Project[] = [
     fullDescription:
       'CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.',
     gradient: 'from-red-900 via-fuchsia-700 to-amber-400',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png',
+    image: '/cp1.png',
   },
   {
     slug: 'token-landing',
@@ -59,7 +59,7 @@ const projects: Project[] = [
     fullDescription:
       'TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.',
     gradient: 'from-zinc-950 via-zinc-900 to-zinc-700',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png',
+    image: '/ps1.png',
   },
   {
     slug: 'paw-chain',
@@ -71,7 +71,7 @@ const projects: Project[] = [
     fullDescription:
       'PAW CHAIN brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
     gradient: 'from-zinc-900 via-slate-800 to-slate-600',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png',
+    image: '/pp1.png',
   },
   {
     slug: 'analytics-hub',

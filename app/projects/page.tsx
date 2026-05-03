@@ -28,6 +28,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png",
     },
     {
       title: "PS 02",
@@ -35,6 +36,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps2.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps2.png",
     },
     {
       title: "PS 03",
@@ -42,6 +44,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps3.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps3.png",
     },
     {
       title: "PS 04",
@@ -49,6 +52,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps4.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps4.png",
     },
     {
       title: "PS 05",
@@ -56,6 +60,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-purple-900 via-purple-700 to-blue-700",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps5.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps5.png",
     },
     {
       title: "PS 06",
@@ -63,6 +68,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-emerald-900 via-emerald-700 to-teal-700",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps6.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps6.png",
     },
     {
       title: "PS 07",
@@ -70,6 +76,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-zinc-800 via-zinc-700 to-zinc-500",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps7.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps7.png",
     },
     {
       title: "PS 08",
@@ -77,6 +84,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-slate-900 via-slate-800 to-slate-600",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps8.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps8.png",
     },
     {
       title: "PS 09",
@@ -84,6 +92,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-cyan-900 via-cyan-700 to-blue-500",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps9.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps9.png",
     },
     {
       title: "PS 10",
@@ -91,6 +100,7 @@ export default function ProjectsPage() {
       description: cardDescription,
       gradient: "from-neutral-900 via-stone-800 to-stone-600",
       imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps10.png",
+      posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps10.png",
     },
   ];
 
@@ -174,6 +184,7 @@ export default function ProjectsPage() {
                   description={project.description}
                   gradient={project.gradient}
                   imageUrl={project.imageUrl}
+                  posterUrl={project.posterUrl}
                 />
               </Reveal>
             ))}

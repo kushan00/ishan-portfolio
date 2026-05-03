@@ -8,11 +8,12 @@ interface ProjectCardProps {
   description: string;
   gradient: string;
   imageUrl: string;
+  posterUrl?: string;
 }
 
-export default function ProjectCard({ title, subtitle, description, gradient, imageUrl }: ProjectCardProps) {
+export default function ProjectCard({ title, subtitle, description, gradient, imageUrl, posterUrl }: ProjectCardProps) {
   return (
-    <article className="group flex flex-col gap-4" aria-label={title}>
+    <article className="group flex flex-col gap-4" aria-label={title} data-poster={posterUrl}>
       <div className={`relative aspect-[5/4] overflow-hidden rounded-lg bg-gradient-to-br ${gradient} shadow-sm transition-all duration-500 group-hover:shadow-lg group-hover:scale-[1.01] sm:rounded-2xl sm:shadow-md sm:group-hover:shadow-xl`}>
         <Image
           src={imageUrl}
