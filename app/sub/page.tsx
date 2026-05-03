@@ -321,6 +321,8 @@ export default function Home() {
                         alt="Process icon"
                         width={28}
                         height={28}
+                        loading="lazy"
+                        quality={85}
                         className="h-7 w-7 object-contain"
                       />
                     ) : (
@@ -380,6 +382,8 @@ export default function Home() {
                             src={project.imageSrc}
                             alt={project.title}
                             fill
+                            loading="lazy"
+                            quality={85}
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                           />
                         ) : project.videoSrc ? (
