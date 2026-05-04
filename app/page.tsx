@@ -205,7 +205,7 @@ const works = [
       </section>
 
       {/* Showcase Section */}
-      <section className="overflow-hidden bg-white py-16 pt-6 pb-4 md:py-20 md:pb-4 lg:py-[100px] lg:pb-4" aria-label="Selected Product Work section">
+      <section className="overflow-hidden bg-white py-16 pt-6 pb-4 md:py-20 md:pb-4 lg:h-[736px]" aria-label="Selected Product Work section">
         <div className="mx-auto mb-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:mb-12 lg:px-0">
           <Reveal>
             <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between lg:pb-12">
@@ -303,7 +303,7 @@ const works = [
       </section>
 
       {/* Project Breakdown (Sticky Header effect simulation) */}
-      <section className="py-16 md:py-20 lg:py-[100px]" aria-label="Project Breakdown section">
+      <section className="py-16 md:py-20 lg:h-[1737px]" aria-label="Project Breakdown section">
         <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal>
