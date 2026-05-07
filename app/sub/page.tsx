@@ -375,7 +375,7 @@ export default function Home() {
                           index === 0
                             ? "bg-transparent shadow-none"
                             : `bg-linear-to-br ${project.gradient} shadow-lg`
-                        } transition-all duration-500 group-hover:shadow-2xl`}
+                        }`}
                       >
                         {project.imageSrc ? (
                           <Image
@@ -384,16 +384,16 @@ export default function Home() {
                             fill
                             loading="lazy"
                             quality={85}
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover"
                           />
                         ) : project.videoSrc ? (
                           <LazyProjectVideo
                             src={project.videoSrc}
-                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="absolute inset-0 h-full w-full object-cover"
                           />
                         ) : null}
                         {index !== 0 && (
-                          <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-10" />
+                          <div className="absolute inset-0 bg-black/20" />
                         )}
                         {index !== 0 && index !== 1 && index !== 2 && index !== 3 && (
                           <div className="absolute bottom-8 left-8">

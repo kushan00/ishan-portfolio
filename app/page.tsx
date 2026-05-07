@@ -323,20 +323,20 @@ const works = [
                 <Reveal delay={0.1 * index}>
                   <Link href={`/projects/${project.slug ?? project.title}`} className="group block">
                     <article className="group">
-                    <div className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`} transition-all duration-500 group-hover:shadow-2xl`}>
+                    <div className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}>
                       {project.imageSrc ? (
                         <Image
                           src={project.imageSrc}
                           alt={project.title}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          className="object-cover"
                           loading="lazy"
                           quality={85}
                         />
                       ) : project.videoSrc ? (
-                        <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover" />
                       ) : null}
-                      {index !== 0 && <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-10" />}
+                      {index !== 0 && <div className="absolute inset-0 bg-black/20" />}
                       {index !== 0 && index !== 1 && index !== 2 && index !== 3 && (
                         <div className="absolute bottom-8 left-8">
                           <p className="text-2xl font-bold tracking-tight text-white">{project.title}</p>
