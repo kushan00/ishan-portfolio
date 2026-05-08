@@ -445,7 +445,7 @@ export default function Home() {
           <div className="divide-y divide-white/10">
             {experiences.map((experience, index) => (
               <Reveal key={experience.company} delay={0.1 * index}>
-                <article className="flex flex-col justify-between gap-2 py-6 transition-colors hover:bg-white/5 sm:flex-row sm:items-center sm:py-10">
+                <article className="flex flex-col justify-between gap-2 py-6 transition-colors sm:flex-row sm:items-center sm:py-10">
                   <div>
                     <p className="text-xl font-medium text-white sm:text-2xl">
                       {experience.company}
