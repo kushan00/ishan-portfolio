@@ -10,11 +10,6 @@ import LazyProjectVideo from "../components/LazyProjectVideo";
 import HeroVideo from "../components/HeroVideo";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
 
-const getAssetPath = (path: string) => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  return basePath ? `${basePath}${path}` : path;
-};
-
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}

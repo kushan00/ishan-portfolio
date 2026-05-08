@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Pacifico, Sora , Satisfy } from "next/font/google";
+import { Inter, Satisfy } from "next/font/google";
 import "./globals.css";
 
 const bodyFont = Inter({
@@ -12,7 +12,6 @@ const titleFont = Satisfy({
   weight: "400",
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Ishan Kavinda | Software Engineer",

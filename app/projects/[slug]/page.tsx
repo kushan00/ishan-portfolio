@@ -109,6 +109,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   const isWhaleChange = project?.slug === 'prjectName';
+  const isWhaleChangeMobile = isWhaleChange;
   const isPawChain = project?.slug === 'paw-chain';
   const isCasinoXp = project?.slug === 'casino-xp';
   const isLargeHero = isWhaleChange || isPawChain || isCasinoXp;
@@ -230,7 +231,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
+      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
         <div className={isLargeHero ? "relative aspect-[4/3] overflow-hidden rounded-[17.71px] bg-white sm:aspect-[1280/660]" : "relative aspect-[4/3] overflow-hidden rounded-[1.2rem] sm:aspect-[16/9]"}>
           {project.video ? (
             <video
@@ -254,6 +255,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
       </div>
+
+      {project.slug === 'prjectName' && (
+        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+          <div className="grid gap-4">
+            {[
+              { src: '/BM1.png', alt: 'BM1' },
+              { src: '/BM2.png', alt: 'BM2' },
+              { src: '/BM3.png', alt: 'BM3' },
+              { src: '/BM4.png', alt: 'BM4' },
+              { src: '/BM5.png', alt: 'BM5' },
+              { src: '/BM6.png', alt: 'BM6' },
+            ].map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  loading="lazy"
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* subtitle/description removed as requested */}
 
