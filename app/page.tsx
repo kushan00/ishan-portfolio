@@ -218,7 +218,7 @@ const works = [
                   <span style={{ fontWeight: 600 }}>Selected</span> <br /> <span style={{ fontWeight: 400 }}>Product Work</span>
                 </h2>
               </div>
-              <Link href="/projects" className="group hidden items-center gap-2 rounded-xl border border-brand-secondary px-6 py-3 text-sm font-medium transition hover:bg-brand-secondary hover:text-white sm:flex">
+              <Link href="/projects" className="group hidden items-center gap-2 rounded-xl border border-brand-secondary px-6 py-3 text-sm font-medium text-brand-secondary transition hover:border-[#000000] hover:bg-[#000000] hover:text-white active:border-[#000000] active:bg-[#000000] active:text-white sm:flex">
                 View Project
                 <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
               </Link>

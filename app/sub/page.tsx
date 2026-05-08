@@ -209,7 +209,7 @@ export default function Home() {
               </h2>
               <Link
                 href="/projects"
-                className="group flex shrink-0 items-center gap-1.5 rounded-xl border border-brand-secondary px-4 py-2 text-sm font-medium text-brand-secondary transition hover:bg-brand-secondary hover:text-white"
+                className="group flex shrink-0 items-center gap-1.5 rounded-xl border border-brand-secondary px-4 py-2 text-sm font-medium text-brand-secondary transition hover:border-[#000000] hover:bg-[#000000] hover:text-white active:border-[#000000] active:bg-[#000000] active:text-white"
               >
                 {"View Project"}{" "}
                 <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
