@@ -46,7 +46,7 @@ export default function Header2() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.ariaLabel}
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition hover:text-brand-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F8F9F7] text-brand-secondary transition hover:bg-[#E9ECE7]"
               >
                 <s.icon className="h-5 w-5" />
               </a>
@@ -57,10 +57,10 @@ export default function Header2() {
             <button
               type="button"
               onClick={handleCopyEmail}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`rounded-full border px-5 py-3 text-sm font-medium transition-all duration-300 ease-out ${
                 isCopied
-                  ? "border-brand-secondary bg-brand-secondary text-white"
-                  : "border-[#a9b8b9] text-brand-secondary hover:border-brand-primary hover:text-brand-primary"
+                  ? "border-[#011214] bg-[#011214] text-white"
+                  : "border-[#a9b8b9] text-brand-secondary hover:border-[#011214] hover:bg-[#011214] hover:text-white active:border-[#011214] active:bg-[#011214] active:text-white"
               }`}
             >
               {isCopied ? "Copied" : "Copy Email"}
@@ -76,7 +76,7 @@ export default function Header2() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.ariaLabel}
-                className="flex h-9 w-9 items-center justify-center text-brand-secondary"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F8F9F7] text-brand-secondary transition hover:bg-[#E9ECE7]"
               >
                 <s.icon className="h-[18px] w-[18px]" />
               </a>
@@ -138,10 +138,10 @@ export default function Header2() {
             <button
               type="button"
               onClick={handleCopyEmail}
-              className={`w-full rounded-full border py-3 text-sm font-medium transition ${
+              className={`w-full rounded-full border py-3 text-sm font-medium transition-all duration-300 ease-out ${
                 isCopied
-                  ? "border-brand-secondary bg-brand-secondary text-white"
-                  : "border-[#a9b8b9] text-brand-secondary hover:border-brand-primary hover:text-brand-primary"
+                  ? "border-[#011214] bg-[#011214] text-white"
+                  : "border-[#a9b8b9] text-brand-secondary hover:border-[#011214] hover:bg-[#011214] hover:text-white active:border-[#011214] active:bg-[#011214] active:text-white"
               }`}
             >
               {isCopied ? "Copied!" : "Copy Email"}

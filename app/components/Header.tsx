@@ -35,7 +35,7 @@ export default function Header() {
               target="_blank"
               rel="noreferrer"
               aria-label="Open Dribbble"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition"
+              className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F8F9F7] text-brand-secondary transition hover:bg-[#E9ECE7]"
             >
               <FaDribbble className="h-5 w-5" />
             </a>
@@ -44,7 +44,7 @@ export default function Header() {
               target="_blank"
               rel="noreferrer"
               aria-label="Open LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-secondary transition"
+              className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#F8F9F7] text-brand-secondary transition hover:bg-[#E9ECE7]"
             >
               <FaLinkedinIn className="h-5 w-5" />
             </a>
@@ -57,10 +57,10 @@ export default function Header() {
             <button
               type="button"
               onClick={handleCopyEmail}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`rounded-full border px-5 py-3 text-sm font-medium transition-all duration-300 ease-out ${
                 isCopied
-                  ? "border-brand-secondary bg-brand-secondary text-white"
-                  : "border-[#a9b8b9] text-brand-secondary hover:border-brand-primary hover:text-brand-primary"
+                  ? "border-[#011214] bg-[#011214] text-white"
+                  : "border-[#a9b8b9] text-brand-secondary hover:border-[#011214] hover:bg-[#011214] hover:text-white active:border-[#011214] active:bg-[#011214] active:text-white"
               }`}
             >
               {isCopied ? "Copied" : "Copy Email"}
