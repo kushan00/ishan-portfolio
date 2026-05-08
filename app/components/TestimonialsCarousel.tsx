@@ -111,26 +111,26 @@ export default function TestimonialsCarousel() {
               What <br /> <span className="font-normal text-[#002B31]">People Say</span>
             </h3>
 
-            <div className="mt-12 flex gap-4">
+            <div className="mt-12 flex h-16 gap-[10px]">
               <button
                 onClick={prev}
                 disabled={index === 0}
-                className={`flex h-14 w-14 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-900 transition-all ${
-                  index === 0 ? "opacity-30 cursor-not-allowed" : "hover:bg-zinc-50 active:scale-95 shadow-sm"
+                className={`flex h-16 w-16 items-center justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
+                  index === 0 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-sm"
                 }`}
                 aria-label="Previous testimonial"
               >
-                <span className="text-xl">←</span>
+                <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">→</span>
               </button>
               <button
                 onClick={next}
                 disabled={index === testimonials.length - 1}
-                className={`flex h-14 w-14 items-center justify-center rounded-full bg-[#002B31] text-white transition-all ${
-                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-[#002B31]/90 active:scale-95 shadow-lg"
+                className={`flex h-16 w-16 items-center justify-center rounded-full bg-[#002B31] text-white transition-all ${
+                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-lg"
                 }`}
                 aria-label="Next testimonial"
               >
-                <span className="text-xl">→</span>
+                <span className="h-5 w-5 flex items-center justify-center text-lg">→</span>
               </button>
             </div>
           </Reveal>
