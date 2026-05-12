@@ -142,6 +142,7 @@ const works = [
 
             <Reveal delay={0.2}>
               <div style={{
+                marginTop: '8px',
                 width: '100%',
                 maxWidth: 565,
                 opacity: 1,
@@ -218,9 +219,11 @@ const works = [
                   <span style={{ fontWeight: 600 }}>Selected</span> <br /> <span style={{ fontWeight: 400 }}>Product Work</span>
                 </h2>
               </div>
-              <Link href="/projects" className="group hidden items-center gap-2 rounded-xl border border-brand-secondary px-6 py-3 text-sm font-medium text-brand-secondary transition hover:border-[#000000] hover:bg-[#000000] hover:text-white active:border-[#000000] active:bg-[#000000] active:text-white sm:flex">
-                View Project
-                <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
+              <Link href="/projects" className="group hidden h-[52px] items-center gap-2 rounded-[12px] border border-[#E5E7EB] bg-white px-5 py-[14px] text-[16px] font-normal text-[#101010] transition hover:border-[#cfd4d8] hover:bg-[#fafafa] active:scale-[0.99] sm:flex">
+                <span>View Project</span>
+                <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5">
+                  <path d="M3.5 8h9m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
           </Reveal>

@@ -8,8 +8,8 @@ export default function Footer() {
           <a className="text-lg font-medium tracking-tight transition hover:text-[#7f9ca2]" href="mailto:ishankavinda88@gmail.com">
             ishankavinda88@gmail.com
           </a>
-          <p className="text-xs tracking-wider text-[#6e8388] uppercase">
-            &copy; {new Date().getFullYear()} All Rights Reserved by Loopcore Studio
+          <p className="font-['Inter'] text-[14px] font-light not-italic leading-[22px] tracking-normal align-middle text-[#757575]">
+            &copy; 2026 All Rights Reserved – by Loopmint_Studio
           </p>
         </div>
 
@@ -22,7 +22,7 @@ export default function Footer() {
           ].map((social) => (
             <a
               key={social.label}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white text-lg text-[#7a7a7a] transition hover:bg-[#f2f2f2] hover:text-[#5f5f5f]"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border-[1.5px] border-[#002B31] bg-white text-lg text-[#002B31] transition hover:bg-[#eaf4f5] hover:text-[#002B31]"
               href="#"
               aria-label={social.label}
             >

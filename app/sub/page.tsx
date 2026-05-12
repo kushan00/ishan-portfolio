@@ -204,10 +204,12 @@ export default function Home() {
               </h2>
               <Link
                 href="/projects"
-                className="group flex shrink-0 items-center gap-1.5 rounded-xl border border-brand-secondary px-4 py-2 text-sm font-medium text-brand-secondary transition hover:border-[#000000] hover:bg-[#000000] hover:text-white active:border-[#000000] active:bg-[#000000] active:text-white"
+                className="group flex h-[52px] shrink-0 items-center gap-2 rounded-[12px] border border-[#E5E7EB] bg-white px-5 py-[14px] text-[16px] font-normal text-[#101010] transition hover:border-[#cfd4d8] hover:bg-[#fafafa] active:scale-[0.99]"
               >
-                {"View Project"}{" "}
-                <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+                <span>View Project</span>
+                <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5">
+                  <path d="M3.5 8h9m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             </div>
           </Reveal>
