@@ -63,7 +63,7 @@ export default function Header2() {
                   : "border-[#a9b8b9] text-brand-secondary hover:border-[#011214] hover:bg-[#011214] hover:text-white active:border-[#011214] active:bg-[#011214] active:text-white"
               }`}
             >
-              {isCopied ? "Copied" : "Copy Email"}
+              {isCopied ? "Copied!" : "Copy Email"}
             </button>
           </div>
 
