@@ -231,7 +231,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isPawChain ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
+      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isPawChain ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isCasinoXp ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
         <div className={isLargeHero ? "relative aspect-[4/3] overflow-hidden rounded-[17.71px] bg-white sm:aspect-[1280/660]" : "relative aspect-[4/3] overflow-hidden rounded-[1.2rem] sm:aspect-[16/9]"}>
           {project.video ? (
             <video
@@ -282,6 +282,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
+      {project.slug === 'casino-xp' && (
+        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+          <div className="grid gap-4">
+            {[
+              { src: '/casino%20(1).png', alt: 'casino 1' },
+              { src: '/casino%20(2).png', alt: 'casino 2' },
+              { src: '/casino%20(3).png', alt: 'casino 3' },
+              { src: '/casino%20(4).png', alt: 'casino 4' },
+              { src: '/casino%20(5).png', alt: 'casino 5' },
+              { src: '/casino%20(6).png', alt: 'casino 6' },
+            ].map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  loading="lazy"
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {project.slug === 'prjectName' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
@@ -311,9 +337,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* subtitle/description removed as requested */}
 
       {/* Gallery: project-specific */}
-      <div className="mx-auto mb-16 mt-6 w-full max-w-[1200px] px-[6%] sm:mt-8 md:px-[4%] lg:px-0">
+      <div className={project.slug === 'casino-xp' ? "mx-auto mb-0 mt-6 w-full max-w-[1200px] px-[6%] sm:mb-16 sm:mt-8 md:px-[4%] lg:px-0" : "mx-auto mb-16 mt-6 w-full max-w-[1200px] px-[6%] sm:mt-8 md:px-[4%] lg:px-0"}>
         {project.slug === 'casino-xp' ? (
-          <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
+          <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
                           <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp2.png" alt="cp2" fill className="object-cover" loading="lazy" quality={85} />
             </div>
