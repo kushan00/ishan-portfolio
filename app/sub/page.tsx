@@ -120,7 +120,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="mt-6 w-full max-w-120">
+              <div className="mt-8 w-full max-w-120">
                 <p className="m-0 font-normal text-[clamp(15px,1.6vw,18px)] leading-7 text-[#4F5253]">
                   I design digital products that are{" "}
                   <strong className="font-bold">simple, clear,</strong>

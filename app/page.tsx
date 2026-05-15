@@ -128,7 +128,7 @@ const works = [
 
             <Reveal delay={0.2}>
               <div style={{
-                marginTop: '8px',
+                marginTop: '16px',
                 width: '100%',
                 maxWidth: 565,
                 opacity: 1,
