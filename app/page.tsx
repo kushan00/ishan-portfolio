@@ -27,26 +27,12 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
 const works = [
-  { 
-    title: "Analytics Command Center", 
-    videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/3d%20tool%20demo%20small.mp4" 
-  },
-  { 
-    title: "Apple Mini Recreation", 
-    videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/AppleMini.mp4" 
-  },
-  { 
-    title: "Oversized CTA Exploration", 
-    videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/cat.mp4" 
-  },
-  { 
-    title: "Casino XP Experience", 
-    videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/IsometricAnim.mp4" 
-  },
-  { 
-    title: "Token Landing Scroll", 
-    videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/plantApp.mp4" 
-  },
+  { title: "Showcase 1", imageSrc: "/sc%20(1).png" },
+  { title: "Showcase 2", imageSrc: "/sc%20(2).png" },
+  { title: "Showcase 3", imageSrc: "/sc%20(3).png" },
+  { title: "Showcase 4", imageSrc: "/sc%20(4).png" },
+  { title: "Showcase 5", imageSrc: "/sc%20(5).png" },
+  { title: "Showcase 6", imageSrc: "/sc%20(6).png" },
 ];
 
   const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; poster?: string; videoSrc?: string }[] = [
@@ -253,7 +239,14 @@ const works = [
                   key={`${work.title}-${index}`} 
                   className="relative h-[300px] w-[540px] flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-white"
                 >
-                  <LazyProjectVideo src={work.videoSrc} className="h-full w-full flex items-center justify-center overflow-hidden bg-white" />
+                  <Image
+                    src={work.imageSrc}
+                    alt={work.title}
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                    quality={85}
+                  />
                 </div>
               ))}
             </motion.div>

@@ -25,26 +25,12 @@ export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
 
   const works = [
-    {
-      title: "Analytics Command Center",
-      videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/3d%20tool%20demo%20small.mp4",
-    },
-    {
-      title: "Apple Mini Recreation",
-      videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/AppleMini.mp4",
-    },
-    {
-      title: "Oversized CTA Exploration",
-      videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/cat.mp4",
-    },
-    {
-      title: "Casino XP Experience",
-      videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/IsometricAnim.mp4",
-    },
-    {
-      title: "Token Landing Scroll",
-      videoSrc: "https://peshala-me-webflow.b-cdn.net/experiments/plantApp.mp4",
-    },
+    { title: "Showcase 1", imageSrc: "/sc%20(1).png" },
+    { title: "Showcase 2", imageSrc: "/sc%20(2).png" },
+    { title: "Showcase 3", imageSrc: "/sc%20(3).png" },
+    { title: "Showcase 4", imageSrc: "/sc%20(4).png" },
+    { title: "Showcase 5", imageSrc: "/sc%20(5).png" },
+    { title: "Showcase 6", imageSrc: "/sc%20(6).png" },
   ];
 
   const projects: {
@@ -239,9 +225,13 @@ export default function Home() {
                   key={`${work.title}-${index}`}
                   className="relative h-65 w-95 shrink-0 overflow-hidden rounded-2xl bg-zinc-900"
                 >
-                  <LazyProjectVideo
-                    src={work.videoSrc}
-                    className="h-full w-full object-cover"
+                  <Image
+                    src={work.imageSrc}
+                    alt={work.title}
+                    fill
+                    loading="lazy"
+                    quality={85}
+                    className="object-cover"
                   />
                 </div>
               ))}
