@@ -231,7 +231,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
+      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isPawChain ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
         <div className={isLargeHero ? "relative aspect-[4/3] overflow-hidden rounded-[17.71px] bg-white sm:aspect-[1280/660]" : "relative aspect-[4/3] overflow-hidden rounded-[1.2rem] sm:aspect-[16/9]"}>
           {project.video ? (
             <video
@@ -255,6 +255,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
       </div>
+
+      {project.slug === 'paw-chain' && (
+        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+          <div className="grid gap-4">
+            {[
+              { src: '/paw%20(1).png', alt: 'paw 1' },
+              { src: '/paw%20(2).png', alt: 'paw 2' },
+              { src: '/paw%20(3).png', alt: 'paw 3' },
+              { src: '/paw%20(4).png', alt: 'paw 4' },
+              { src: '/paw%20(5).png', alt: 'paw 5' },
+              { src: '/paw%20(6).png', alt: 'paw 6' },
+            ].map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  loading="lazy"
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {project.slug === 'prjectName' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
@@ -312,7 +338,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           
         ) : project.slug === 'paw-chain' ? (
-            <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
+          <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
           
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp2.png" alt="pp2" fill className="object-cover" loading="lazy" quality={85} />
