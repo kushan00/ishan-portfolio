@@ -25,12 +25,12 @@ export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
 
   const works = [
-    { title: "Showcase 1", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
-    { title: "Showcase 2", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
-    { title: "Showcase 3", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
-    { title: "Showcase 4", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
-    { title: "Showcase 5", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
-    { title: "Showcase 6", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
+    { title: "Showcase 1", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
+    { title: "Showcase 2", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
+    { title: "Showcase 3", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
+    { title: "Showcase 4", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
+    { title: "Showcase 5", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
+    { title: "Showcase 6", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
   ];
 
   const projects: {
@@ -39,7 +39,7 @@ export default function Home() {
     subtitle: string;
     description: string;
     gradient: string;
-    imageSrc?: string;
+    imageUrl?: string;
     posterUrl?: string;
     videoSrc?: string;
   }[] = [
@@ -50,7 +50,7 @@ export default function Home() {
       description:
         "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.",
       gradient: "from-[#000000] via-[#000000] to-[#000000]",
-      imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
+      imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
       posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
     },
     {
@@ -60,7 +60,7 @@ export default function Home() {
       description:
         "Designing fast, realtime game flows with clear feedback loops to increase retention.",
       gradient: "from-red-900 via-fuchsia-700 to-amber-400",
-      imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
+      imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
       posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
     },
     {
@@ -70,7 +70,7 @@ export default function Home() {
       description:
         "Creating visually engaging, performance-driven websites that turn visitors into community members.",
       gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
-      imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
+      imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
       posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
     },
     {
@@ -80,7 +80,7 @@ export default function Home() {
       description:
         "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.",
       gradient: "from-zinc-900 via-slate-800 to-slate-600",
-      imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
+      imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
       posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
     },
   ];
@@ -226,7 +226,7 @@ export default function Home() {
                   className="relative h-65 w-95 shrink-0 overflow-hidden rounded-2xl bg-zinc-900"
                 >
                   <Image
-                    src={work.imageSrc}
+                    src={work.imageUrl}
                     alt={work.title}
                     fill
                     loading="lazy"
@@ -268,32 +268,32 @@ export default function Home() {
             {[
               {
                 icon: "⌂",
-                iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
-                poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
+                iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
+                posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
                 title: "Understand the Problem",
                 copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.",
                 delay: 0,
               },
               {
                 icon: "✣",
-                iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
-                poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
+                iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
+                posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
                 title: "Simplify the Experience",
                 copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.",
                 delay: 0.1,
               },
               {
                 icon: "◌",
-                iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
-                poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
+                iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
+                posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
                 title: "Design the Interface",
                 copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.",
                 delay: 0.2,
               },
               {
                 icon: "◎",
-                iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
-                poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
+                iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
+                posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
                 title: "Test & Improve",
                 copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.",
                 delay: 0.3,
@@ -302,9 +302,9 @@ export default function Home() {
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-2 sm:p-4">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-brand-text backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
-                    {step.iconSrc ? (
+                    {step.iconUrl ? (
                       <Image
-                        src={step.iconSrc}
+                        src={step.iconUrl}
                         alt="Process icon"
                         width={28}
                         height={28}
@@ -364,9 +364,9 @@ export default function Home() {
                             : `bg-linear-to-br ${project.gradient} shadow-lg`
                         }`}
                       >
-                        {project.imageSrc ? (
+                        {project.imageUrl ? (
                           <Image
-                            src={project.imageSrc}
+                            src={project.imageUrl}
                             alt={project.title}
                             fill
                             loading="lazy"

@@ -41,19 +41,19 @@ export default function Home() {
     console.log(isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]")
   },[isFullscreen])
 const works = [
-  { title: "Showcase 1", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
-  { title: "Showcase 2", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
-  { title: "Showcase 3", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
-  { title: "Showcase 4", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
-  { title: "Showcase 5", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
-  { title: "Showcase 6", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
+  { title: "Showcase 1", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
+  { title: "Showcase 2", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
+  { title: "Showcase 3", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
+  { title: "Showcase 4", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
+  { title: "Showcase 5", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
+  { title: "Showcase 6", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
 ];
 
-  const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; poster?: string; videoSrc?: string }[] = [
-    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png" },
-    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png" },
-    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png" },
-    { slug: "paw-chain", title: "PAW CHAIN", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png" },
+  const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageUrl?: string; posterUrl?: string; videoSrc?: string }[] = [
+    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png" },
+    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png" },
+    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png" },
+    { slug: "paw-chain", title: "PAW CHAIN", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png" },
   ];
 
   const experiences = [
@@ -258,7 +258,7 @@ const works = [
                   className="relative h-[300px] w-[540px] flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-white"
                 >
                   <Image
-                    src={work.imageSrc}
+                    src={work.imageUrl}
                     alt={work.title}
                     fill
                     className="object-cover"
@@ -291,16 +291,16 @@ const works = [
 
           <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
             {[
-              { icon: "⌂", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
-              { icon: "✣", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
-              { icon: "◌", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
-              { icon: "◎", iconSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", poster: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
+              { icon: "⌂", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
+              { icon: "✣", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
+              { icon: "◌", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
+              { icon: "◎", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
             ].map((step) => (
               <Reveal key={step.title} delay={step.delay}>
                 <article className="flex h-full flex-col p-2 sm:p-4">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
-                    {step.iconSrc ? (
-                      <Image src={step.iconSrc} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" loading="lazy" quality={85} />
+                    {step.iconUrl ? (
+                      <Image src={step.iconUrl} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" loading="lazy" quality={85} />
                     ) : (
                       step.icon
                     )}
@@ -338,9 +338,9 @@ const works = [
                   <Link href={`/projects/${project.slug ?? project.title}`} className="group block">
                     <article className="group">
                     <div className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}>
-                      {project.imageSrc ? (
+                      {project.imageUrl ? (
                         <Image
-                          src={project.imageSrc}
+                          src={project.imageUrl}
                           alt={project.title}
                           fill
                           className="object-cover"

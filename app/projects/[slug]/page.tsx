@@ -18,7 +18,7 @@ type Project = {
   description: string;
   fullDescription: string;
   gradient: string;
-  image: string;
+  imageUrl: string;
   video?: string;
 };
 
@@ -74,7 +74,7 @@ const projects: Project[] = [
     fullDescription:
       'Whale Change is a crypto wallet case study focused on simplifying onboarding, clarifying transactions, and making portfolio tracking accessible for new users. The work includes a pared-back onboarding flow, clear hierarchy for balances and transactions, and a cohesive visual system that communicates trust and clarity.',
     gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png',
+    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png',
   },
   {
     slug: 'casino-xp',
@@ -86,7 +86,7 @@ const projects: Project[] = [
     fullDescription:
       'CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.',
     gradient: 'from-red-900 via-fuchsia-700 to-amber-400',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png',
+    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png',
   },
   {
     slug: 'token-landing',
@@ -98,7 +98,7 @@ const projects: Project[] = [
     fullDescription:
       'TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.',
     gradient: 'from-zinc-950 via-zinc-900 to-zinc-700',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png',
+    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png',
   },
   {
     slug: 'paw-chain',
@@ -110,7 +110,7 @@ const projects: Project[] = [
     fullDescription:
       'PAW CHAIN brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
     gradient: 'from-zinc-900 via-slate-800 to-slate-600',
-    image: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png',
+    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png',
   },
   {
     slug: 'analytics-hub',
@@ -122,7 +122,7 @@ const projects: Project[] = [
     fullDescription:
       'ANALYTICS HUB provides teams with real-time insights into their business metrics. The interface prioritizes speed and clarity, enabling users to make informed decisions faster.',
     gradient: 'from-purple-900 via-purple-700 to-blue-700',
-    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&h=675&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&h=675&fit=crop',
   },
   {
     slug: 'mobile-banking',
@@ -134,7 +134,7 @@ const projects: Project[] = [
     fullDescription:
       'MOBILE BANKING redesigns financial management for the modern user. We created secure, intuitive flows that handle complex banking operations with simplicity and confidence.',
     gradient: 'from-emerald-900 via-emerald-700 to-teal-700',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13cf712?w=1200&h=675&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13cf712?w=1200&h=675&fit=crop',
   },
 ];
 
@@ -170,7 +170,6 @@ const pawMobileImages: MobileMediaItem[] = [
     alt: "paw 6",
   },
 ];
-
 const casinoMobileImages: MobileMediaItem[] = [
   {
     imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
@@ -367,8 +366,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
         <MobileMediaCard
           item={{
-            imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.image),
-            posterUrl: getPublicAssetUrl(project.image),
+            imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.imageUrl),
+            posterUrl: getPublicAssetUrl(project.imageUrl),
             alt: project.selectedTitle,
             kind: project.video ? "video" : "image",
           }}
@@ -449,7 +448,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         ) : (
             <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
-            <Image src={project.image.startsWith("http") ? project.image : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.image}`} alt={project.selectedTitle} fill className="object-cover" loading="lazy" quality={85} />
+            <Image src={project.imageUrl.startsWith("http") ? project.imageUrl : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.imageUrl}`} alt={project.selectedTitle} fill className="object-cover" loading="lazy" quality={85} />
           </div>
         )}
       </div>
