@@ -41,12 +41,12 @@ export default function Home() {
     console.log(isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]")
   },[isFullscreen])
 const works = [
-  { title: "Showcase 1", imageSrc: "/showcase1.png" },
-  { title: "Showcase 2", imageSrc: "/showcase2.png" },
-  { title: "Showcase 3", imageSrc: "/showcase3.png" },
-  { title: "Showcase 4", imageSrc: "/showcase4.png" },
-  { title: "Showcase 5", imageSrc: "/showcase5.png" },
-  { title: "Showcase 6", imageSrc: "/showcase6.png" },
+  { title: "Showcase 1", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
+  { title: "Showcase 2", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
+  { title: "Showcase 3", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
+  { title: "Showcase 4", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
+  { title: "Showcase 5", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
+  { title: "Showcase 6", imageSrc: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
 ];
 
   const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; poster?: string; videoSrc?: string }[] = [
