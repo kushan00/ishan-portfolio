@@ -37,12 +37,25 @@ function getPublicAssetUrl(path: string) {
 
 function MobileMediaCard({ item }: { item: MobileMediaItem }) {
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
+    <div
+      className="relative mx-auto overflow-hidden bg-white"
+      style={{
+        width: "min(398px, 100%)",
+        height: "542px",
+        borderRadius: "28px",
+        borderWidth: "1px",
+        borderStyle: "solid",
+        borderColor: "#d9e2e4",
+        opacity: 1,
+        boxShadow: "none",
+      }}
+    >
       {item.kind === "video" ? (
         <video
           src={item.imageUrl}
           poster={item.posterUrl}
-          className="h-full w-full object-contain object-center"
+          className="h-full w-full object-cover object-center"
+          style={{ opacity: 1, transform: "none", filter: "none" }}
           autoPlay
           loop
           muted
@@ -56,7 +69,8 @@ function MobileMediaCard({ item }: { item: MobileMediaItem }) {
           fill
           loading="lazy"
           sizes="100vw"
-          className="object-contain object-center"
+          className="object-cover object-center"
+          style={{ opacity: 1, transform: "none", filter: "none" }}
         />
       )}
     </div>
@@ -397,7 +411,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       {project.slug === 'prjectName' && (
-        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+        <div className="mx-auto mt-6 mb-[-48px] w-full max-w-[1200px] px-[6%] sm:hidden sm:mb-0 md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {bmMobileImages.map((image) => (
               <MobileMediaCard key={image.alt} item={image} />
