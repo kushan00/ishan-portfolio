@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -10,8 +10,6 @@ import LazyProjectVideo from "./components/LazyProjectVideo";
 import HeroVideo from "./components/HeroVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import SubMobilePage from "./sub/page";
-
-// Note: getImagePath is no longer needed as all images use direct GitHub raw links
 
 const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -26,13 +24,29 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(display-mode: fullscreen)").matches
+      : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(display-mode: fullscreen)");
+    const handleChange = (e: MediaQueryListEvent) => setIsFullscreen(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+  useEffect(()=>{
+    console.log("Fullscreen mode:", isFullscreen);
+    console.log(isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]")
+  },[isFullscreen])
 const works = [
-  { title: "Showcase 1", imageSrc: "/sc%20(1).png" },
-  { title: "Showcase 2", imageSrc: "/sc%20(2).png" },
-  { title: "Showcase 3", imageSrc: "/sc%20(3).png" },
-  { title: "Showcase 4", imageSrc: "/sc%20(4).png" },
-  { title: "Showcase 5", imageSrc: "/sc%20(5).png" },
-  { title: "Showcase 6", imageSrc: "/sc%20(6).png" },
+  { title: "Showcase 1", imageSrc: "/showcase1.png" },
+  { title: "Showcase 2", imageSrc: "/showcase2.png" },
+  { title: "Showcase 3", imageSrc: "/showcase3.png" },
+  { title: "Showcase 4", imageSrc: "/showcase4.png" },
+  { title: "Showcase 5", imageSrc: "/showcase5.png" },
+  { title: "Showcase 6", imageSrc: "/showcase6.png" },
 ];
 
   const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageSrc?: string; poster?: string; videoSrc?: string }[] = [
@@ -60,7 +74,13 @@ const works = [
       <Header />
 
       {/* Hero Section */}
-      <section className="flex min-h-[calc(100vh-80px)] items-center justify-center overflow-hidden pt-4 pb-12 sm:pt-6 lg:pt-2" aria-label="Hero section">
+      <section 
+        style={{ 
+          minHeight: isFullscreen ? "calc(100vh - 160px)" : "calc(100vh - 80px)" 
+        }}
+        className="flex items-center justify-center overflow-hidden pt-4 pb-12 md:pb-0 md:pt-0 sm:pt-6"
+        aria-label="Hero section"
+      >
         <div className="mx-auto grid w-full max-w-[1200px] items-center gap-10 px-[6%] md:px-[4%] lg:grid-cols-[1.2fr_0.8fr] lg:px-0">
           <div>
             <Reveal>
@@ -192,9 +212,8 @@ const works = [
       </section>
 
       {/* Showcase Section */}
-      <section className="overflow-hidden bg-white py-16 pt-6 pb-4 md:py-20 md:pb-4 lg:h-[736px]" aria-label="Selected Product Work section">
+      <section className="overflow-hidden bg-white pb-16  md:pb-20 lg:h-[736px]" aria-label="Selected Product Work section">
         <div className="mx-auto mb-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:mb-12 lg:px-0">
-          <Reveal>
             <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between lg:pb-12">
               <div className="max-w-xl">
                 <p className="mb-4 flex items-center gap-2 text-brand-text">
@@ -212,7 +231,6 @@ const works = [
                 </svg>
               </Link>
             </div>
-          </Reveal>
         </div>
 
         <Reveal delay={0.2}>

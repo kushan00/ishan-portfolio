@@ -22,11 +22,46 @@ type Project = {
   video?: string;
 };
 
-type MobileProjectImage = {
+type MobileMediaItem = {
   imageUrl: string;
   posterUrl: string;
   alt: string;
+  kind?: "image" | "video";
 };
+
+function getPublicAssetUrl(path: string) {
+  if (!path) return "";
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${encodeURI(path)}`;
+}
+
+function MobileMediaCard({ item }: { item: MobileMediaItem }) {
+  return (
+    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
+      {item.kind === "video" ? (
+        <video
+          src={item.imageUrl}
+          poster={item.posterUrl}
+          className="h-full w-full object-contain object-center"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        />
+      ) : (
+        <Image
+          src={item.imageUrl}
+          alt={item.alt}
+          fill
+          loading="lazy"
+          sizes="100vw"
+          className="object-contain object-center"
+        />
+      )}
+    </div>
+  );
+}
 
 const projects: Project[] = [
   {
@@ -103,7 +138,7 @@ const projects: Project[] = [
   },
 ];
 
-const pawMobileImages: MobileProjectImage[] = [
+const pawMobileImages: MobileMediaItem[] = [
   {
     imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
     posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
@@ -136,7 +171,7 @@ const pawMobileImages: MobileProjectImage[] = [
   },
 ];
 
-const casinoMobileImages: MobileProjectImage[] = [
+const casinoMobileImages: MobileMediaItem[] = [
   {
     imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
     posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
@@ -169,7 +204,7 @@ const casinoMobileImages: MobileProjectImage[] = [
   },
 ];
 
-const bmMobileImages: MobileProjectImage[] = [
+const bmMobileImages: MobileMediaItem[] = [
   {
     imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
     posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
@@ -329,20 +364,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
+      <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+        <MobileMediaCard
+          item={{
+            imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.image),
+            posterUrl: getPublicAssetUrl(project.image),
+            alt: project.selectedTitle,
+            kind: project.video ? "video" : "image",
+          }}
+        />
+      </div>
+
       {project.slug === 'paw-chain' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {pawMobileImages.map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.alt}
-                  fill
-                  loading="lazy"
-                  sizes="100vw"
-                  className="object-contain object-center"
-                />
-              </div>
+              <MobileMediaCard key={image.alt} item={image} />
             ))}
           </div>
         </div>
@@ -352,16 +389,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {casinoMobileImages.map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.alt}
-                  fill
-                  loading="lazy"
-                  sizes="100vw"
-                  className="object-contain object-center"
-                />
-              </div>
+              <MobileMediaCard key={image.alt} item={image} />
             ))}
           </div>
         </div>
@@ -371,16 +399,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {bmMobileImages.map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
-                <Image
-                  src={image.imageUrl}
-                  alt={image.alt}
-                  fill
-                  loading="lazy"
-                  sizes="100vw"
-                  className="object-contain object-center"
-                />
-              </div>
+              <MobileMediaCard key={image.alt} item={image} />
             ))}
           </div>
         </div>

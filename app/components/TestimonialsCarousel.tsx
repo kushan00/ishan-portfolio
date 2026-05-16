@@ -115,7 +115,7 @@ export default function TestimonialsCarousel() {
               <button
                 onClick={prev}
                 disabled={index === 0}
-                className={`flex h-16 w-16 items-center justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
+                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
                   index === 0 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-sm"
                 }`}
                 aria-label="Previous testimonial"
@@ -125,7 +125,7 @@ export default function TestimonialsCarousel() {
               <button
                 onClick={next}
                 disabled={index === testimonials.length - 1}
-                className={`flex h-16 w-16 items-center justify-center rounded-full bg-[#002B31] text-white transition-all ${
+                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#002B31] text-white transition-all ${
                   index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-lg"
                 }`}
                 aria-label="Next testimonial"
