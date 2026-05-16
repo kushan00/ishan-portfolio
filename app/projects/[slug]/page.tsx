@@ -363,16 +363,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
-        <MobileMediaCard
-          item={{
-            imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.imageUrl),
-            posterUrl: getPublicAssetUrl(project.imageUrl),
-            alt: project.selectedTitle,
-            kind: project.video ? "video" : "image",
-          }}
-        />
-      </div>
+      {!["prjectName", "casino-xp", "paw-chain"].includes(project.slug) && (
+        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+          <MobileMediaCard
+            item={{
+              imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.imageUrl),
+              posterUrl: getPublicAssetUrl(project.imageUrl),
+              alt: project.selectedTitle,
+              kind: project.video ? "video" : "image",
+            }}
+          />
+        </div>
+      )}
 
       {project.slug === 'paw-chain' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
@@ -411,6 +413,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {project.slug === 'casino-xp' ? (
           <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
                           <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png" alt="cp1" fill className="object-cover" loading="lazy" quality={85} />
+            </div>
+                          <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp2.png" alt="cp2" fill className="object-cover" loading="lazy" quality={85} />
             </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
@@ -421,7 +426,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
         ) : project.slug === 'prjectName' ? (
-            <div className="flex flex-col items-stretch gap-4 sm:items-center sm:gap-6">
+          <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
+              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png" alt="pf1" fill className="object-cover" loading="lazy" quality={85} />
+            </div>
               <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp5.png" alt="fp5" fill className="object-cover" loading="lazy" quality={85} />
             </div>
@@ -436,6 +444,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : project.slug === 'paw-chain' ? (
           <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
           
+              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png" alt="pp1" fill className="object-cover" loading="lazy" quality={85} />
+            </div>
               <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
               <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp2.png" alt="pp2" fill className="object-cover" loading="lazy" quality={85} />
             </div>
