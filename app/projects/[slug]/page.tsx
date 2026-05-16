@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-// Note: getAssetPath is no longer needed as all images use direct GitHub raw links
-
 type ProjectPageProps = {
   params: Promise<{
     slug: string;
@@ -22,6 +20,12 @@ type Project = {
   gradient: string;
   image: string;
   video?: string;
+};
+
+type MobileProjectImage = {
+  imageUrl: string;
+  posterUrl: string;
+  alt: string;
 };
 
 const projects: Project[] = [
@@ -99,6 +103,105 @@ const projects: Project[] = [
   },
 ];
 
+const pawMobileImages: MobileProjectImage[] = [
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
+    alt: "paw 1",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
+    alt: "paw 2",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
+    alt: "paw 3",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
+    alt: "paw 4",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
+    alt: "paw 5",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
+    alt: "paw 6",
+  },
+];
+
+const casinoMobileImages: MobileProjectImage[] = [
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
+    alt: "casino 1",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
+    alt: "casino 2",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
+    alt: "casino 3",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
+    alt: "casino 4",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
+    alt: "casino 5",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
+    alt: "casino 6",
+  },
+];
+
+const bmMobileImages: MobileProjectImage[] = [
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
+    alt: "BM1",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
+    alt: "BM2",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
+    alt: "BM3",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
+    alt: "BM4",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
+    alt: "BM5",
+  },
+  {
+    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
+    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
+    alt: "BM6",
+  },
+];
+
 export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -108,18 +211,13 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  const isWhaleChange = project?.slug === 'prjectName';
-  const isWhaleChangeMobile = isWhaleChange;
-  const isPawChain = project?.slug === 'paw-chain';
-  const isCasinoXp = project?.slug === 'casino-xp';
-  const isLargeHero = isWhaleChange || isPawChain || isCasinoXp;
 
   if (!project) {
     notFound();
   }
 
   return (
-    <main className={isWhaleChange ? "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]" : "flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]"}>
+    <main className="flex min-h-screen flex-col overflow-x-hidden bg-white text-[#0d3b46]">
       <Header />
 
       <nav className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
@@ -231,50 +329,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className={isWhaleChangeMobile ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] lg:block lg:px-0" : isPawChain ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isCasinoXp ? "mx-auto mt-8 hidden w-full max-w-[1280px] px-[6%] md:px-[4%] sm:block lg:px-0" : isLargeHero ? "mx-auto mt-8 w-full max-w-[1280px] px-[6%] md:px-[4%] lg:px-0" : "mx-auto mt-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0"}>
-        <div className={isLargeHero ? "relative aspect-[4/3] overflow-hidden rounded-[17.71px] bg-white sm:aspect-[1280/660]" : "relative aspect-[4/3] overflow-hidden rounded-[1.2rem] sm:aspect-[16/9]"}>
-          {project.video ? (
-            <video
-              src={project.video}
-              className={isLargeHero ? "h-full w-full object-contain object-center" : "h-full w-full object-cover object-center"}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            />
-          ) : (
-            <Image
-              src={project.image.startsWith("http") ? project.image : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.image}`}
-              alt={project.selectedTitle}
-              fill
-              loading="lazy"
-              sizes="(max-width: 980px) 100vw, 980px"
-              className={isLargeHero ? "object-contain object-center" : "object-cover object-center"}
-            />
-          )}
-        </div>
-      </div>
-
       {project.slug === 'paw-chain' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
-            {[
-              { src: '/paw%20(1).png', alt: 'paw 1' },
-              { src: '/paw%20(2).png', alt: 'paw 2' },
-              { src: '/paw%20(3).png', alt: 'paw 3' },
-              { src: '/paw%20(4).png', alt: 'paw 4' },
-              { src: '/paw%20(5).png', alt: 'paw 5' },
-              { src: '/paw%20(6).png', alt: 'paw 6' },
-            ].map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+            {pawMobileImages.map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
                 <Image
-                  src={image.src}
+                  src={image.imageUrl}
                   alt={image.alt}
                   fill
                   loading="lazy"
                   sizes="100vw"
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
               </div>
             ))}
@@ -285,22 +351,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.slug === 'casino-xp' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
-            {[
-              { src: '/casino%20(1).png', alt: 'casino 1' },
-              { src: '/casino%20(2).png', alt: 'casino 2' },
-              { src: '/casino%20(3).png', alt: 'casino 3' },
-              { src: '/casino%20(4).png', alt: 'casino 4' },
-              { src: '/casino%20(5).png', alt: 'casino 5' },
-              { src: '/casino%20(6).png', alt: 'casino 6' },
-            ].map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+            {casinoMobileImages.map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
                 <Image
-                  src={image.src}
+                  src={image.imageUrl}
                   alt={image.alt}
                   fill
                   loading="lazy"
                   sizes="100vw"
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
               </div>
             ))}
@@ -311,22 +370,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.slug === 'prjectName' && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
-            {[
-              { src: '/BM1.png', alt: 'BM1' },
-              { src: '/BM2.png', alt: 'BM2' },
-              { src: '/BM3.png', alt: 'BM3' },
-              { src: '/BM4.png', alt: 'BM4' },
-              { src: '/BM5.png', alt: 'BM5' },
-              { src: '/BM6.png', alt: 'BM6' },
-            ].map((image) => (
-              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3f4f3] shadow-sm">
+            {bmMobileImages.map((image) => (
+              <div key={image.alt} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm">
                 <Image
-                  src={image.src}
+                  src={image.imageUrl}
                   alt={image.alt}
                   fill
                   loading="lazy"
                   sizes="100vw"
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
               </div>
             ))}
