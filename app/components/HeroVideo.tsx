@@ -35,8 +35,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
                 src={poster}
                 alt="Video poster"
                 fill
-                loading="lazy"
-                quality={85}
+                priority
                 className="object-cover opacity-60"
               />
             )}
