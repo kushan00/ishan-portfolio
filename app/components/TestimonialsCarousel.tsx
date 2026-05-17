@@ -63,7 +63,13 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+const Reveal = ({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +83,10 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 // How far the next card peeks from the right (in %)
 const PEEK_WIDTH = "36%";
 
-function getCardState(i: number, index: number): "past" | "active" | "next" | "hidden" {
+function getCardState(
+  i: number,
+  index: number,
+): "past" | "active" | "next" | "hidden" {
   if (i < index) return "past";
   if (i === index) return "active";
   if (i === index + 1) return "next";
@@ -96,19 +105,27 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]" aria-label="Testimonials">
+    <section
+      className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]"
+      aria-label="Testimonials"
+    >
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-16 px-[6%] md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
-
         {/* Left: title + navigation */}
         <div className="relative z-10 flex flex-shrink-0 flex-col justify-center lg:w-72">
           <Reveal>
             <div className="mb-8 inline-flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#002B31]" aria-hidden="true" />
-              <span className="h-[24px] w-[83px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">Testimonials</span>
+              <span
+                className="h-2 w-2 rounded-full bg-[#002B31]"
+                aria-hidden="true"
+              />
+              <span className="h-[24px] w-[83px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">
+                Testimonials
+              </span>
             </div>
 
             <h3 className="text-5xl font-bold leading-tight md:text-6xl text-[#002B31]">
-              What <br /> <span className="font-normal text-[#002B31]">People Say</span>
+              What <br />{" "}
+              <span className="font-normal text-[#002B31]">People Say</span>
             </h3>
 
             <div className="mt-12 flex h-16 gap-[10px] hidden md:flex">
@@ -116,21 +133,29 @@ export default function TestimonialsCarousel() {
                 onClick={prev}
                 disabled={index === 0}
                 className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
-                  index === 0 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-sm"
+                  index === 0
+                    ? "opacity-30 cursor-not-allowed"
+                    : "active:scale-95 shadow-sm"
                 }`}
                 aria-label="Previous testimonial"
               >
-                <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">→</span>
+                <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">
+                  →
+                </span>
               </button>
               <button
                 onClick={next}
                 disabled={index === testimonials.length - 1}
                 className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#002B31] text-white transition-all ${
-                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-lg"
+                  index === testimonials.length - 1
+                    ? "opacity-30 cursor-not-allowed"
+                    : "active:scale-95 shadow-lg"
                 }`}
                 aria-label="Next testimonial"
               >
-                <span className="h-5 w-5 flex items-center justify-center text-lg">→</span>
+                <span className="h-5 w-5 flex items-center justify-center text-lg">
+                  →
+                </span>
               </button>
             </div>
           </Reveal>
@@ -152,10 +177,14 @@ export default function TestimonialsCarousel() {
                     // past: sits right at x:0 under the active card
                     // active: sits at x:0, on top
                     // next: offset to the right, peeking
-                    x: state === "next" ? "calc(100% + 260px - " + PEEK_WIDTH + ")" : "0%",
+                    x:
+                      state === "next"
+                        ? "calc(100% + 260px - " + PEEK_WIDTH + ")"
+                        : "0%",
                     opacity: state === "next" ? 0.5 : 1,
                     scale: state === "next" ? 0.97 : 1,
-                    zIndex: state === "past" ? i : state === "active" ? 100 : 50,
+                    zIndex:
+                      state === "past" ? i : state === "active" ? 100 : 50,
                   }}
                   transition={{ type: "spring", stiffness: 220, damping: 26 }}
                   className="max-w-[640px] absolute inset-0 flex flex-col justify-between rounded-[2.5rem] text-white p-8 md:p-10 border border-white/5"
@@ -165,7 +194,9 @@ export default function TestimonialsCarousel() {
                   }}
                 >
                   <div className="relative">
-                    <span className="text-5xl font-serif text-white/20 select-none">&ldquo;</span>
+                    <span className="text-5xl font-serif text-white/20 select-none">
+                      &ldquo;
+                    </span>
                     <p className="mt-4 text-lg font-normal leading-relaxed text-white/90 md:text-xl">
                       {testimonial.copy}
                     </p>
@@ -179,8 +210,12 @@ export default function TestimonialsCarousel() {
                       {testimonial.initial}
                     </div>
                     <div>
-                      <p className="text-xl font-semibold leading-tight text-white">{testimonial.name}</p>
-                      <p className="text-xs text-white/40 uppercase tracking-widest mt-1.5">{testimonial.role}</p>
+                      <p className="text-xl font-semibold leading-tight text-white">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-xs text-white/40 uppercase tracking-widest mt-1.5">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -190,28 +225,35 @@ export default function TestimonialsCarousel() {
         </div>
 
         <div className="flex h-6 gap-2.5 w-full md:hidden mt-8 justify-center">
-              <button
-                onClick={prev}
-                disabled={index === 0}
-                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
-                  index === 0 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-sm"
-                }`}
-                aria-label="Previous testimonial"
-              >
-                <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">→</span>
-              </button>
-              <button
-                onClick={next}
-                disabled={index === testimonials.length - 1}
-                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#002B31] text-white transition-all ${
-                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-lg"
-                }`}
-                aria-label="Next testimonial"
-              >
-                <span className="h-5 w-5 flex items-center justify-center text-lg">→</span>
-              </button>
-            </div>
-
+          <button
+            onClick={prev}
+            disabled={index === 0}
+            className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
+              index === 0
+                ? "opacity-30 cursor-not-allowed"
+                : "active:scale-95 shadow-sm"
+            }`}
+            aria-label="Previous testimonial"
+          >
+            <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">
+              →
+            </span>
+          </button>
+          <button
+            onClick={next}
+            disabled={index === testimonials.length - 1}
+            className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#002B31] text-white transition-all ${
+              index === testimonials.length - 1
+                ? "opacity-30 cursor-not-allowed"
+                : "active:scale-95 shadow-lg"
+            }`}
+            aria-label="Next testimonial"
+          >
+            <span className="h-5 w-5 flex items-center justify-center text-lg">
+              →
+            </span>
+          </button>
+        </div>
       </div>
     </section>
   );

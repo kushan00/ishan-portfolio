@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-white opacity-100 rotate-0">
+    <header className="sticky top-0 z-50 w-full border-b-1 border-gray-200 bg-white opacity-100 rotate-0 z-999">
       <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-[6%] md:px-[4%] lg:px-0 sm:h-20">
         <Link
           href="/"
