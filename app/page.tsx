@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LazyProjectVideo from "./components/LazyProjectVideo";
@@ -11,7 +11,13 @@ import HeroVideo from "./components/HeroVideo";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import SubMobilePage from "./sub/page";
 
-const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
+const Reveal = ({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -24,10 +30,10 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
-    const [isFullscreen, setIsFullscreen] = useState(() =>
+  const [isFullscreen, setIsFullscreen] = useState(() =>
     typeof window !== "undefined"
       ? window.matchMedia("(display-mode: fullscreen)").matches
-      : false
+      : false,
   );
 
   useEffect(() => {
@@ -36,31 +42,207 @@ export default function Home() {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     console.log("Fullscreen mode:", isFullscreen);
-    console.log(isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]")
-  },[isFullscreen])
-const works = [
-  { title: "Showcase 1", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png" },
-  { title: "Showcase 2", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png" },
-  { title: "Showcase 3", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png" },
-  { title: "Showcase 4", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png" },
-  { title: "Showcase 5", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png" },
-  { title: "Showcase 6", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png" },
-];
+    console.log(
+      isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]",
+    );
+  }, [isFullscreen]);
 
-  const projects: { slug: string; title: string; subtitle: string; description: string; gradient: string; imageUrl?: string; posterUrl?: string; videoSrc?: string }[] = [
-    { slug: "prjectName", title: "PRJECTNAME", subtitle: "Designing a Crypto Wallet for Real Users", description: "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.", gradient: "from-[#000000] via-[#000000] to-[#000000]", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png" },
-    { slug: "casino-xp", title: "CASINO XP", subtitle: "Building a High-Engagement Casino Experience", description: "Designing fast, realtime game flows with clear feedback loops to increase retention.", gradient: "from-red-900 via-fuchsia-700 to-amber-400", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png" },
-    { slug: "token-landing", title: "TOKEN LANDING", subtitle: "Crafting High-Converting Token Landing Pages", description: "Creating visually engaging, performance-driven websites that turn visitors into community members.", gradient: "from-zinc-950 via-zinc-900 to-zinc-700", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png" },
-    { slug: "paw-chain", title: "PAW CHAIN", subtitle: "Designing Data-Heavy Dashboards That Make Sense", description: "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.", gradient: "from-zinc-900 via-slate-800 to-slate-600", imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png" },
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const xPos = useRef(0);
+  const marqueeX = useMotionValue(0);
+  const isDragging = useRef(false);
+  const dragStartClientX = useRef(0);
+  const dragStartXPos = useRef(0);
+  const lastPointerX = useRef(0);
+  const lastPointerTime = useRef(0);
+  const dragVelocity = useRef(0);
+  const momentum = useRef(0);
+
+  useAnimationFrame((_, delta) => {
+    const el = marqueeRef.current;
+    if (!el) return;
+    const halfWidth = el.scrollWidth / 2;
+
+    if (!isDragging.current) {
+      if (Math.abs(momentum.current) > 0.01) {
+        xPos.current += momentum.current * delta;
+        momentum.current *= Math.exp(-0.005 * delta);
+      }
+      if (!isMarqueePaused) {
+        xPos.current -= delta * 0.06;
+      }
+    }
+
+    if (xPos.current <= -halfWidth) xPos.current += halfWidth;
+    if (xPos.current > 0) xPos.current -= halfWidth;
+
+    marqueeX.set(xPos.current);
+  });
+
+  const handleMarqueePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    momentum.current = 0;
+    dragStartClientX.current = e.clientX;
+    dragStartXPos.current = xPos.current;
+    lastPointerX.current = e.clientX;
+    lastPointerTime.current = performance.now();
+    dragVelocity.current = 0;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handleMarqueePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    const now = performance.now();
+    const dt = now - lastPointerTime.current;
+    if (dt > 0) dragVelocity.current = (e.clientX - lastPointerX.current) / dt;
+    lastPointerX.current = e.clientX;
+    lastPointerTime.current = now;
+    xPos.current =
+      dragStartXPos.current + (e.clientX - dragStartClientX.current);
+  };
+
+  const handleMarqueePointerUp = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    momentum.current = dragVelocity.current;
+  };
+
+  const works = [
+    {
+      title: "Showcase 1",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase1.png",
+      imgWidth: 1528,
+      imgHeight: 1860,
+    },
+    {
+      title: "Showcase 2",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase2.png",
+      imgWidth: 1456,
+      imgHeight: 1792,
+    },
+    {
+      title: "Showcase 3",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase3.png",
+      imgWidth: 2312,
+      imgHeight: 1620,
+    },
+    {
+      title: "Showcase 4",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase4.png",
+      imgWidth: 2240,
+      imgHeight: 1552,
+    },
+    {
+      title: "Showcase 5",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase5.png",
+      imgWidth: 1456,
+      imgHeight: 1792,
+    },
+    {
+      title: "Showcase 6",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/showcase6.png",
+      imgWidth: 2312,
+      imgHeight: 1620,
+    },
+  ];
+
+  const projects: {
+    slug: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    gradient: string;
+    imageUrl?: string;
+    posterUrl?: string;
+    videoSrc?: string;
+  }[] = [
+    {
+      slug: "prjectName",
+      title: "PRJECTNAME",
+      subtitle: "Designing a Crypto Wallet for Real Users",
+      description:
+        "Simplifying onboarding, transactions, and portfolio tracking for everyday users entering crypto.",
+      gradient: "from-[#000000] via-[#000000] to-[#000000]",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
+    },
+    {
+      slug: "casino-xp",
+      title: "CASINO XP",
+      subtitle: "Building a High-Engagement Casino Experience",
+      description:
+        "Designing fast, realtime game flows with clear feedback loops to increase retention.",
+      gradient: "from-red-900 via-fuchsia-700 to-amber-400",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
+    },
+    {
+      slug: "token-landing",
+      title: "TOKEN LANDING",
+      subtitle: "Crafting High-Converting Token Landing Pages",
+      description:
+        "Creating visually engaging, performance-driven websites that turn visitors into community members.",
+      gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
+    },
+    {
+      slug: "paw-chain",
+      title: "PAW CHAIN",
+      subtitle: "Designing Data-Heavy Dashboards That Make Sense",
+      description:
+        "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.",
+      gradient: "from-zinc-900 via-slate-800 to-slate-600",
+      imageUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
+      posterUrl:
+        "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
+    },
   ];
 
   const experiences = [
-    { year: "2025 - Present", role: "UX Designer", company: "Botcalm (PVT) LTD" },
-    { year: "2025 - 2026", role: "Creative Consultant", company: "Hatch Works" },
+    {
+      year: "2025 - Present",
+      role: "UX Designer",
+      company: "Botcalm (PVT) LTD",
+    },
+    {
+      year: "2025 - 2026",
+      role: "Creative Consultant",
+      company: "Hatch Works",
+    },
     { year: "2024 - 2026", role: "Crypto Designer", company: "Eth LLC" },
-    { year: "2023 - 2024", role: "Graphic Designer", company: "Ford Australia" },
+    {
+      year: "2023 - 2024",
+      role: "Graphic Designer",
+      company: "Ford Australia",
+    },
     { year: "2022 - 2023", role: "Creative Designer", company: "Mango Media" },
   ];
 
@@ -71,64 +253,74 @@ const works = [
       </div>
 
       <div className="hidden md:block">
-      <Header />
+        <Header />
 
-      {/* Hero Section */}
-      <section 
-        style={{ 
-          minHeight: isFullscreen ? "calc(100vh - 160px)" : "calc(100vh - 80px)" 
-        }}
-        className="flex items-center justify-center overflow-hidden pt-4 pb-12 md:pb-0 md:pt-0 sm:pt-6"
-        aria-label="Hero section"
-      >
-        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-10 px-[6%] md:px-[4%] lg:grid-cols-[1.2fr_0.8fr] lg:px-0">
-          <div>
-            <Reveal>
-              <h1 style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                maxWidth: 565,
-                height: 'auto',
-                opacity: 1,
-                margin: 0,
-                padding: 0,
-              }}>
-                <div style={{
-                  fontFamily: 'Satisfy',
-                  fontWeight: 400,
-                  fontStyle: 'italic',
-                  fontSize: '150px',
-                  lineHeight: '127.2px',
-                  letterSpacing: '-1.4px',
-                  verticalAlign: 'middle',
-                  color: '#002B31',
-                  margin: 0,
-                  padding: 0,
-                }}>
-                  Ishan
-                </div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: 0,
-                  padding: 0,
-                }}>
-                  <strong style={{
-                    fontFamily: 'Inter',
-                    fontWeight: 400,
-                    fontStyle: 'regular',
-                    fontSize: 'clamp(56px, 14vw, 120px)',
-                    lineHeight: '0.9',
-                    letterSpacing: '-1.4px',
-                    verticalAlign: 'middle',
-                    color: '#002B31',
+        {/* Hero Section */}
+        <section
+          style={{
+            minHeight: isFullscreen
+              ? "calc(100vh - 250px)"
+              : "calc(100vh - 80px)",
+          }}
+          className="flex items-center justify-center overflow-hidden pt-4 pb-12 md:pb-0 md:pt-0 sm:pt-6"
+          aria-label="Hero section"
+        >
+          <div className="mx-auto grid w-full max-w-[1200px] items-center gap-10 px-[6%] md:px-[4%] lg:grid-cols-[1.2fr_0.8fr] lg:px-0">
+            <div>
+              <Reveal>
+                <h1
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "100%",
+                    maxWidth: 565,
+                    height: "auto",
+                    opacity: 1,
                     margin: 0,
                     padding: 0,
-                  }}>
-                    Kavinda
-                  </strong>
-                  {/* <span style={{
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: "Satisfy",
+                      fontWeight: 400,
+                      fontStyle: "italic",
+                      fontSize: "150px",
+                      lineHeight: "127.2px",
+                      letterSpacing: "-1.4px",
+                      verticalAlign: "middle",
+                      color: "#002B31",
+                      margin: 0,
+                      padding: 0,
+                    }}
+                  >
+                    Ishan
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      margin: 0,
+                      padding: 0,
+                    }}
+                  >
+                    <strong
+                      style={{
+                        fontFamily: "Inter",
+                        fontWeight: 400,
+                        fontStyle: "regular",
+                        fontSize: "clamp(56px, 14vw, 120px)",
+                        lineHeight: "0.9",
+                        letterSpacing: "-1.4px",
+                        verticalAlign: "middle",
+                        color: "#002B31",
+                        margin: 0,
+                        padding: 0,
+                      }}
+                    >
+                      Kavinda
+                    </strong>
+                    {/* <span style={{
                     fontFamily: 'Satisfy, serif',
                     fontWeight: 400,
                     fontStyle: 'normal',
@@ -142,303 +334,494 @@ const works = [
                   }}>
                     .
                   </span> */}
+                  </div>
+                </h1>
+              </Reveal>
+
+              <Reveal delay={0.2}>
+                <div
+                  style={{
+                    marginTop: "40px",
+                    width: "100%",
+                    maxWidth: 565,
+                    opacity: 1,
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 400,
+                      fontStyle: "normal",
+                      fontSize: "clamp(16px, 4vw, 20px)",
+                      lineHeight: "28px",
+                      letterSpacing: "0%",
+                      verticalAlign: "middle",
+                      color: "#4F5253",
+                    }}
+                    className=""
+                  >
+                    I design digital products that are{" "}
+                    <strong style={{ fontWeight: 700 }}>simple, clear,</strong>
+                  </p>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: "Inter, sans-serif",
+                      fontWeight: 700,
+                      fontStyle: "normal",
+                      fontSize: "20px",
+                      lineHeight: "28px",
+                      letterSpacing: "0%",
+                      verticalAlign: "middle",
+                      color: "#4F5253",
+                    }}
+                  >
+                    &amp;{" "}
+                    <strong style={{ fontWeight: 700 }}>effective.</strong>
+                  </p>
                 </div>
-              </h1>
-            </Reveal>
+              </Reveal>
 
-            <Reveal delay={0.2}>
-              <div style={{
-                marginTop: '40px',
-                width: '100%',
-                maxWidth: 565,
-                opacity: 1,
-              }}>
-                <p style={{
-                  margin: 0,
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 400,
-                  fontStyle: 'normal',
-                  fontSize: 'clamp(16px, 4vw, 20px)',
-                  lineHeight: '28px',
-                  letterSpacing: '0%',
-                  verticalAlign: 'middle',
-                  color: '#4F5253',
-                }} className="">
-                  I design digital products that are <strong style={{ fontWeight: 700 }}>simple, clear,</strong>
+              <Reveal delay={0.3}>
+                <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+                  <Link
+                    href="/projects"
+                    className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]"
+                  >
+                    View My Work
+                  </Link>
+                  <button
+                    type="button"
+                    className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]"
+                  >
+                    Let&apos;s Talk
+                  </button>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.4}>
+                <p className="mt-12 text-base leading-relaxed text-brand-text">
+                  Helping{" "}
+                  <strong className="font-bold text-[#1f383d]">
+                    startups and businesses
+                  </strong>{" "}
+                  turn ideas into <br className="hidden sm:block" />
+                  <strong className="font-bold text-[#1f383d]">
+                    clean, usable experiences.
+                  </strong>
                 </p>
-                <p style={{
-                  margin: 0,
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 700,
-                  fontStyle: 'normal',
-                  fontSize: '20px',
-                  lineHeight: '28px',
-                  letterSpacing: '0%',
-                  verticalAlign: 'middle',
-                  color: '#4F5253',
-                }}>
-                  &amp; <strong style={{ fontWeight: 700 }}>effective.</strong>
-                </p>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
 
-            <Reveal delay={0.3}>
-              <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href="/projects" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl bg-[#0e1113] px-6 py-[14px] text-base font-medium text-white opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
-                  View My Work
-                </Link>
-                <button type="button" className="inline-flex h-[52px] w-full items-center justify-center rounded-2xl border border-brand-primary bg-white px-6 py-[14px] text-base font-medium text-brand-primary opacity-100 rotate-0 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-[158px]">
-                  Let&apos;s Talk
-                </button>
+            <Reveal delay={0.5}>
+              <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
+                <HeroVideo
+                  src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/intro.mp4"
+                  poster="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ishan.png"
+                />{" "}
               </div>
-            </Reveal>
-
-            <Reveal delay={0.4}>
-              <p className="mt-12 text-base leading-relaxed text-brand-text">
-                Helping <strong className="font-bold text-[#1f383d]">startups and businesses</strong> turn ideas into <br className="hidden sm:block" />
-                <strong className="font-bold text-[#1f383d]">clean, usable experiences.</strong>
-              </p>
             </Reveal>
           </div>
+        </section>
 
-          <Reveal delay={0.5}>
-            <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02] sm:max-w-sm lg:max-w-md">
-<HeroVideo 
-  src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/intro.mp4" 
-  poster="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ishan.png" 
-/>            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Showcase Section */}
-      <section className="overflow-hidden bg-white pb-16  md:pb-20 lg:h-[736px]" aria-label="Selected Product Work section">
-        <div className="mx-auto mb-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:mb-12 lg:px-0">
+        {/* Showcase Section */}
+        <section
+          className="overflow-hidden bg-white pb-16  md:pb-20 lg:h-[736px]"
+          aria-label="Selected Product Work section"
+        >
+          <div className="mx-auto mb-8 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:mb-12 lg:px-0">
             <div className="flex flex-col gap-6 pb-8 lg:flex-row lg:items-end lg:justify-between lg:pb-12">
               <div className="max-w-xl">
                 <p className="mb-4 flex items-center gap-2 text-brand-text">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-                  <span className="h-[24px] w-[78px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">Showcase</span>
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-brand-primary"
+                    aria-hidden="true"
+                  />
+                  <span className="h-[24px] w-[78px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">
+                    Showcase
+                  </span>
                 </p>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: '#002B31', width: '364px', height: '124px', verticalAlign: 'middle', opacity: 1 }}>
-                  <span style={{ fontWeight: 600 }}>Selected</span> <br /> <span style={{ fontWeight: 400 }}>Product Work</span>
+                <h2
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "54px",
+                    lineHeight: "62px",
+                    letterSpacing: "0%",
+                    color: "#002B31",
+                    width: "364px",
+                    height: "124px",
+                    verticalAlign: "middle",
+                    opacity: 1,
+                  }}
+                >
+                  <span style={{ fontWeight: 600 }}>Selected</span> <br />{" "}
+                  <span style={{ fontWeight: 400 }}>Product Work</span>
                 </h2>
               </div>
-              <Link href="/projects" className="group hidden h-[52px] items-center gap-2 rounded-[12px] border border-[#E5E7EB] bg-white px-5 py-[14px] text-[16px] font-normal text-[#101010] transition hover:border-[#cfd4d8] hover:bg-[#fafafa] active:scale-[0.99] sm:flex">
+              <Link
+                href="/projects"
+                className="group hidden h-[52px] items-center gap-2 rounded-[12px] border border-[#E5E7EB] bg-white px-5 py-[14px] text-[16px] font-normal text-[#101010] transition hover:border-[#cfd4d8] hover:bg-[#fafafa] active:scale-[0.99] sm:flex"
+              >
                 <span>View Project</span>
-                <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5">
-                  <path d="M3.5 8h9m0 0-4-4m4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                >
+                  <path
+                    d="M3.5 8h9m0 0-4-4m4 4-4 4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </Link>
             </div>
-        </div>
-
-        <Reveal delay={0.2}>
-          <div 
-            className="w-full cursor-grab overflow-hidden whitespace-nowrap bg-white py-10 active:cursor-grabbing"
-            onMouseEnter={() => setIsMarqueePaused(true)}
-            onMouseLeave={() => setIsMarqueePaused(false)}
-          >
-            <motion.div
-              className="flex w-max items-center gap-8 bg-white px-4"
-              animate={isMarqueePaused ? {} : { x: "-50%" }}
-              transition={{
-                duration: 60,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              drag="x"
-              dragConstraints={{ left: -5000, right: 0 }}
-              dragElastic={0.1}
-              whileTap={{ cursor: "grabbing" }}
-            >
-              {[...works, ...works, ...works, ...works].map((work, index) => (
-                <div 
-                  key={`${work.title}-${index}`} 
-                  className="relative h-[300px] w-[540px] flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-white"
-                >
-                  <Image
-                    src={work.imageUrl}
-                    alt={work.title}
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                    quality={85}
-                  />
-                </div>
-              ))}
-            </motion.div>
           </div>
-        </Reveal>
-      </section>
 
-      {/* Process Section */}
-      <section className="py-16 bg-brand-primary text-white md:py-20 lg:py-[100px]" aria-label="Process section">
-        <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-between gap-10 px-[6%] md:px-[4%] lg:min-h-[568px] lg:px-0">
-          <Reveal>
-            <div className="max-w-2xl">
-              <p className="mb-6 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#d2dee1]" aria-hidden="true" />
-                <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-base font-normal leading-6 tracking-[0] text-[#d2dee1] capitalize opacity-100 rotate-0">My process</span>
-              </p>
-              <h2 className="h-[96px] w-[514px] align-middle font-[var(--font-inter)] text-[24px] font-medium leading-[32px] tracking-[0] text-[#e6eef0] opacity-100 rotate-0">
-                No unnecessary steps.<br />
-                A Simple processes for complex products.<br />
-                Focused on clarity, usability, and real impact.
-              </h2>
+          <Reveal delay={0.2}>
+            <div
+              className="w-full cursor-grab overflow-hidden whitespace-nowrap bg-white py-10 active:cursor-grabbing select-none"
+              onMouseEnter={() => setIsMarqueePaused(true)}
+              onMouseLeave={() => setIsMarqueePaused(false)}
+              onPointerDown={handleMarqueePointerDown}
+              onPointerMove={handleMarqueePointerMove}
+              onPointerUp={handleMarqueePointerUp}
+              onPointerLeave={handleMarqueePointerUp}
+            >
+              <motion.div
+                ref={marqueeRef}
+                className="flex w-max items-center gap-5"
+                style={{ x: marqueeX }}
+              >
+                {[...works, ...works, ...works, ...works].map((work, index) => {
+                  const displayHeight = 400;
+                  const displayWidth = Math.round(
+                    displayHeight * (work.imgWidth / work.imgHeight),
+                  );
+                  return (
+                    <div
+                      key={`${work.title}-${index}`}
+                      className="relative shrink-0 overflow-hidden rounded-[2.5rem]"
+                      style={{ width: displayWidth, height: displayHeight }}
+                    >
+                      <Image
+                        src={work.imageUrl}
+                        alt={work.title}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                        quality={85}
+                      />
+                    </div>
+                  );
+                })}
+              </motion.div>
             </div>
           </Reveal>
+        </section>
 
-          <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
-            {[
-              { icon: "⌂", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png", title: "Understand the Problem", copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.", delay: 0 },
-              { icon: "✣", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png", title: "Simplify the Experience", copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.", delay: 0.1 },
-              { icon: "◌", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png", title: "Design the Interface", copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.", delay: 0.2 },
-              { icon: "◎", iconUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png", title: "Test & Improve", copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.", delay: 0.3 },
-            ].map((step) => (
-              <Reveal key={step.title} delay={step.delay}>
-                <article className="flex h-full flex-col p-2 sm:p-4">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
-                    {step.iconUrl ? (
-                      <Image src={step.iconUrl} alt="Process icon" width={28} height={28} className="h-7 w-7 object-contain" loading="lazy" quality={85} />
-                    ) : (
-                      step.icon
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <h4 className="font-[var(--font-inter)] text-base font-medium leading-6 tracking-[0] text-[#002B31] sm:text-lg">{step.title}</h4>
-                    <p className="whitespace-pre-line font-[var(--font-inter)] font-normal tracking-[0] text-[#002B31]" style={{ fontSize: '12px', lineHeight: '20px', width: '287px', height: '60px', verticalAlign: 'middle', opacity: 1 }}>{step.copy}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Project Breakdown (Sticky Header effect simulation) */}
-      <section className="py-16 md:py-20 lg:h-[1737px]" aria-label="Project Breakdown section">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
-          <div className="lg:sticky lg:top-32 lg:h-fit">
+        {/* Process Section */}
+        <section
+          className="py-16 bg-brand-primary text-white md:py-20 lg:py-[100px]"
+          aria-label="Process section"
+        >
+          <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-between gap-10 px-[6%] md:px-[4%] lg:min-h-[568px] lg:px-0">
             <Reveal>
-              <p className="mb-4 flex items-center gap-2 text-brand-text">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-                <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">Case Studies</span>
-              </p>
-              <h3 className="text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-[0.95] text-brand-primary">
-                Project <br /> <span className="font-normal opacity-70">Breakdown</span>
-              </h3>
+              <div className="max-w-2xl">
+                <p className="mb-6 flex items-center gap-2">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-[#d2dee1]"
+                    aria-hidden="true"
+                  />
+                  <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-base font-normal leading-6 tracking-[0] text-[#d2dee1] capitalize opacity-100 rotate-0">
+                    My process
+                  </span>
+                </p>
+                <h2 className="h-[96px] w-[514px] align-middle font-[var(--font-inter)] text-[24px] font-medium leading-[32px] tracking-[0] text-[#e6eef0] opacity-100 rotate-0">
+                  No unnecessary steps.
+                  <br />
+                  A Simple processes for complex products.
+                  <br />
+                  Focused on clarity, usability, and real impact.
+                </h2>
+              </div>
             </Reveal>
-          </div>
 
-          <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
-            {projects.map((project, index) => (
-              <div key={project.title} className={index % 2 === 1 ? "md:mt-24" : ""}>
-                <Reveal delay={0.1 * index}>
-                  <Link href={`/projects/${project.slug ?? project.title}`} className="group block">
-                    <article className="group">
-                    <div className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}>
-                      {project.imageUrl ? (
+            <div className="grid grid-cols-1 gap-4 rounded-[16px] bg-[#FFFFFF] p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:p-8">
+              {[
+                {
+                  icon: "⌂",
+                  iconUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
+                  posterUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item.png",
+                  title: "Understand the Problem",
+                  copy: "I start by understanding the user, the\nproduct, and the real problem we're solving.\nClear direction makes everything easier.",
+                  delay: 0,
+                },
+                {
+                  icon: "✣",
+                  iconUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
+                  posterUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item2.png",
+                  title: "Simplify the Experience",
+                  copy: "I break down complex ideas into simple and\nclear flows, making the product easy to use\nand understand.",
+                  delay: 0.1,
+                },
+                {
+                  icon: "◌",
+                  iconUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
+                  posterUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item3.png",
+                  title: "Design the Interface",
+                  copy: "I design clean, modern interfaces that focus\non usability, clarity, and consistency across\nthe product.",
+                  delay: 0.2,
+                },
+                {
+                  icon: "◎",
+                  iconUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
+                  posterUrl:
+                    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Item4.png",
+                  title: "Test & Improve",
+                  copy: "I refine the design based on feedback,\nensuring the final product works well for both\nusers and business goals.",
+                  delay: 0.3,
+                },
+              ].map((step) => (
+                <Reveal key={step.title} delay={step.delay}>
+                  <article className="flex h-full flex-col p-2 sm:p-4">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F8F9F7] text-xl text-[#002B31] backdrop-blur-sm sm:mb-6 sm:h-14 sm:w-14 sm:text-2xl">
+                      {step.iconUrl ? (
                         <Image
-                          src={project.imageUrl}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
+                          src={step.iconUrl}
+                          alt="Process icon"
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 object-contain"
                           loading="lazy"
                           quality={85}
                         />
-                      ) : project.videoSrc ? (
-                        <LazyProjectVideo src={project.videoSrc} className="absolute inset-0 h-full w-full object-cover" />
-                      ) : null}
-                      {index !== 0 && <div className="absolute inset-0 bg-black/20" />}
-                      {index !== 0 && index !== 1 && index !== 2 && index !== 3 && (
-                        <div className="absolute bottom-8 left-8">
-                          <p className="text-2xl font-bold tracking-tight text-white">{project.title}</p>
-                        </div>
+                      ) : (
+                        step.icon
                       )}
                     </div>
-                    <div className="mt-8">
-                      <h4
-                        className={
-                          "max-w-full font-[var(--font-inter)] text-[clamp(1.25rem,4vw,1.5rem)] font-normal leading-[1.33] tracking-[0] text-[#002B31]"
-                        }
-                      >
-                        {project.subtitle}
+                    <div className="flex flex-col gap-3">
+                      <h4 className="font-[var(--font-inter)] text-base font-medium leading-6 tracking-[0] text-[#002B31] sm:text-lg">
+                        {step.title}
                       </h4>
                       <p
-                        className={
-                          "mt-3 max-w-full font-[var(--font-inter)] text-sm font-normal leading-[22px] tracking-[0] text-[#002B31]"
-                        }
+                        className="whitespace-pre-line font-[var(--font-inter)] font-normal tracking-[0] text-[#002B31]"
+                        style={{
+                          fontSize: "12px",
+                          lineHeight: "20px",
+                          width: "287px",
+                          height: "60px",
+                          verticalAlign: "middle",
+                          opacity: 1,
+                        }}
                       >
-                        {project.description}
+                        {step.copy}
                       </p>
                     </div>
-                    </article>
-                  </Link>
+                  </article>
                 </Reveal>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Experience Section */}
-      <section className="bg-brand-primary py-10 text-white md:py-12 lg:py-14" aria-label="Where I have worked">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
-          <div className="lg:sticky lg:top-32 lg:h-fit">
+        {/* Project Breakdown (Sticky Header effect simulation) */}
+        <section
+          className="py-16 md:py-20 lg:h-[1737px]"
+          aria-label="Project Breakdown section"
+        >
+          <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
+            <div className="lg:sticky lg:top-32 lg:h-fit">
+              <Reveal>
+                <p className="mb-4 flex items-center gap-2 text-brand-text">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-brand-primary"
+                    aria-hidden="true"
+                  />
+                  <span className="h-[24px] w-[88px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-[#000000]">
+                    Case Studies
+                  </span>
+                </p>
+                <h3 className="text-[clamp(2.5rem,8vw,4.5rem)] font-bold leading-[0.95] text-brand-primary">
+                  Project <br />{" "}
+                  <span className="font-normal opacity-70">Breakdown</span>
+                </h3>
+              </Reveal>
+            </div>
+
+            <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
+              {projects.map((project, index) => (
+                <div
+                  key={project.title}
+                  className={index % 2 === 1 ? "md:mt-24" : ""}
+                >
+                  <Reveal delay={0.1 * index}>
+                    <Link
+                      href={`/projects/${project.slug ?? project.title}`}
+                      className="group block"
+                    >
+                      <article className="group">
+                        <div
+                          className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}
+                        >
+                          {project.imageUrl ? (
+                            <Image
+                              src={project.imageUrl}
+                              alt={project.title}
+                              fill
+                              className="object-cover"
+                              loading="lazy"
+                              quality={85}
+                            />
+                          ) : project.videoSrc ? (
+                            <LazyProjectVideo
+                              src={project.videoSrc}
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                          ) : null}
+                          {index !== 0 && (
+                            <div className="absolute inset-0 bg-black/20" />
+                          )}
+                          {index !== 0 &&
+                            index !== 1 &&
+                            index !== 2 &&
+                            index !== 3 && (
+                              <div className="absolute bottom-8 left-8">
+                                <p className="text-2xl font-bold tracking-tight text-white">
+                                  {project.title}
+                                </p>
+                              </div>
+                            )}
+                        </div>
+                        <div className="mt-8">
+                          <h4
+                            className={
+                              "max-w-full font-[var(--font-inter)] text-[clamp(1.25rem,4vw,1.5rem)] font-normal leading-[1.33] tracking-[0] text-[#002B31]"
+                            }
+                          >
+                            {project.subtitle}
+                          </h4>
+                          <p
+                            className={
+                              "mt-3 max-w-full font-[var(--font-inter)] text-sm font-normal leading-[22px] tracking-[0] text-[#002B31]"
+                            }
+                          >
+                            {project.description}
+                          </p>
+                        </div>
+                      </article>
+                    </Link>
+                  </Reveal>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section
+          className="bg-brand-primary py-10 text-white md:py-12 lg:py-14"
+          aria-label="Where I have worked"
+        >
+          <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-[6%] md:px-[4%] lg:grid-cols-[280px_1fr] lg:gap-20 lg:px-0">
+            <div className="lg:sticky lg:top-32 lg:h-fit">
+              <Reveal>
+                <p className="mb-4 flex items-center gap-2">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]"
+                    aria-hidden="true"
+                  />
+                  <span className="h-[24px] w-[84px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-[#dbe8eb]">
+                    Experience
+                  </span>
+                </p>
+                <h3
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "54px",
+                    lineHeight: "62px",
+                    letterSpacing: "0%",
+                    color: "white",
+                    width: "364px",
+                    height: "124px",
+                    verticalAlign: "middle",
+                    opacity: 1,
+                  }}
+                >
+                  <span style={{ fontWeight: 600 }}>Where</span> <br />{" "}
+                  <span style={{ fontWeight: 400 }}>I&apos;ve Worked</span>
+                </h3>
+              </Reveal>
+            </div>
+
+            <div className="divide-y divide-white/10">
+              {experiences.map((experience, index) => (
+                <Reveal key={experience.company} delay={0.1 * index}>
+                  <article className="flex flex-col justify-between gap-2 py-6 transition-colors sm:flex-row sm:items-center sm:py-10">
+                    <div>
+                      <p className="text-xl font-medium text-white sm:text-2xl">
+                        {experience.company}
+                      </p>
+                      <p className="mt-1 text-xs uppercase tracking-wider text-[#7f9ca2] sm:text-sm">
+                        {experience.year}
+                      </p>
+                    </div>
+                    <p className="mt-2 text-lg font-medium text-[#dce9eb] sm:mt-0 sm:text-xl">
+                      {experience.role}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <TestimonialsCarousel />
+
+        {/* Contact CTA */}
+        <section
+          className="flex w-full items-center bg-[#F8F9F7] py-12 sm:py-16"
+          aria-label="Contact call to action"
+        >
+          <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-[6%] text-center md:px-[4%] lg:px-0">
             <Reveal>
-              <p className="mb-4 flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#dbe8eb]" aria-hidden="true" />
-                <span className="h-[24px] w-[84px] align-middle font-[var(--font-inter)] text-[16px] font-normal leading-[24px] tracking-[0] text-[#dbe8eb]">Experience</span>
+              <p className="mb-4 flex items-center justify-center gap-2">
+                <span
+                  className="h-1.5 w-1.5 rounded-full bg-brand-primary"
+                  aria-hidden="true"
+                />
+                <span className="font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">
+                  Ready When You Are
+                </span>
               </p>
-              <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '54px', lineHeight: '62px', letterSpacing: '0%', color: 'white', width: '364px', height: '124px', verticalAlign: 'middle', opacity: 1 }}>
-                <span style={{ fontWeight: 600 }}>Where</span> <br /> <span style={{ fontWeight: 400 }}>I&apos;ve Worked</span>
+              <h3
+                className="mx-auto max-w-[18ch] text-[clamp(14px,5vw,42px)] font-medium leading-tight tracking-[0] text-[#011214] md:max-w-none md:w-[1350px] md:text-[42px] md:leading-[42px]"
+                style={{ fontFamily: "Inter, sans-serif", opacity: 1 }}
+              >
+                Let&apos;s build something simple and effective together.
               </h3>
+              <a
+                href="mailto:ishan.kavinda@example.com"
+                className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95 sm:h-[52px] sm:w-[134px]"
+              >
+                Book a Call
+              </a>
             </Reveal>
           </div>
+        </section>
 
-          <div className="divide-y divide-white/10">
-            {experiences.map((experience, index) => (
-              <Reveal key={experience.company} delay={0.1 * index}>
-                <article className="flex flex-col justify-between gap-2 py-6 transition-colors sm:flex-row sm:items-center sm:py-10">
-                  <div>
-                    <p className="text-xl font-medium text-white sm:text-2xl">{experience.company}</p>
-                    <p className="mt-1 text-xs uppercase tracking-wider text-[#7f9ca2] sm:text-sm">{experience.year}</p>
-                  </div>
-                  <p className="mt-2 text-lg font-medium text-[#dce9eb] sm:mt-0 sm:text-xl">{experience.role}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <TestimonialsCarousel />
-
-      {/* Contact CTA */}
-      <section className="flex w-full items-center bg-[#F8F9F7] py-12 sm:py-16" aria-label="Contact call to action">
-        <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-[6%] text-center md:px-[4%] lg:px-0">
-          <Reveal>
-            <p className="mb-4 flex items-center justify-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
-              <span className="font-[var(--font-inter)] text-[14px] font-normal leading-[24px] tracking-[0] text-brand-text-muted">
-                Ready When You Are
-              </span>
-            </p>
-            <h3 className="mx-auto max-w-[18ch] text-[clamp(24px,7vw,54px)] font-medium leading-tight tracking-[0] text-[#011214] md:max-w-none md:w-[1350px] md:text-[54px] md:leading-[62px]" style={{ fontFamily: 'Inter, sans-serif', opacity: 1 }}>
-              Let&apos;s build something simple and effective together.
-            </h3>
-            <a
-              href="mailto:ishan.kavinda@example.com"
-              className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-[16px] bg-[#000000] px-[24px] py-[14px] text-sm font-medium text-white shadow-xl transition-transform hover:scale-105 active:scale-95 sm:h-[52px] sm:w-[134px]"
-            >
-              Book a Call
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      <Footer />
+        <Footer />
       </div>
     </main>
   );

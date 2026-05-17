@@ -79,173 +79,215 @@ function MobileMediaCard({ item }: { item: MobileMediaItem }) {
 
 const projects: Project[] = [
   {
-    slug: 'prjectName',
-    title: 'Whale Change',
-    selectedTitle: 'WHALE CHANGE',
-    subtitle: 'Designing a Crypto Wallet for Real Users',
+    slug: "prjectName",
+    title: "Whale Change",
+    selectedTitle: "WHALE CHANGE",
+    subtitle: "Designing a Crypto Wallet for Real Users",
     description:
-      'Simplifying wallet onboarding and portfolio tracking for everyday crypto users.',
+      "Simplifying wallet onboarding and portfolio tracking for everyday crypto users.",
     fullDescription:
-      'Whale Change is a crypto wallet case study focused on simplifying onboarding, clarifying transactions, and making portfolio tracking accessible for new users. The work includes a pared-back onboarding flow, clear hierarchy for balances and transactions, and a cohesive visual system that communicates trust and clarity.',
-    gradient: 'from-zinc-200 via-zinc-100 to-zinc-300',
-    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png',
+      "Whale Change is a crypto wallet case study focused on simplifying onboarding, clarifying transactions, and making portfolio tracking accessible for new users. The work includes a pared-back onboarding flow, clear hierarchy for balances and transactions, and a cohesive visual system that communicates trust and clarity.",
+    gradient: "from-zinc-200 via-zinc-100 to-zinc-300",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png",
   },
   {
-    slug: 'casino-xp',
-    title: 'CASINO XP',
-    selectedTitle: 'Casino XP',
-    subtitle: 'Building a High-Engagement Casino Experience',
+    slug: "casino-xp",
+    title: "CASINO XP",
+    selectedTitle: "Casino XP",
+    subtitle: "Building a High-Engagement Casino Experience",
     description:
-      'Designing fast, realtime game flows with clear feedback loops to increase retention.',
+      "Designing fast, realtime game flows with clear feedback loops to increase retention.",
     fullDescription:
-      'CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.',
-    gradient: 'from-red-900 via-fuchsia-700 to-amber-400',
-    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png',
+      "CASINO XP transforms online gaming with a modern, engaging interface. We redesigned the entire user flow to reduce friction, increase engagement, and provide real-time feedback that keeps players informed and entertained.",
+    gradient: "from-red-900 via-fuchsia-700 to-amber-400",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png",
   },
   {
-    slug: 'token-landing',
-    title: 'TOKEN LANDING',
-    selectedTitle: 'Token Landing',
-    subtitle: 'Crafting High-Converting Token Landing Pages',
+    slug: "token-landing",
+    title: "TOKEN LANDING",
+    selectedTitle: "Token Landing",
+    subtitle: "Crafting High-Converting Token Landing Pages",
     description:
-      'Creating visually engaging, performance-driven websites that turn visitors into community members.',
+      "Creating visually engaging, performance-driven websites that turn visitors into community members.",
     fullDescription:
-      'TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.',
-    gradient: 'from-zinc-950 via-zinc-900 to-zinc-700',
-    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png',
+      "TOKEN LANDING showcases modern web design for blockchain projects. We created visually stunning landing pages that convert visitors into community members while maintaining fast performance and accessibility standards.",
+    gradient: "from-zinc-950 via-zinc-900 to-zinc-700",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/ps1.png",
   },
   {
-    slug: 'paw-chain',
-    title: 'PAW CHAIN',
-    selectedTitle: 'PAW CHAIN',
-    subtitle: 'Designing Data-Heavy Dashboards That Make Sense',
+    slug: "paw-chain",
+    title: "PAW CHAIN",
+    selectedTitle: "PAW CHAIN",
+    subtitle: "Designing Data-Heavy Dashboards That Make Sense",
     description:
-      'Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.',
+      "Turning complex data into clear, actionable insights with structured layouts and smart hierarchy.",
     fullDescription:
-      'PAW CHAIN brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.',
-    gradient: 'from-zinc-900 via-slate-800 to-slate-600',
-    imageUrl: 'https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png',
+      "PAW CHAIN brings clarity to complex analytics. We designed comprehensive dashboards that help teams understand their data at a glance, with carefully structured information hierarchies and smart visualizations.",
+    gradient: "from-zinc-900 via-slate-800 to-slate-600",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png",
   },
   {
-    slug: 'analytics-hub',
-    title: 'ANALYTICS HUB',
-    selectedTitle: 'Analytics Hub',
-    subtitle: 'Command Center for Real-Time Data',
+    slug: "analytics-hub",
+    title: "ANALYTICS HUB",
+    selectedTitle: "Analytics Hub",
+    subtitle: "Command Center for Real-Time Data",
     description:
-      'Building intuitive analytics dashboards that empower teams to make data-driven decisions quickly.',
+      "Building intuitive analytics dashboards that empower teams to make data-driven decisions quickly.",
     fullDescription:
-      'ANALYTICS HUB provides teams with real-time insights into their business metrics. The interface prioritizes speed and clarity, enabling users to make informed decisions faster.',
-    gradient: 'from-purple-900 via-purple-700 to-blue-700',
-    imageUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&h=675&fit=crop',
+      "ANALYTICS HUB provides teams with real-time insights into their business metrics. The interface prioritizes speed and clarity, enabling users to make informed decisions faster.",
+    gradient: "from-purple-900 via-purple-700 to-blue-700",
+    imageUrl:
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&h=675&fit=crop",
   },
   {
-    slug: 'mobile-banking',
-    title: 'MOBILE BANKING',
-    selectedTitle: 'Mobile Banking',
-    subtitle: 'Seamless Financial Experience on Mobile',
+    slug: "mobile-banking",
+    title: "MOBILE BANKING",
+    selectedTitle: "Mobile Banking",
+    subtitle: "Seamless Financial Experience on Mobile",
     description:
-      'Designing secure, user-friendly banking flows that make financial management accessible to everyone.',
+      "Designing secure, user-friendly banking flows that make financial management accessible to everyone.",
     fullDescription:
-      'MOBILE BANKING redesigns financial management for the modern user. We created secure, intuitive flows that handle complex banking operations with simplicity and confidence.',
-    gradient: 'from-emerald-900 via-emerald-700 to-teal-700',
-    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13cf712?w=1200&h=675&fit=crop',
+      "MOBILE BANKING redesigns financial management for the modern user. We created secure, intuitive flows that handle complex banking operations with simplicity and confidence.",
+    gradient: "from-emerald-900 via-emerald-700 to-teal-700",
+    imageUrl:
+      "https://images.unsplash.com/photo-1563986768609-322da13cf712?w=1200&h=675&fit=crop",
   },
 ];
 
 const pawMobileImages: MobileMediaItem[] = [
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(1).png",
     alt: "paw 1",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(2).png",
     alt: "paw 2",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(3).png",
     alt: "paw 3",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(4).png",
     alt: "paw 4",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(5).png",
     alt: "paw 5",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/paw%20(6).png",
     alt: "paw 6",
   },
 ];
 const casinoMobileImages: MobileMediaItem[] = [
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(1).png",
     alt: "casino 1",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(2).png",
     alt: "casino 2",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(3).png",
     alt: "casino 3",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(4).png",
     alt: "casino 4",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(5).png",
     alt: "casino 5",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/casino%20(6).png",
     alt: "casino 6",
   },
 ];
 
 const bmMobileImages: MobileMediaItem[] = [
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM1.png",
     alt: "BM1",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM2.png",
     alt: "BM2",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM3.png",
     alt: "BM3",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM4.png",
     alt: "BM4",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM5.png",
     alt: "BM5",
   },
   {
-    imageUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
-    posterUrl: "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BM6.png",
     alt: "BM6",
   },
 ];
@@ -272,7 +314,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <Link
           href="/"
           className="inline-flex h-[24px] items-center capitalize transition hover:opacity-70"
-          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', letterSpacing: '0', width: '75px', height: '24px', gap: '10px', opacity: 1, color: '#000000' }}
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "0",
+            width: "75px",
+            height: "24px",
+            gap: "10px",
+            opacity: 1,
+            color: "#000000",
+          }}
         >
           <svg
             aria-hidden="true"
@@ -303,76 +356,217 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           className="w-full max-w-[708px] text-[clamp(2.5rem,8vw,4rem)] leading-[1.125] tracking-[-1.4px] text-[#002B31] opacity-100 rotate-0"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
-          {project.slug === 'prjectName' ? (
+          {project.slug === "prjectName" ? (
             <>
-              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>WHALE</span>
-              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>CHANGE</strong>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                WHALE
+              </span>
+              <strong
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                CHANGE
+              </strong>
             </>
-          ) : project.slug === 'casino-xp' ? (
+          ) : project.slug === "casino-xp" ? (
             <>
-              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>CASINO</span>
-              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>XP</strong>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                CASINO
+              </span>
+              <strong
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                XP
+              </strong>
             </>
-          ) : project.slug === 'token-landing' ? (
+          ) : project.slug === "token-landing" ? (
             <>
               <span className="font-normal text-[#123f47]">Token </span>
               <strong className="font-bold text-[#0a2f38]">Landing</strong>
             </>
-          ) : project.slug === 'paw-chain' ? (
+          ) : project.slug === "paw-chain" ? (
             <>
-              <span style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>PAW</span>
-              <strong style={{ display: 'block', fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'normal', fontSize: 'clamp(2.5rem,8vw,4rem)', lineHeight: '1.125', letterSpacing: '-1.4px', color: '#002B31' }}>CHAIN</strong>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                PAW
+              </span>
+              <strong
+                style={{
+                  display: "block",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  fontSize: "clamp(2.5rem,8vw,4rem)",
+                  lineHeight: "1.125",
+                  letterSpacing: "-1.4px",
+                  color: "#002B31",
+                }}
+              >
+                CHAIN
+              </strong>
             </>
           ) : (
-            <strong className="font-bold text-[#0a2f38]">{project.selectedTitle}</strong>
+            <strong className="font-bold text-[#0a2f38]">
+              {project.selectedTitle}
+            </strong>
           )}
         </h1>
       </div>
 
       {/* Subtitle/description for specific projects */}
-      {project.slug === 'paw-chain' && (
+      {project.slug === "paw-chain" && (
         <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', color: '#002B31', margin: 0 }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "clamp(16px, 4.5vw, 24px)",
+              lineHeight: "1.33",
+              color: "#002B31",
+              margin: 0,
+            }}
+          >
             Designing a Crypto Wallet for Real Users
           </p>
           <p
-              style={{
-              fontFamily: 'Inter, sans-serif',
+            style={{
+              fontFamily: "Inter, sans-serif",
               fontWeight: 400,
-              fontStyle: 'normal',
-              fontSize: '12px',
-              lineHeight: '20px',
-              letterSpacing: '0%',
-              color: '#002B31',
-              margin: '8px 0 0',
-              whiteSpace: 'nowrap',
-              verticalAlign: 'middle',
+              fontStyle: "normal",
+              fontSize: "12px",
+              lineHeight: "20px",
+              letterSpacing: "0%",
+              color: "#002B31",
+              margin: "8px 0 0",
+              whiteSpace: "nowrap",
+              verticalAlign: "middle",
               opacity: 1,
             }}
           >
-            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+            Simplifying onboarding, transactions, and portfolio tracking for
+            everyday users.
           </p>
         </div>
       )}
 
-      {project.slug === 'casino-xp' && (
+      {project.slug === "casino-xp" && (
         <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
-          <p className="max-w-full break-words" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0 }}>
+          <p
+            className="max-w-full break-words"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "clamp(16px, 4.5vw, 24px)",
+              lineHeight: "1.33",
+              letterSpacing: "0%",
+              color: "#002B31",
+              margin: 0,
+            }}
+          >
             Designing a Crypto Wallet for Real Users
           </p>
-          <p className="mt-2 max-w-full text-sm leading-5 text-[#002B31] sm:whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', letterSpacing: '0%', verticalAlign: 'middle', opacity: 1 }}>
-            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+          <p
+            className="mt-2 max-w-full text-sm leading-5 text-[#002B31] sm:whitespace-nowrap"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              letterSpacing: "0%",
+              verticalAlign: "middle",
+              opacity: 1,
+            }}
+          >
+            Simplifying onboarding, transactions, and portfolio tracking for
+            everyday users.
           </p>
         </div>
       )}
 
-      {project.slug === 'prjectName' && (
+      {project.slug === "prjectName" && (
         <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: 'clamp(16px, 4.5vw, 24px)', lineHeight: '1.33', letterSpacing: '0%', color: '#002B31', margin: 0, maxWidth: '1280px' }}>
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "clamp(16px, 4.5vw, 24px)",
+              lineHeight: "1.33",
+              letterSpacing: "0%",
+              color: "#002B31",
+              margin: 0,
+              maxWidth: "1280px",
+            }}
+          >
             Designing a Crypto Wallet for Real Users
           </p>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontStyle: 'normal', fontSize: '12px', lineHeight: '20px', letterSpacing: '0%', color: '#002B31', margin: '8px 0 0', whiteSpace: 'nowrap', verticalAlign: 'middle', opacity: 1 }}>
-            Simplifying onboarding, transactions, and portfolio tracking for everyday users.
+          <p
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "12px",
+              lineHeight: "20px",
+              letterSpacing: "0%",
+              color: "#002B31",
+              margin: "8px 0 0",
+              whiteSpace: "nowrap",
+              verticalAlign: "middle",
+              opacity: 1,
+            }}
+          >
+            Simplifying onboarding, transactions, and portfolio tracking for
+            everyday users.
           </p>
         </div>
       )}
@@ -381,7 +575,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <MobileMediaCard
             item={{
-              imageUrl: project.video ? getPublicAssetUrl(project.video) : getPublicAssetUrl(project.imageUrl),
+              imageUrl: project.video
+                ? getPublicAssetUrl(project.video)
+                : getPublicAssetUrl(project.imageUrl),
               posterUrl: getPublicAssetUrl(project.imageUrl),
               alt: project.selectedTitle,
               kind: project.video ? "video" : "image",
@@ -390,7 +586,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {project.slug === 'paw-chain' && (
+      {project.slug === "paw-chain" && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {pawMobileImages.map((image) => (
@@ -400,7 +596,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {project.slug === 'casino-xp' && (
+      {project.slug === "casino-xp" && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {casinoMobileImages.map((image) => (
@@ -410,7 +606,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {project.slug === 'prjectName' && (
+      {project.slug === "prjectName" && (
         <div className="mx-auto mt-6 mb-[-48px] w-full max-w-[1200px] px-[6%] sm:hidden sm:mb-0 md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {bmMobileImages.map((image) => (
@@ -423,61 +619,159 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {/* subtitle/description removed as requested */}
 
       {/* Gallery: project-specific */}
-      <div className={project.slug === 'casino-xp' ? "mx-auto mb-0 mt-6 w-full max-w-[1200px] px-[6%] sm:mb-16 sm:mt-8 md:px-[4%] lg:px-0" : "mx-auto mb-16 mt-6 w-full max-w-[1200px] px-[6%] sm:mt-8 md:px-[4%] lg:px-0"}>
-        {project.slug === 'casino-xp' ? (
+      <div
+        className={
+          project.slug === "casino-xp"
+            ? "mx-auto mb-0 mt-6 w-full max-w-[1200px] px-[6%] sm:mb-16 sm:mt-8 md:px-[4%] lg:px-0"
+            : "mx-auto mb-16 mt-6 w-full max-w-[1200px] px-[6%] sm:mt-8 md:px-[4%] lg:px-0"
+        }
+      >
+        {project.slug === "casino-xp" ? (
           <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
-                          <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png" alt="cp1" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp1.png"
+                alt="cp1"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-                          <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp2.png" alt="cp2" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp2.png"
+                alt="cp2"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp3.png" alt="cp3" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp3.png"
+                alt="cp3"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp4.png" alt="cp4" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/cp4.png"
+                alt="cp4"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
           </div>
-        ) : project.slug === 'prjectName' ? (
+        ) : project.slug === "prjectName" ? (
           <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png" alt="pf1" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pf1.png"
+                alt="pf1"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp5.png" alt="fp5" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp5.png"
+                alt="fp5"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp6.png" alt="fp6" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp6.png"
+                alt="fp6"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp4.png" alt="fp4" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,520px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/fp4.png"
+                alt="fp4"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
           </div>
-          
-        ) : project.slug === 'paw-chain' ? (
+        ) : project.slug === "paw-chain" ? (
           <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
-          
-              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png" alt="pp1" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp1.png"
+                alt="pp1"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp2.png" alt="pp2" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp2.png"
+                alt="pp2"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp3.png" alt="pp3" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp3.png"
+                alt="pp3"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
-              <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
-              <Image src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp4.png" alt="pp4" fill className="object-cover" loading="lazy" quality={85} />
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp4.png"
+                alt="pp4"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
             </div>
           </div>
         ) : (
-            <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
-            <Image src={project.imageUrl.startsWith("http") ? project.imageUrl : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.imageUrl}`} alt={project.selectedTitle} fill className="object-cover" loading="lazy" quality={85} />
+          <div className="relative h-[clamp(240px,78vw,520px)] overflow-hidden rounded-xl bg-[#f3f4f3]">
+            <Image
+              src={
+                project.imageUrl.startsWith("http")
+                  ? project.imageUrl
+                  : `https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public${project.imageUrl}`
+              }
+              alt={project.selectedTitle}
+              fill
+              className="object-fill"
+              loading="lazy"
+              quality={85}
+            />
           </div>
         )}
       </div>
-
 
       {/* Site footer */}
       <Footer />

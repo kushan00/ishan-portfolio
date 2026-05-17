@@ -111,7 +111,7 @@ export default function TestimonialsCarousel() {
               What <br /> <span className="font-normal text-[#002B31]">People Say</span>
             </h3>
 
-            <div className="mt-12 flex h-16 gap-[10px]">
+            <div className="mt-12 flex h-16 gap-[10px] hidden md:flex">
               <button
                 onClick={prev}
                 disabled={index === 0}
@@ -188,6 +188,29 @@ export default function TestimonialsCarousel() {
             })}
           </div>
         </div>
+
+        <div className="flex h-6 gap-2.5 w-full md:hidden mt-8 justify-center">
+              <button
+                onClick={prev}
+                disabled={index === 0}
+                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#F8F9F7] text-brand-secondary transition-all ${
+                  index === 0 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-sm"
+                }`}
+                aria-label="Previous testimonial"
+              >
+                <span className="h-5 w-5 flex items-center justify-center text-lg rotate-180">→</span>
+              </button>
+              <button
+                onClick={next}
+                disabled={index === testimonials.length - 1}
+                className={`flex h-16 w-16 items-center cursor-pointer justify-center rounded-full bg-[#002B31] text-white transition-all ${
+                  index === testimonials.length - 1 ? "opacity-30 cursor-not-allowed" : "active:scale-95 shadow-lg"
+                }`}
+                aria-label="Next testimonial"
+              >
+                <span className="h-5 w-5 flex items-center justify-center text-lg">→</span>
+              </button>
+            </div>
 
       </div>
     </section>

@@ -8,7 +8,7 @@ export default function Footer() {
           <a className="text-lg font-medium tracking-tight transition hover:text-[#7f9ca2]" href="mailto:ishankavinda88@gmail.com">
             ishankavinda88@gmail.com
           </a>
-          <p className="font-['Inter'] text-[14px] font-light not-italic leading-[22px] tracking-normal align-middle text-[#757575]">
+          <p className="hidden md:flex font-['Inter'] text-[14px] font-light not-italic leading-[22px] tracking-normal align-middle text-[#757575]">
             &copy; 2026 All Rights Reserved – by Loopmint_Studio
           </p>
         </div>
@@ -29,6 +29,12 @@ export default function Footer() {
               {social.icon}
             </a>
           ))}
+        </div>
+
+        <div className="flex md:hidden flex-col items-center gap-4 md:items-start">
+          <p className="font-['Inter'] text-[14px] font-light not-italic leading-[22px] tracking-normal align-middle text-[#757575]">
+            &copy; 2026 All Rights Reserved – by Loopmint_Studio
+          </p>
         </div>
       </div>
     </footer>
