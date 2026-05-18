@@ -248,13 +248,22 @@ export default function Home() {
         <div className="mx-auto flex w-full max-w-[1280px] flex-col justify-between gap-10 px-[6%] md:px-[4%] lg:min-h-[568px] lg:px-0">
           <Reveal>
             <div className="max-w-2xl">
-              <p className="mb-6 flex items-center gap-2">
+              <p className="mb-6 flex w-full items-center justify-center gap-2 md:w-auto md:justify-start">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d2dee1]" aria-hidden="true" />
-                <span className="align-middle text-base font-normal leading-6 text-[#d2dee1] capitalize">
+                <span className="h-[22px] w-[77px] align-middle font-[var(--font-inter)] text-[14px] font-normal leading-[22px] tracking-[0] text-[#d2dee1] capitalize md:h-[24px] md:w-[88px] md:text-base md:leading-6">
                   My process
                 </span>
               </p>
-              <h2 className="font-medium text-[clamp(18px,2.5vw,24px)] leading-[1.35] text-[#e6eef0] w-full max-w-128.5">
+              <h2 className="mx-auto min-h-[128px] w-full max-w-[398px] text-center font-[var(--font-inter)] text-[24px] font-semibold leading-[32px] tracking-[0] text-[#e6eef0] md:hidden">
+                No unnecessary steps.
+                <br />
+                A simple process for complex
+                <br />
+                products. Focused on clarity,
+                <br />
+                usability, and real impact.
+              </h2>
+              <h2 className="hidden font-[var(--font-inter)] text-[24px] font-medium leading-[32px] tracking-[0] text-[#e6eef0] md:block md:max-w-2xl md:text-left">
                 No unnecessary steps.
                 <br />
                 A Simple processes for complex products.
