@@ -15,7 +15,7 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+    transition={{ duration: 1.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
   >
     {children}
   </motion.div>
@@ -211,7 +211,7 @@ export default function Home() {
               className="flex w-max items-stretch gap-4 px-4"
               animate={isMarqueePaused ? {} : { x: "-50%" }}
               transition={{
-                duration: 60,
+                duration: 120,
                 repeat: Infinity,
                 ease: "linear",
               }}

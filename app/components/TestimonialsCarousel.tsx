@@ -74,7 +74,7 @@ const Reveal = ({
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+    transition={{ duration: 1.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
   >
     {children}
   </motion.div>
@@ -186,7 +186,7 @@ export default function TestimonialsCarousel() {
                     zIndex:
                       state === "past" ? i : state === "active" ? 100 : 50,
                   }}
-                  transition={{ type: "spring", stiffness: 220, damping: 26 }}
+                  transition={{ type: "spring", stiffness: 140, damping: 34 }}
                   className="absolute inset-0 flex flex-col justify-between rounded-[2.5rem] text-white p-8 md:p-10 border border-white/5 md:max-w-[640px]"
                   style={{
                     background: state === "active" ? "#1e2022" : "#2d2f31",
