@@ -14,12 +14,12 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Sabreen Rezvie",
-    role: "Founder & CEO, Drifting Desk",
-    company: "Drifting Desk",
+    name: "ABC Company",
+    role: "Product Manager",
+    company: "ABC Company",
     initial: "S",
     avatarBg: "#1A6BFF",
-    copy: "Peshala has been instrumental in helping us build multiple products, both for clients and internally. Working with him is a breeze—he understands products at a PO level and helps us build agile solutions efficiently. ",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
   {
     name: "Alol...",
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     company: "Hatch Works",
     initial: "A",
     avatarBg: "#444",
-    copy: "I've known Peshala to be the go-to for design. What I like about him is that he takes the time to see the bigger picture and build in the real world.",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
   {
     name: "John Doe",
@@ -35,7 +35,7 @@ const testimonials: Testimonial[] = [
     company: "Eth LLC",
     initial: "J",
     avatarBg: "#333",
-    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
   {
     name: "John Doe 3",
@@ -43,7 +43,7 @@ const testimonials: Testimonial[] = [
     company: "QWE LLC",
     initial: "J",
     avatarBg: "#333",
-    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
   {
     name: "John Doe 4",
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
     company: "EDF LLC",
     initial: "J",
     avatarBg: "#333",
-    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
   {
     name: "John Doe 5",
@@ -59,7 +59,7 @@ const testimonials: Testimonial[] = [
     company: "ABC LLC",
     initial: "J",
     avatarBg: "#333",
-    copy: "Bringing clarity to complex systems is where Ishan shines. He didn't just design screens; he helped us define the core product loops and user journeys that we still use today.",
+    copy: "Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use. Ishan simplified complex workflows and made our product much easier to use.",
   },
 ];
 
@@ -109,7 +109,7 @@ export default function TestimonialsCarousel() {
       className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]"
       aria-label="Testimonials"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-16 px-[6%] md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-[6%] md:gap-16 md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
         {/* Left: title + navigation */}
         <div className="relative z-10 flex flex-shrink-0 flex-col justify-center lg:w-72">
           <Reveal>
@@ -163,8 +163,8 @@ export default function TestimonialsCarousel() {
 
         {/* Right: absolute-stacked cards — past cards sit under active, next peeks from right */}
         <div className="flex-1 min-w-0">
-          {/* Height holder so the container doesn't collapse */}
-          <div className="relative" style={{ height: "480px" }}>
+          {/* Height holder so the container doesn't collapse - mobile sized box (398x764) */}
+          <div className="relative mx-auto w-full max-w-[398px] md:max-w-none md:w-auto h-[764px] md:h-[480px]">
             {testimonials.map((testimonial, i) => {
               const state = getCardState(i, index);
               if (state === "hidden") return null;
@@ -187,7 +187,7 @@ export default function TestimonialsCarousel() {
                       state === "past" ? i : state === "active" ? 100 : 50,
                   }}
                   transition={{ type: "spring", stiffness: 220, damping: 26 }}
-                  className="max-w-[640px] absolute inset-0 flex flex-col justify-between rounded-[2.5rem] text-white p-8 md:p-10 border border-white/5"
+                  className="absolute inset-0 flex flex-col justify-between rounded-[2.5rem] text-white p-8 md:p-10 border border-white/5 md:max-w-[640px]"
                   style={{
                     background: state === "active" ? "#1e2022" : "#2d2f31",
                     pointerEvents: state === "active" ? "auto" : "none",
@@ -197,7 +197,7 @@ export default function TestimonialsCarousel() {
                     <span className="text-5xl font-serif text-white/20 select-none">
                       &ldquo;
                     </span>
-                    <p className="mt-4 text-lg font-normal leading-relaxed text-white/90 md:text-xl">
+                    <p className="mt-4 text-[14px] leading-[32px] font-normal text-white/90 md:text-lg md:leading-relaxed max-w-[350px] h-[224px] mx-auto md:mx-0 overflow-hidden md:overflow-visible">
                       {testimonial.copy}
                     </p>
                   </div>
