@@ -28,7 +28,7 @@ export default function Header2() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white">
+      <header className="fixed top-0 z-[999] w-full border-b border-gray-200 bg-white sm:sticky">
         <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-[6%] md:px-[4%] lg:px-0 sm:h-20">
           <Link
             href="/"

@@ -109,7 +109,7 @@ export default function TestimonialsCarousel() {
       className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]"
       aria-label="Testimonials"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-[6%] md:gap-16 md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-[10px] px-[6%] md:gap-16 md:px-[4%] lg:flex-row lg:items-center lg:gap-20 lg:px-0">
         {/* Left: title + navigation */}
         <div className="relative z-10 flex flex-shrink-0 flex-col justify-center lg:w-72">
           <Reveal>
@@ -163,8 +163,8 @@ export default function TestimonialsCarousel() {
 
         {/* Right: absolute-stacked cards — past cards sit under active, next peeks from right */}
         <div className="flex-1 min-w-0">
-          {/* Height holder so the container doesn't collapse - mobile sized box (398x764) */}
-          <div className="relative mx-auto w-full max-w-[398px] md:max-w-none md:w-auto h-[764px] md:h-[480px]">
+          {/* Height holder so the container doesn't collapse - mobile sized box (398x554) */}
+          <div className="relative mx-auto h-[554px] w-full max-w-[398px] md:h-[480px] md:max-w-none md:w-auto">
             {testimonials.map((testimonial, i) => {
               const state = getCardState(i, index);
               if (state === "hidden") return null;
