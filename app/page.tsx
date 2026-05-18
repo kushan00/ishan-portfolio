@@ -22,7 +22,7 @@ const Reveal = ({
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 1.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+    transition={{ duration: 1.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
   >
     {children}
   </motion.div>
@@ -682,28 +682,14 @@ export default function Home() {
                     >
                       <article className="group">
                         <div
-                          className={`relative overflow-hidden ${
-                            index === 0
-                              ? "mx-auto h-[clamp(260px,70vw,520px)] rounded-[28px] border border-transparent shadow-none lg:h-[602px] lg:w-[442px]"
-                              : "h-[clamp(260px,70vw,520px)] rounded-3xl bg-gradient-to-br shadow-lg"
-                          }`}
-                          style={
-                            index === 0
-                              ? {
-                                  border: "1px solid",
-                                  borderImageSource:
-                                    "linear-gradient(154.99deg, rgba(0, 43, 49, 0.12) 1.12%, rgba(0, 43, 49, 0.17) 96.83%)",
-                                  borderImageSlice: 1,
-                                }
-                              : undefined
-                          }
+                          className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}
                         >
                           {project.imageUrl ? (
                             <Image
                               src={project.imageUrl}
                               alt={project.title}
                               fill
-                              className={index === 0 ? "object-cover" : "object-cover"}
+                              className="object-cover"
                               loading="lazy"
                               quality={85}
                             />
