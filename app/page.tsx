@@ -682,14 +682,28 @@ export default function Home() {
                     >
                       <article className="group">
                         <div
-                          className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}
+                          className={`relative overflow-hidden ${
+                            index === 0
+                              ? "mx-auto h-[clamp(260px,70vw,520px)] rounded-[28px] border border-transparent shadow-none lg:h-[602px] lg:w-[442px]"
+                              : "h-[clamp(260px,70vw,520px)] rounded-3xl bg-gradient-to-br shadow-lg"
+                          }`}
+                          style={
+                            index === 0
+                              ? {
+                                  border: "1px solid",
+                                  borderImageSource:
+                                    "linear-gradient(154.99deg, rgba(0, 43, 49, 0.12) 1.12%, rgba(0, 43, 49, 0.17) 96.83%)",
+                                  borderImageSlice: 1,
+                                }
+                              : undefined
+                          }
                         >
                           {project.imageUrl ? (
                             <Image
                               src={project.imageUrl}
                               alt={project.title}
                               fill
-                              className="object-cover"
+                              className={index === 0 ? "object-cover" : "object-cover"}
                               loading="lazy"
                               quality={85}
                             />
