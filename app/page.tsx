@@ -30,24 +30,6 @@ const Reveal = ({
 
 export default function Home() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(() =>
-    typeof window !== "undefined"
-      ? window.matchMedia("(display-mode: fullscreen)").matches
-      : false,
-  );
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(display-mode: fullscreen)");
-    const handleChange = (e: MediaQueryListEvent) => setIsFullscreen(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
-  useEffect(() => {
-    console.log("Fullscreen mode:", isFullscreen);
-    console.log(
-      isFullscreen ? "min-h-[calc(100vh-160px)]" : "min-h-[calc(100vh-80px)]",
-    );
-  }, [isFullscreen]);
 
   const marqueeRef = useRef<HTMLDivElement>(null);
   const xPos = useRef(0);
@@ -257,11 +239,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <section
-          style={{
-            minHeight: isFullscreen
-              ? "calc(100vh - 250px)"
-              : "calc(100vh - 80px)",
-          }}
+          style={{minHeight: "calc(100vh - 220px)"}}
           className="flex items-center justify-center overflow-hidden pt-4 pb-12 md:pb-0 md:pt-0 sm:pt-6"
           aria-label="Hero section"
         >

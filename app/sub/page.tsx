@@ -400,10 +400,10 @@ export default function Home() {
                         )}
                       </div>
                       <div className="mt-8">
-                        <h4 className="max-w-full text-[clamp(1.25rem,4vw,1.5rem)] font-normal leading-[1.33] text-brand-text">
+                        <h4 className="flex justify-center text-center font-medium max-w-full text-[28px] leading-[1.33] text-brand-text">
                           {project.subtitle}
                         </h4>
-                        <p className="mt-3 max-w-full text-sm font-normal leading-5.5 text-brand-text">
+                        <p className="flex justify-center text-center mt-3 max-w-full text-sm font-normal leading-5.5 text-brand-text">
                           {project.description}
                         </p>
                       </div>
