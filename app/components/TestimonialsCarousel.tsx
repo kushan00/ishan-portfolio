@@ -104,6 +104,10 @@ export default function TestimonialsCarousel() {
     if (index > 0) setIndex(index - 1);
   };
 
+  const goTo = (targetIndex: number) => {
+    setIndex(targetIndex);
+  };
+
   return (
     <section
       className="overflow-hidden bg-brand-bg py-16 md:py-20 lg:py-[100px]"
@@ -219,6 +223,24 @@ export default function TestimonialsCarousel() {
                     </div>
                   </div>
                 </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2" aria-label="Testimonials pagination">
+            {testimonials.map((testimonial, i) => {
+              const isActive = i === index;
+              return (
+                <button
+                  key={`testimonial-dot-${testimonial.name}-${i}`}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    isActive ? "w-8 bg-[#3A3C3E]" : "w-2 bg-[#C7CECF] hover:bg-[#A8B2B4]"
+                  }`}
+                />
               );
             })}
           </div>
