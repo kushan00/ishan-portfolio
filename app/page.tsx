@@ -148,6 +148,15 @@ export default function Home() {
     },
   ];
 
+  const showcaseSizePattern = [
+    { width: 392, height: 336, offsetTop: 168 },
+    { width: 336, height: 504, offsetTop: 0 },
+    { width: 376, height: 336, offsetTop: 168 },
+    { width: 504, height: 504, offsetTop: 0 },
+    { width: 336, height: 504, offsetTop: 0 },
+    { width: 376, height: 336, offsetTop: 168 },
+  ];
+
   const projects: {
     slug: string;
     title: string;
@@ -462,7 +471,7 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <div
-              className="w-full cursor-grab overflow-hidden whitespace-nowrap bg-white py-10 active:cursor-grabbing select-none"
+              className="w-full cursor-grab overflow-hidden whitespace-nowrap bg-white py-4 active:cursor-grabbing select-none"
               onMouseEnter={() => setIsMarqueePaused(true)}
               onMouseLeave={() => setIsMarqueePaused(false)}
               onPointerDown={handleMarqueePointerDown}
@@ -472,19 +481,20 @@ export default function Home() {
             >
               <motion.div
                 ref={marqueeRef}
-                className="flex w-max items-center gap-5"
+                className="flex w-max items-start gap-5"
                 style={{ x: marqueeX }}
               >
                 {[...works, ...works, ...works, ...works].map((work, index) => {
-                  const displayHeight = 400;
-                  const displayWidth = Math.round(
-                    displayHeight * (work.imgWidth / work.imgHeight),
-                  );
+                  const pattern = showcaseSizePattern[index % showcaseSizePattern.length];
                   return (
                     <div
                       key={`${work.title}-${index}`}
                       className="relative shrink-0 overflow-hidden rounded-[2.5rem]"
-                      style={{ width: displayWidth, height: displayHeight }}
+                      style={{
+                        width: pattern.width,
+                        height: pattern.height,
+                        marginTop: pattern.offsetTop,
+                      }}
                     >
                       <Image
                         src={work.imageUrl}
@@ -504,7 +514,7 @@ export default function Home() {
 
         {/* Process Section */}
         <section
-          className="py-16 bg-brand-primary text-white md:py-20 lg:py-[100px]"
+          className="mt-10 bg-brand-primary py-16 text-white md:mt-14 md:py-20 lg:mt-20 lg:py-[100px]"
           aria-label="Process section"
         >
           <div className="mx-auto flex w-full max-w-[1200px] flex-col justify-between gap-10 px-[6%] md:px-[4%] lg:min-h-[568px] lg:px-0">
