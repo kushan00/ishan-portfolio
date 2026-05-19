@@ -93,6 +93,13 @@ export default function Home() {
     { year: "2022 - 2023", role: "Creative Designer", company: "Mango Media" },
   ];
 
+  const mobileBreakdownImageUrls = new Set([
+    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Background.png",
+    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/Frame1.png",
+    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame3.png",
+    "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/frame4.png",
+  ]);
+
   return (
     <main className="flex min-h-screen flex-col bg-brand-bg text-brand-text">
       <Header />
@@ -358,7 +365,11 @@ export default function Home() {
           </div>
 
           <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
-            {projects.map((project, index) => (
+            {projects.map((project, index) => {
+              const isSizedBreakdownImage =
+                !!project.imageUrl && mobileBreakdownImageUrls.has(project.imageUrl);
+
+              return (
               <div key={project.title} className={index % 2 === 1 ? "md:mt-24" : ""}>
                 <Reveal delay={0.1 * index}>
                   <Link
@@ -367,7 +378,11 @@ export default function Home() {
                   >
                     <article className="group">
                       <div
-                        className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${
+                        className={`relative overflow-hidden ${
+                          isSizedBreakdownImage
+                            ? "mx-auto h-[542.072px] w-[398px] max-w-full rounded-[28px] border border-[#D9D9D9]"
+                            : "h-[clamp(260px,70vw,520px)] rounded-3xl"
+                        } ${
                           index === 0
                             ? "bg-transparent shadow-none"
                             : `bg-linear-to-br ${project.gradient} shadow-lg`
@@ -411,7 +426,8 @@ export default function Home() {
                   </Link>
                 </Reveal>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
