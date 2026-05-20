@@ -227,21 +227,29 @@ export default function Home() {
               dragElastic={0.1}
               whileTap={{ cursor: "grabbing" }}
             >
-              {[...works, ...works, ...works, ...works].map((work, index) => (
-                <div
-                  key={`${work.title}-${index}`}
-                  className="relative h-65 w-95 shrink-0 overflow-hidden rounded-2xl bg-zinc-900"
-                >
-                  <Image
-                    src={work.imageUrl}
-                    alt={work.title}
-                    fill
-                    loading="lazy"
-                    quality={85}
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+              {[...works, ...works, ...works, ...works].map((work, index) => {
+                const isLarge = work.title === "Showcase 4" || work.title === "Showcase 6";
+                const width = isLarge ? 560 : 364;
+                const height = isLarge ? 388 : 448;
+
+                return (
+                  <div
+                    key={`${work.title}-${index}`}
+                    className="relative shrink-0 overflow-hidden bg-zinc-900"
+                    style={{ width: `${width}px`, height: `${height}px`, borderRadius: 16, transform: "rotate(0deg)", opacity: 1 }}
+                  >
+                    <Image
+                      src={work.imageUrl}
+                      alt={work.title}
+                      width={width}
+                      height={height}
+                      loading="lazy"
+                      quality={85}
+                      style={{ objectFit: "cover", borderRadius: 16 }}
+                    />
+                  </div>
+                );
+              })}
             </motion.div>
           </div>
         </Reveal>
