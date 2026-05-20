@@ -38,16 +38,11 @@ function getPublicAssetUrl(path: string) {
 function MobileMediaCard({ item }: { item: MobileMediaItem }) {
   return (
     <div
-      className="relative mx-auto overflow-hidden bg-white"
+      className="relative mx-auto h-[542px] w-full max-w-[398px] overflow-hidden rounded-[28px] border border-[#D9D9D9] bg-white"
       style={{
-        width: "min(398px, 100%)",
+        width: "398px",
         height: "542px",
-        borderRadius: "28px",
-        borderWidth: "1px",
-        borderStyle: "solid",
-        borderColor: "#d9e2e4",
         opacity: 1,
-        boxShadow: "none",
       }}
     >
       {item.kind === "video" ? (
@@ -55,7 +50,7 @@ function MobileMediaCard({ item }: { item: MobileMediaItem }) {
           src={item.imageUrl}
           poster={item.posterUrl}
           className="h-full w-full object-cover object-center"
-          style={{ opacity: 1, transform: "none", filter: "none" }}
+          style={{ opacity: 1 }}
           autoPlay
           loop
           muted
@@ -70,7 +65,7 @@ function MobileMediaCard({ item }: { item: MobileMediaItem }) {
           loading="lazy"
           sizes="100vw"
           className="object-cover object-center"
-          style={{ opacity: 1, transform: "none", filter: "none" }}
+          style={{ opacity: 1 }}
         />
       )}
     </div>
@@ -327,13 +322,6 @@ const tokenMobileImages: MobileMediaItem[] = [
     posterUrl:
       "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM5.png",
     alt: "BFM5",
-  },
-  {
-    imageUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM6.png",
-    posterUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM6.png",
-    alt: "BFM6",
   },
 ];
 
@@ -655,10 +643,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.slug === "token-landing" && (
         <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
           <p
+            className="w-full text-[clamp(20px,6vw,24px)] leading-[1.33]"
             style={{
               width: "100%",
               maxWidth: "1280px",
-              height: "32px",
               opacity: 1,
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
@@ -674,10 +662,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             Crafting High-Converting Token Landing Pages
           </p>
           <p
+            className="w-full text-[14px] leading-[22px]"
             style={{
               width: "100%",
               maxWidth: "1280px",
-              height: "22px",
               opacity: 1,
               fontFamily: "Inter, sans-serif",
               fontWeight: 400,
