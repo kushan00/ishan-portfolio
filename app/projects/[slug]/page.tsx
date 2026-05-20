@@ -295,31 +295,45 @@ const bmMobileImages: MobileMediaItem[] = [
 const tokenMobileImages: MobileMediaItem[] = [
   {
     imageUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF1.png",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM1.png",
     posterUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF1.png",
-    alt: "BF1",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM1.png",
+    alt: "BFM1",
   },
   {
     imageUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF2.png",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM2.png",
     posterUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF2.png",
-    alt: "BF2",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM2.png",
+    alt: "BFM2",
   },
   {
     imageUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF3.png",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM3.png",
     posterUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF3.png",
-    alt: "BF3",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM3.png",
+    alt: "BFM3",
   },
   {
     imageUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF4.png",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM4.png",
     posterUrl:
-      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF4.png",
-    alt: "BF4",
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM4.png",
+    alt: "BFM4",
+  },
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM5.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM5.png",
+    alt: "BFM5",
+  },
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM6.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BFM6.png",
+    alt: "BFM6",
   },
 ];
 
@@ -451,8 +465,44 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </>
           ) : project.slug === "token-landing" ? (
             <>
-              <span className="font-normal text-[#123f47]">Token </span>
-              <strong className="font-bold text-[#0a2f38]">Landing</strong>
+              <span
+                style={{
+                  display: "block",
+                  width: "min(708px, 100%)",
+                  height: "72px",
+                  opacity: 1,
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  fontStyle: "normal",
+                  fontSize: "64px",
+                  lineHeight: "72px",
+                  letterSpacing: "-1.4px",
+                  verticalAlign: "middle",
+                  textTransform: "uppercase",
+                  color: "#002B31",
+                }}
+              >
+                Bilinki
+              </span>
+              <strong
+                style={{
+                  display: "block",
+                  width: "min(708px, 100%)",
+                  height: "72px",
+                  opacity: 1,
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  fontSize: "64px",
+                  lineHeight: "72px",
+                  letterSpacing: "-1.4px",
+                  verticalAlign: "middle",
+                  textTransform: "uppercase",
+                  color: "#002B31",
+                }}
+              >
+                Token
+              </strong>
             </>
           ) : project.slug === "paw-chain" ? (
             <>
@@ -598,6 +648,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           >
             Simplifying onboarding, transactions, and portfolio tracking for
             everyday users.
+          </p>
+        </div>
+      )}
+
+      {project.slug === "token-landing" && (
+        <div className="mx-auto mt-3 w-full max-w-[1200px] px-[6%] md:px-[4%] lg:px-0">
+          <p
+            style={{
+              width: "100%",
+              maxWidth: "1280px",
+              height: "32px",
+              opacity: 1,
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "24px",
+              lineHeight: "32px",
+              letterSpacing: "0%",
+              verticalAlign: "middle",
+              color: "#002B31",
+              margin: 0,
+            }}
+          >
+            Crafting High-Converting Token Landing Pages
+          </p>
+          <p
+            style={{
+              width: "100%",
+              maxWidth: "1280px",
+              height: "22px",
+              opacity: 1,
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 400,
+              fontStyle: "normal",
+              fontSize: "14px",
+              lineHeight: "22px",
+              letterSpacing: "0%",
+              verticalAlign: "middle",
+              color: "#002B31",
+              margin: "8px 0 0",
+            }}
+          >
+            Creating visually engaging, performance-driven websites that turn visitors into community members.
           </p>
         </div>
       )}
