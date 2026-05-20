@@ -248,7 +248,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <section
-          style={{minHeight: "calc(100vh - 220px)"}}
+          style={{minHeight: "calc(100vh - 230px)"}}
           className="flex items-center justify-center overflow-hidden pt-4 pb-12 md:pb-0 md:pt-0 sm:pt-6"
           aria-label="Hero section"
         >
@@ -658,7 +658,11 @@ export default function Home() {
             </div>
 
             <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
-              {projects.map((project, index) => (
+              {projects.map((project, index) => {
+                const isSizedBreakdownImage =
+                  !!project.imageUrl && project.imageUrl.includes("Background.png");
+
+                return (
                 <div
                   key={project.title}
                   className={index % 2 === 1 ? "md:mt-24" : ""}
@@ -670,7 +674,11 @@ export default function Home() {
                     >
                       <article className="group">
                         <div
-                          className={`relative h-[clamp(260px,70vw,520px)] overflow-hidden rounded-3xl ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}
+                          className={`relative overflow-hidden ${
+                            isSizedBreakdownImage
+                              ? "mx-auto h-[602px] w-full max-w-[442px] rounded-[28px] border border-[#D9D9D9] opacity-100 rotate-0"
+                              : "h-[clamp(260px,70vw,520px)] rounded-3xl"
+                          } ${index === 0 ? "bg-transparent shadow-none" : `bg-gradient-to-br ${project.gradient} shadow-lg`}`}
                         >
                           {project.imageUrl ? (
                             <Image
@@ -721,7 +729,8 @@ export default function Home() {
                     </Link>
                   </Reveal>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

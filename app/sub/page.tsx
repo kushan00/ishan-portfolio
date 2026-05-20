@@ -380,7 +380,7 @@ export default function Home() {
                       <div
                         className={`relative overflow-hidden ${
                           isSizedBreakdownImage
-                            ? "mx-auto h-[542.072px] w-[398px] max-w-full rounded-[28px] border border-[#D9D9D9]"
+                            ? "mx-auto h-[602px] w-full max-w-[442px] rounded-[28px] border border-[#D9D9D9] opacity-100 rotate-0"
                             : "h-[clamp(260px,70vw,520px)] rounded-3xl"
                         } ${
                           index === 0
