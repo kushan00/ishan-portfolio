@@ -292,6 +292,37 @@ const bmMobileImages: MobileMediaItem[] = [
   },
 ];
 
+const tokenMobileImages: MobileMediaItem[] = [
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF1.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF1.png",
+    alt: "BF1",
+  },
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF2.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF2.png",
+    alt: "BF2",
+  },
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF3.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF3.png",
+    alt: "BF3",
+  },
+  {
+    imageUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF4.png",
+    posterUrl:
+      "https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF4.png",
+    alt: "BF4",
+  },
+];
+
 export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -571,7 +602,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {!["prjectName", "casino-xp", "paw-chain"].includes(project.slug) && (
+      {!["prjectName", "casino-xp", "paw-chain", "token-landing"].includes(project.slug) && (
         <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
           <MobileMediaCard
             item={{
@@ -610,6 +641,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mx-auto mt-6 mb-[-48px] w-full max-w-[1200px] px-[6%] sm:hidden sm:mb-0 md:px-[4%] lg:px-0">
           <div className="grid gap-4">
             {bmMobileImages.map((image) => (
+              <MobileMediaCard key={image.alt} item={image} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {project.slug === "token-landing" && (
+        <div className="mx-auto mt-6 w-full max-w-[1200px] px-[6%] sm:hidden md:px-[4%] lg:px-0">
+          <div className="grid gap-4">
+            {tokenMobileImages.map((image) => (
               <MobileMediaCard key={image.alt} item={image} />
             ))}
           </div>
@@ -748,6 +789,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <Image
                 src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/pp4.png"
                 alt="pp4"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
+            </div>
+          </div>
+        ) : project.slug === "token-landing" ? (
+          <div className="hidden flex-col items-stretch gap-4 sm:flex sm:items-center sm:gap-6">
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF1.png"
+                alt="BF1"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
+            </div>
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF2.png"
+                alt="BF2"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
+            </div>
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF3.png"
+                alt="BF3"
+                fill
+                className="object-fill"
+                loading="lazy"
+                quality={85}
+              />
+            </div>
+            <div className="relative h-[clamp(240px,78vw,552px)] w-full max-w-[1280px] overflow-hidden rounded-xl bg-[#f3f4f3]">
+              <Image
+                src="https://raw.githubusercontent.com/kushan00/ishan-portfolio/main/public/BF4.png"
+                alt="BF4"
                 fill
                 className="object-fill"
                 loading="lazy"
