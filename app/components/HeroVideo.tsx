@@ -7,9 +7,10 @@ import Image from "next/image";
 type HeroVideoProps = {
   src: string;
   poster?: string;
+  posterOnly?: boolean;
 };
 
-export default function HeroVideo({ src, poster }: HeroVideoProps) {
+export default function HeroVideo({ src, poster , posterOnly = false }: HeroVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -39,7 +40,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
                 className="object-cover opacity-60"
               />
             )}
-            <button
+            {!posterOnly && (<button
               onClick={handlePlay}
               className="relative z-20 flex h-24 w-24 items-center justify-center rounded-full bg-brand-primary text-white transition-transform duration-300 hover:scale-110 active:scale-95"
               aria-label="Play video"
@@ -51,7 +52,7 @@ export default function HeroVideo({ src, poster }: HeroVideoProps) {
               >
                 <path d="M8 5v14l11-7z" />
               </svg>
-            </button>
+            </button>)}
             
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </motion.div>

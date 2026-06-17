@@ -15,16 +15,17 @@ export default function Footer() {
 
         <div className="flex gap-4" aria-label="Social links">
           {[
-            { icon: <FaInstagram />, label: "Instagram" },
-            { icon: <FaBehance />, label: "Behance" },
-            { icon: <FaDribbble />, label: "Dribbble" },
-            { icon: <FaLinkedinIn />, label: "LinkedIn" },
+            { icon: <FaBehance />, label: "Behance", href: "https://www.behance.net/ishaankavinda", ariaLabel: "Open Behance" },
+            { icon: <FaDribbble />, label: "Dribbble", href: "https://dribbble.com/Loop_mint", ariaLabel: "Open Dribbble" },
+            { icon: <FaLinkedinIn />, label: "LinkedIn", href: "https://www.linkedin.com/in/ishan-kavinda-design/", ariaLabel: "Open LinkedIn" },
           ].map((social) => (
             <a
               key={social.label}
               className="flex h-10 w-10 items-center justify-center rounded-lg border-[1.5px] border-[#002B31] bg-white text-lg text-[#002B31] transition hover:bg-[#eaf4f5] hover:text-[#002B31]"
-              href="#"
-              aria-label={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={social.ariaLabel}
             >
               {social.icon}
             </a>

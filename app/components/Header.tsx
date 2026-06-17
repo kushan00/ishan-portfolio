@@ -31,7 +31,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 sm:flex">
             <a
-              href="https://dribbble.com"
+              href="https://dribbble.com/Loop_mint"
               target="_blank"
               rel="noreferrer"
               aria-label="Open Dribbble"
@@ -40,7 +40,7 @@ export default function Header() {
               <FaDribbble className="h-5 w-5" />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/ishan-kavinda-design/"
               target="_blank"
               rel="noreferrer"
               aria-label="Open LinkedIn"

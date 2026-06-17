@@ -5,10 +5,9 @@ import { useState } from "react";
 import { FaDribbble, FaLinkedinIn, FaInstagram, FaBehance, FaBars, FaTimes } from "react-icons/fa";
 
 const socials = [
-  { label: "Dribble", icon: FaDribbble, href: "https://dribbble.com", ariaLabel: "Open Dribbble" },
-  { label: "Linkedin", icon: FaLinkedinIn, href: "https://www.linkedin.com", ariaLabel: "Open LinkedIn" },
-  { label: "Instagram", icon: FaInstagram, href: "https://www.instagram.com", ariaLabel: "Open Instagram" },
-  { label: "behance", icon: FaBehance, href: "https://www.behance.net", ariaLabel: "Open Behance" },
+  { label: "Dribble", icon: FaDribbble, href: "https://dribbble.com/Loop_mint", ariaLabel: "Open Dribbble" },
+  { label: "Linkedin", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/ishan-kavinda-design/", ariaLabel: "Open LinkedIn" },
+  { label: "behance", icon: FaBehance, href: "https://www.behance.net/ishaankavinda", ariaLabel: "Open Behance" },
 ];
 
 export default function Header2() {
